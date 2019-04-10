@@ -365,12 +365,22 @@ PrefabInstance:
     - target: {fileID: 4400520934904413122, guid: ee24a884edb5f2a48b12639c0c2f26e3,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4400520934904413122, guid: ee24a884edb5f2a48b12639c0c2f26e3,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6811427291449076013, guid: ee24a884edb5f2a48b12639c0c2f26e3,
+        type: 3}
+      propertyPath: WindIndicatorOffset
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8435413782680088101, guid: ee24a884edb5f2a48b12639c0c2f26e3,
+        type: 3}
+      propertyPath: m_Name
+      value: WindIndicator
       objectReference: {fileID: 0}
     - target: {fileID: 6540887295681700009, guid: ee24a884edb5f2a48b12639c0c2f26e3,
         type: 3}
