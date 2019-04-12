@@ -377,6 +377,17 @@ PrefabInstance:
       propertyPath: WindIndicatorOffset
       value: 2.5
       objectReference: {fileID: 0}
+    - target: {fileID: 6811427291449076013, guid: ee24a884edb5f2a48b12639c0c2f26e3,
+        type: 3}
+      propertyPath: tornado
+      value: 
+      objectReference: {fileID: 6401914942164158888, guid: 905b5b43ec835ba429e33e25793d75aa,
+        type: 3}
+    - target: {fileID: 6811427291449076013, guid: ee24a884edb5f2a48b12639c0c2f26e3,
+        type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 519420031}
     - target: {fileID: 8435413782680088101, guid: ee24a884edb5f2a48b12639c0c2f26e3,
         type: 3}
       propertyPath: m_Name

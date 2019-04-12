@@ -4,26 +4,35 @@ using UnityEngine;
 
 public class WindBehaviour : MonoBehaviour
 {
+                                                                                                                        //privata variabler
     private int WindDirection;
     private Vector2 WindMovement;
-    //[Tooltip("nord först \n medsols runt kompassen")]
-    //public Sprite[]WindIndicatorSprites;
     private SpriteRenderer WindIndicatorRenderer;
-    [Header("Offset från mitten i väderstjärnan")]
-    public float WindIndicatorOffset;
-
-    public static WindBehaviour instance;
+    private KeyCode TornadoKey;
+    [Header("Offset från mitten i väderstjärnan")]                                                                      //public variables
+    public float WindIndicatorOffset;                                                                                   //Distans som pekaren är ifrån mitten av kompassen/vindriktningsvisaren
+    [Header("Tornado GameObject")]
+    public GameObject tornado;                                                                                          //GameObjectet som ska spawnas vid knapptryckning
+    public Camera cam;
+                                                                                                                        //Statiska funktioner som kan nås från vilket script som hellst utan att behöva vara includat
+    public static WindBehaviour instance;                                                                               //för att säga att det är just den här verisionen av scriptet som ska användas
+    public static bool Charging;                                                                                        //en bool som ska säga när playern chargar en ability
+    public static bool TornadoSpawned;                                                                                  //säger true eller false ifall en tornado existerar eller inte
 
     void Start()
     {
-        WindDirection = 0;
-        WindIndicatorRenderer = GetComponentsInChildren<SpriteRenderer>()[1];
-        instance = this;
-        
+        WindDirection = 0;                                                                                              //sätter vinden till at börja peka mot norr
+        WindIndicatorRenderer = GetComponentsInChildren<SpriteRenderer>()[1];                                           //getcomponent av pekarens sprite som ska flyttas och roteras
+        instance = this;                                                                                                //klargör att instance är just det här scriptet
+
+
+        WindBehaviour.Charging = false;                                                                                 //vi börjar inte med att charga tornados vid starten så det är false
+        WindBehaviour.TornadoSpawned = false;                                                                           //i början finns inga tornados så den sätts till false
+        TornadoKey = KeyCode.Space;                                                                                     //sätter en keycode för enklare återanvänding
     }
 
     void Update()
-    {
+    {   
         {
             if (Input.GetKeyUp(KeyCode.Keypad8))                    //nord
                 WindDirection = 0; 
@@ -41,9 +50,11 @@ public class WindBehaviour : MonoBehaviour
                 WindDirection = 6;
             else if (Input.GetKeyUp(KeyCode.Keypad7))               //nordväst
                 WindDirection = 7;
-        }                                                         //check for input                                             
+        }                                                                                                            //check for input                                             
 
-        ChooseDirection();                                          //direction
+        ChooseDirection();                                                                                             //direction
+
+        Tornado();                                                                                                     //callar funktionen som ska ha med tornado spawning att göra
     }
 
     private void ChooseDirection()
@@ -52,8 +63,8 @@ public class WindBehaviour : MonoBehaviour
         {
             case 0:                                                //nord
                 WindMovement.Set(0, 1);
-                WindIndicatorRenderer.transform.localPosition = new Vector3(0, WindIndicatorOffset);
-                WindIndicatorRenderer.transform.localRotation = Quaternion.Euler(0, 0, 0);
+                WindIndicatorRenderer.transform.localPosition = new Vector3(0, WindIndicatorOffset);                                                //localPosition = positionen som objektet ska ha beroende på vilken riktning. i det här fallet är det pekaren
+                WindIndicatorRenderer.transform.localRotation = Quaternion.Euler(0, 0, 0);                                                          //localRotation = rotationen som objektet ska ha beroende på vilken riktning. i det här fallet är det pekaren 
                 break;
             case 1:                                                //nordöst
                 WindMovement.Set(1, 1);
@@ -93,8 +104,26 @@ public class WindBehaviour : MonoBehaviour
         }
     }
 
+    private void Tornado()
+    {
+        if (Input.GetKey(TornadoKey))                                                                                 //kollar ifall tornadoknappen är nertryckt ger true eller false varje frame
+        {
+            if (WindBehaviour.TornadoSpawned == false)                                                                //kollar ifall det redan finns en tornado i gamespacet
+            {
+                WindBehaviour.Charging = true;                                                                        //sätter en bool till true för att säga att tornadon laddas upp
+                WindBehaviour.TornadoSpawned = true;                                                                  //sätter en bool till sant som säger att det finns redan en tornado spawnad
+                var clone = Instantiate(tornado, cam.ScreenToWorldPoint(new Vector3(Screen.width / 2, Screen.height / 2, cam.nearClipPlane)), Quaternion.identity);                   
+                                                                                                                      //spawnar en tornado på kamerans mittpunkt och med en rotation som i det här momentet är vad den är i prefaben
+            }
+        }
+        else if (Input.GetKeyUp(TornadoKey))                                                                          //kollar om knappen har blivit släppt och ger en true i framen det händer
+        {
+            WindBehaviour.Charging = false;                                                                           //sätter boolen som säger att vi inte laddar längre
+        }
+    }
+
     public static Vector2 GetWindMovement()
     {
-        return instance.WindMovement;
+        return instance.WindMovement;                                                                                  //ger tillbaka vilken riktning vinder rör sig när funktionen blir kallad
     }
 }
