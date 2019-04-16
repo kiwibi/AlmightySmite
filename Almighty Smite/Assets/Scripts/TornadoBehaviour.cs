@@ -23,14 +23,14 @@ public class TornadoBehaviour : MonoBehaviour
     void Update()
     {
         TurnHandling();                                                                    //kallar funktionen turnhandling() som kollar om den ska svänga om lite
-        if(WindBehaviour.Charging == true && WindBehaviour.TornadoSpawned == true)         //kollar om tornadon laddas och att en faktiskt är spawnad
+        if(AbilitiesInput.Charging == true)                                                //kollar om tornadon laddas
         {
             TornadoSpeed += Time.deltaTime;                                                //farten på tornadon ökas varje frame med deltatime så länge den laddas
             TornadoSprite.transform.localScale += new Vector3(0.1f, 0.1f);                 //spriten skalas upp med 0.1 varje frame den laddar
             if (TornadoSpeed > TornadoMaxSpeed)                                            //kollar om den nuvarande farten är över maxfarten
             {
                 TornadoSpeed = TornadoMaxSpeed;                                            //sätter den nuvarande farten för att försäkra att den aldrig är snabbare än vad vi vill
-                WindBehaviour.Charging = false;                                            //sätter boolen charging till false så att den inte kan laddas mer
+                AbilitiesInput.Charging = false;                                            //sätter boolen charging till false så att den inte kan laddas mer
             }
         }
         else                                                                               //ifall den inte chargas gör det inom nästa { }
@@ -55,6 +55,6 @@ public class TornadoBehaviour : MonoBehaviour
 
     void OnDestroy()
     {
-        WindBehaviour.TornadoSpawned = false;                                              //när tornadon dör ut så sätts boolen till false för det finns ingen tornado spawnad längre                                              
+        AbilitiesInput.TornadoSpawned = false;                                              //när tornadon dör ut så sätts boolen till false för det finns ingen tornado spawnad längre                                              
     }
 }

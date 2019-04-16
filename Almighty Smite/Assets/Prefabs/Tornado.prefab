@@ -45,8 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6598f5d64e64dfa41aa9ef5de534c27a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TornadoSpeed: 0.1
-  TornadoMaxSpeed: 2
+  TornadoSpeed: 0.5
+  TornadoMaxSpeed: 3
   ChangeDirection: 1
 --- !u!114 &6401914942164158891
 MonoBehaviour:
