@@ -10,6 +10,7 @@ public class TornadoBehaviour : MonoBehaviour
 
     private Vector2 Direction;                                                             //lokal variabel för vilken riktning den åker mot
     private SpriteRenderer TornadoSprite;                                                  //variabel för att förvara spriten för att kunna agera med den
+    private CircleCollider2D TornadoCollider;                                              //variabel för att förvara en collider
 
     private bool moving;
 
@@ -18,6 +19,7 @@ public class TornadoBehaviour : MonoBehaviour
         Direction = WindBehaviour.GetWindMovement();                                       //tar rikningen vinden är när den spawnas
         TornadoSprite = GetComponentInChildren<SpriteRenderer>();                          //tar spriten för tornado objectets child tornadosprite
         moving = false;                                                                    //den börjar med att inte röra sig då den antas laddas upp även om det är 0.1 sekund
+        TornadoCollider = GetComponent<CircleCollider2D>();                                //tar en circlecollider på objektet
     }
 
     void Update()
@@ -26,7 +28,7 @@ public class TornadoBehaviour : MonoBehaviour
         if(AbilitiesInput.Charging == true)                                                //kollar om tornadon laddas
         {
             TornadoSpeed += Time.deltaTime;                                                //farten på tornadon ökas varje frame med deltatime så länge den laddas
-            TornadoSprite.transform.localScale += new Vector3(0.1f, 0.1f);                 //spriten skalas upp med 0.1 varje frame den laddar
+            UpdateSize();                                                                  //Kallar funktionen som updaterar storlek på bilden och storleken på collidern
             if (TornadoSpeed > TornadoMaxSpeed)                                            //kollar om den nuvarande farten är över maxfarten
             {
                 TornadoSpeed = TornadoMaxSpeed;                                            //sätter den nuvarande farten för att försäkra att den aldrig är snabbare än vad vi vill
@@ -51,6 +53,13 @@ public class TornadoBehaviour : MonoBehaviour
                                                                                                                                     //mathf.smoothstep är ungefär likadan men den går snabbare i början och långsamare i slutet
             ChangeDirection = 2;                                                                                                    //sätter igång timern igen så att den inte kör klart rotationen
         }
+    }
+
+    private void UpdateSize()
+    {
+        float SizeIncrement = 0.1f;
+        TornadoSprite.transform.localScale += new Vector3(SizeIncrement, SizeIncrement);                 //spriten skalas upp med 0.1 varje frame den laddar
+        TornadoCollider.radius += (SizeIncrement / 10);                                                  //Då radiusen är en tiondel av startskalan tornadon börjar växer den en tiondel så snabbt
     }
 
     void OnDestroy()
