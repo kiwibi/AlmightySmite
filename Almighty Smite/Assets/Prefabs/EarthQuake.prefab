@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4016033107979147586}
   - component: {fileID: 4016033107979147587}
   - component: {fileID: 4016033107979147588}
+  - component: {fileID: 7860196617620535786}
   m_Layer: 0
   m_Name: EarthQuake
   m_TagString: Untagged
@@ -43,7 +44,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -77,3 +78,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DestroyAfter: 4
+--- !u!114 &7860196617620535786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4016033107979147584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 423ecc892d07b82418a97a5e882716d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DamageAmount: 3
+  damageType: {fileID: 11400000, guid: f6418743c79568a4998ad177588e2ed2, type: 2}

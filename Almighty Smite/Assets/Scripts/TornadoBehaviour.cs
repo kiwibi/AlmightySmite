@@ -11,7 +11,8 @@ public class TornadoBehaviour : MonoBehaviour
     private Vector2 Direction;                                                             //lokal variabel för vilken riktning den åker mot
     private SpriteRenderer TornadoSprite;                                                  //variabel för att förvara spriten för att kunna agera med den
     private CircleCollider2D TornadoCollider;                                              //variabel för att förvara en collider
-
+    private DamageDealer DmgDealer;
+    private float IncreasingDmg;
     private bool moving;
 
     void Start()
@@ -20,6 +21,8 @@ public class TornadoBehaviour : MonoBehaviour
         TornadoSprite = GetComponentInChildren<SpriteRenderer>();                          //tar spriten för tornado objectets child tornadosprite
         moving = false;                                                                    //den börjar med att inte röra sig då den antas laddas upp även om det är 0.1 sekund
         TornadoCollider = GetComponent<CircleCollider2D>();                                //tar en circlecollider på objektet
+        DmgDealer = GetComponent<DamageDealer>();
+        IncreasingDmg = DmgDealer.DamageAmount;
     }
 
     void Update()
@@ -28,15 +31,18 @@ public class TornadoBehaviour : MonoBehaviour
         if(AbilitiesInput.Charging == true)                                                //kollar om tornadon laddas
         {
             TornadoSpeed += Time.deltaTime;                                                //farten på tornadon ökas varje frame med deltatime så länge den laddas
+            IncreasingDmg += Time.deltaTime;
             UpdateSize();                                                                  //Kallar funktionen som updaterar storlek på bilden och storleken på collidern
             if (TornadoSpeed > TornadoMaxSpeed)                                            //kollar om den nuvarande farten är över maxfarten
             {
+                DmgDealer.DamageAmount = Mathf.RoundToInt(IncreasingDmg);
                 TornadoSpeed = TornadoMaxSpeed;                                            //sätter den nuvarande farten för att försäkra att den aldrig är snabbare än vad vi vill
                 AbilitiesInput.Charging = false;                                            //sätter boolen charging till false så att den inte kan laddas mer
             }
         }
         else                                                                               //ifall den inte chargas gör det inom nästa { }
         {
+            DmgDealer.DamageAmount = Mathf.RoundToInt(IncreasingDmg);
             moving = true;                                                                 //den rör på sig när den inte laddas så det sätts till true
             GetComponent<DestroyAfterSecond>().enabled = true;                             //sätter igång scriptet som förstör objektet efter en viss tid
         }

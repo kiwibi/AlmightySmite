@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6401914942164158889}
   - component: {fileID: 6401914942164158891}
   - component: {fileID: 3635451072427967708}
+  - component: {fileID: 4845071527630456995}
   m_Layer: 0
   m_Name: Tornado
   m_TagString: Untagged
@@ -78,6 +79,20 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.07
+--- !u!114 &4845071527630456995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6401914942164158888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 423ecc892d07b82418a97a5e882716d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DamageAmount: 3
+  damageType: {fileID: 11400000, guid: cfd0a4205d46a674ab54b57a32844f3a, type: 2}
 --- !u!1 &6401914943825842403
 GameObject:
   m_ObjectHideFlags: 0
