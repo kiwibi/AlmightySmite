@@ -12,7 +12,7 @@ public class SpawnCity : MonoBehaviour
     private int Continents;
     private Vector3 SpawnLocation;
     GameObject World;
-    public List<GameObject> Cities;
+    private List<GameObject> Cities;
     private bool CanSpawn;
     Collider2D[] TotalColliderAmount;
 

@@ -14,6 +14,10 @@ public class AbilitiesInput : MonoBehaviour
     public GameObject earthquake;
     private KeyCode EarthquakeKey;
     public static bool EarthquakeSpawned;
+    [Header("Lightning related things")]
+    public GameObject lightning;
+    private KeyCode LightningKey;
+    public static bool LightningSpawned;
 
     public static bool Charging;                                                                                        //en bool som ska säga när playern chargar en ability
     // Start is called before the first frame update
@@ -21,10 +25,12 @@ public class AbilitiesInput : MonoBehaviour
     {
         TornadoKey = KeyCode.Space;                                                                                     //sätter en keycode för enklare återanvänding
         EarthquakeKey = KeyCode.C;                                                                                      //sätter en keycode för enklare återanvänding
+        LightningKey = KeyCode.V;
 
         AbilitiesInput.Charging = false;                                                                                 //vi börjar inte med att charga tornados vid starten så det är false
         AbilitiesInput.TornadoSpawned = false;                                                                                          //i början finns inga tornados så den sätts till false
         AbilitiesInput.EarthquakeSpawned = false;                                                                                       //i början finns inga earthquakes så den sätts till false
+        AbilitiesInput.LightningSpawned = false;
     }
 
     // Update is called once per frame
@@ -33,6 +39,8 @@ public class AbilitiesInput : MonoBehaviour
         EarthQuake();                                                                                                  //callar funktionen för att kolla allt med en earthquake
 
         Tornado();                                                                                                     //callar funktionen som ska ha med tornado spawning att göra
+
+        Lightning();
     }
 
     private void Tornado()
@@ -63,6 +71,14 @@ public class AbilitiesInput : MonoBehaviour
                 var clone = Instantiate(earthquake, cam.ScreenToWorldPoint(new Vector3(Screen.width / 2, Screen.height / 2, cam.nearClipPlane)), Quaternion.identity);  
                                                                                                                                         //Spawnar en earthquake i mitten av kameran
             }
+        }
+    }
+
+    private void Lightning()
+    {
+        if(Input.GetKeyDown(LightningKey))
+        {
+            var clone = Instantiate(lightning, cam.ScreenToWorldPoint(new Vector3(Screen.width / 2, Screen.height / 2, cam.nearClipPlane)), Quaternion.identity);
         }
     }
 }

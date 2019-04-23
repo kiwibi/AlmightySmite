@@ -11,7 +11,6 @@ public class DamageDealer : MonoBehaviour
     public void OnChildTriggerEnter2D(Collider2D col)
     {
         DamageDealer damageDealer = col.gameObject.GetComponent<DamageDealer>();
-        Debug.Log(damageDealer);
         if (damageDealer != null)
         {
             //Debug.Log(damageType.name + " hit: " + damageDealer.damageType.name);
