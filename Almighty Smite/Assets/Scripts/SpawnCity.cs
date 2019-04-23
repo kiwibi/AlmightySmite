@@ -11,16 +11,19 @@ public class SpawnCity : MonoBehaviour
     private bool Spawnable;
     private int Continents;
     private Vector3 SpawnLocation;
-    GameObject[] LandMasses;
+    GameObject World;
     public List<GameObject> Cities;
     private bool CanSpawn;
+    Collider2D[] TotalColliderAmount;
 
     void Start()
     {
         Timer = MaxTime;
         Spawnable = false;
-        LandMasses = GameObject.FindGameObjectsWithTag("Land");
+        World = GameObject.FindGameObjectWithTag("World");
         Cities = new List<GameObject>();
+
+        TotalColliderAmount = World.GetComponentsInChildren<Collider2D>();
     }
 
     // Update is called once per frame
@@ -50,11 +53,10 @@ public class SpawnCity : MonoBehaviour
 
     private void ChooseLocation()
     {
-        Continents = Random.Range(0, LandMasses.Length);
-        Collider2D[] tmp = LandMasses[Continents].GetComponents<Collider2D>();
-        int index = Random.Range(0, tmp.Length-1);
-        Collider2D currentCol = tmp[index];
+        int index = Random.Range(0, TotalColliderAmount.Length-1);
+        Collider2D currentCol = TotalColliderAmount[index];
         SpawnLocation.Set(Random.Range(currentCol.bounds.min.x + SpawnBoarder, currentCol.bounds.max.x - SpawnBoarder), Random.Range(currentCol.bounds.min.y + SpawnBoarder, currentCol.bounds.max.y - SpawnBoarder), 0);
+
         
         if(Cities.Count == 0)
         {
@@ -63,7 +65,7 @@ public class SpawnCity : MonoBehaviour
             clone.GetComponent<CityBehaviour>().SetSpawnIndex(index);
             return;
         }
-        for(int i = 0; i < tmp.Length; i++)
+        for(int i = 0; i < TotalColliderAmount.Length; i++)
         {
             if (IsChunkFree(i))
             {
@@ -73,7 +75,7 @@ public class SpawnCity : MonoBehaviour
         }
         if (CanSpawn == true)
         {
-            currentCol = tmp[index];
+            currentCol = TotalColliderAmount[index];
             SpawnLocation.Set(Random.Range(currentCol.bounds.min.x + SpawnBoarder, currentCol.bounds.max.x - SpawnBoarder), Random.Range(currentCol.bounds.min.y + SpawnBoarder, currentCol.bounds.max.y - SpawnBoarder), 0);
             var clone = Instantiate(City, SpawnLocation, Quaternion.identity);
             Cities.Add(clone);

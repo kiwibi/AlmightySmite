@@ -18,7 +18,6 @@ public class CityAlive : MonoBehaviour
         if (col.gameObject.tag != "Land" && col.gameObject.tag != "MainCamera")
         {
             Timer += 1;
-            Debug.Log(Timer);
             if (Timer > 5)
             {
                 parentScript.OnChildTriggerEnter2D(col);
