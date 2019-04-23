@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2043206715542808686}
   - component: {fileID: 2043206715542808673}
   m_Layer: 0
-  m_Name: Particle System
+  m_Name: Particle System Red
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26,8 +26,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2043206715542808672}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0.1, z: 0}
+  m_LocalScale: {x: 0.08442462, y: 0.21787, z: 0.15250899}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -115,8 +115,8 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 3
-      minScalar: 1
+      scalar: 1.5
+      minScalar: 0.5
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -168,8 +168,8 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 5
-      minScalar: 3
+      scalar: 0.5
+      minScalar: 0.1
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1303,8 +1303,8 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 0.31132078, g: 0, b: 0, a: 0.78431374}
-        key1: {r: 1, g: 0, b: 0, a: 0.19607843}
+        key0: {r: 0.4811321, g: 0.4811321, b: 0.4811321, a: 0.78431374}
+        key1: {r: 1, g: 1, b: 1, a: 0.19607843}
         key2: {r: 0, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
@@ -4708,8 +4708,8 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 75368df13ab83894b9bb727936f2ae98, type: 2}
-  - {fileID: 2100000, guid: 75368df13ab83894b9bb727936f2ae98, type: 2}
+  - {fileID: 2100000, guid: 9d86528dfcad7a042abaf3081d901acd, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

@@ -13,7 +13,8 @@ public class CityBehaviour : MonoBehaviour
         TORNADO
     }
     public DamageType[] DamageKinds;
-    
+    public ParticleSystem[] Smokes;
+
     private int CurrentLevel;
     public float MaxHealth;
     public float MaxUpgradeTimer;
@@ -24,6 +25,7 @@ public class CityBehaviour : MonoBehaviour
     private CityType CurrentType;
     public int SpawnIndex;
     private DamageType LastAttackedBy;
+    private DamageDealer dmgDealer;
 
     private Transform Alive;
     private Transform Dead;
@@ -33,11 +35,13 @@ public class CityBehaviour : MonoBehaviour
         CurrentLevel = 1;
         UpgradeTimer = MaxUpgradeTimer;
         CurrentHealth = MaxHealth;
+        RespawnTimer = MaxRespawnTimer;
 
         Alive = transform.GetChild(0);
         Dead = transform.GetChild(1);
 
         Dead.gameObject.SetActive(false);
+        dmgDealer = GetComponent<DamageDealer>();
         ChooseType();
     }
 
@@ -47,6 +51,7 @@ public class CityBehaviour : MonoBehaviour
        if(Alive.gameObject.activeSelf == true)
        {
             AliveUpdate();
+
        }
        else
        {
@@ -72,6 +77,7 @@ public class CityBehaviour : MonoBehaviour
             RespawnTimer = MaxUpgradeTimer /* * CurrentLevel*/;
             CurrentLevel = 1;
             SwitchState();
+            ChooseType();
         }
     }
 
@@ -96,22 +102,42 @@ public class CityBehaviour : MonoBehaviour
         else if(LastAttackedBy == DamageKinds[0])
         {
             TmpType = CityType.EARTHQUAKE;
-            //dmgdealer.damagetype = DamageKinds[1]
+            dmgDealer.damageType = DamageKinds[4];
         }
         else if (LastAttackedBy == DamageKinds[1])
         {
             TmpType = CityType.LIGHTNING;
-            //dmgdealer.damagetype = DamageKinds[1]
+            dmgDealer.damageType = DamageKinds[5];
         }
         else if (LastAttackedBy == DamageKinds[2])
         {
             TmpType = CityType.TORNADO;
-            //dmgdealer.damagetype = DamageKinds[1]
+            dmgDealer.damageType = DamageKinds[6];
         }
         else if (LastAttackedBy == DamageKinds[3])
         {
             TmpType = CityType.WATER;
-            //dmgdealer.damagetype = DamageKinds[1]
+            dmgDealer.damageType = DamageKinds[7];
+        }
+        var smoke = GetComponentInChildren<ParticleSystem>();
+        Destroy(smoke);
+        ParticleSystem clone;
+        switch (CurrentType)
+        {
+            case CityType.NORMAL:
+                break;
+            case CityType.EARTHQUAKE:
+                clone = Instantiate(Smokes[0], transform);
+                break;
+            case CityType.WATER:
+                Instantiate(Smokes[3], transform);
+                break;
+            case CityType.LIGHTNING:
+                Instantiate(Smokes[2], transform);
+                break;
+            case CityType.TORNADO:
+                Instantiate(Smokes[1], transform);
+                break;
         }
 
         return TmpType;

@@ -12,4 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e778579f2ba0fd4478cbc05f36077343, type: 3}
   m_Name: EarthQuakeCity
   m_EditorClassIdentifier: 
-  TakesDamageFrom: []
+  TakesDamageFrom:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
