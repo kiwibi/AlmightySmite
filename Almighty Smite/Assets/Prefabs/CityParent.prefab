@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 35427866822959560}
   - component: {fileID: 35427866822959563}
   - component: {fileID: 8123066163285762019}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CityParent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -88,7 +88,7 @@ GameObject:
   m_Component:
   - component: {fileID: 35427867363498700}
   - component: {fileID: 35427867363498701}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CitySprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -145,7 +145,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: b77cd67cf6d902e41a0c6445dd5579ee, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -166,7 +166,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 35427867626450999}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: DeadCity
   m_TagString: City
   m_Icon: {fileID: 0}
@@ -198,7 +198,7 @@ GameObject:
   m_Component:
   - component: {fileID: 35427867837411644}
   - component: {fileID: 35427867837411645}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CitySprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -255,7 +255,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 00533fdc77fb5f342b2b31bfb94c2551, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -279,7 +279,7 @@ GameObject:
   - component: {fileID: 35427868115302177}
   - component: {fileID: 35427868115302176}
   - component: {fileID: 35427868115302182}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: AliveCity
   m_TagString: City
   m_Icon: {fileID: 0}

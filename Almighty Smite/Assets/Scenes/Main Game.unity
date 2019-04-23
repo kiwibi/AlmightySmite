@@ -275,7 +275,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1506923119}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &83460685
 SpriteRenderer:
@@ -773,7 +773,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 567
+    m_Bits: 1591
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -1163,7 +1163,6 @@ GameObject:
   m_Component:
   - component: {fileID: 766279938}
   - component: {fileID: 766279939}
-  - component: {fileID: 766279940}
   m_Layer: 0
   m_Name: CameraController
   m_TagString: Untagged
@@ -1607,7 +1606,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1506923119}
-  m_RootOrder: 1
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &998015553
 SpriteRenderer:
@@ -2101,12 +2100,14 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 184227059}
-  - {fileID: 998015552}
+  - {fileID: 1630344557}
   - {fileID: 2062393915}
   - {fileID: 335509132}
   - {fileID: 241557286}
   - {fileID: 1217394895}
   - {fileID: 732360338}
+  - {fileID: 83460684}
+  - {fileID: 998015552}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2485,7 +2486,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 567
+    m_Bits: 1591
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
