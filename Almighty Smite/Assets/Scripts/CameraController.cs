@@ -4,22 +4,26 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {                                                                                //:::::Here be variables:::::
-    private Vector2 CameraPosition;                                              //Keeps track of camera's position.
-    private Vector2 CameraDirection;                                             //Keeps track of the camera's direction.
+    private Vector2 CameraPosition;                                              //Keeps track of camera's position
+    private Vector2 CameraDirection;                                             //Keeps track of the camera's direction
     private readonly float MaxX = 19.911f;                                       //This is the eastern border of the map
     private readonly float MinX = -19.911f;                                      //This is the western border of the map
     private readonly float MaxY = 11.2f;                                         //This is the "roof" of the map
     private readonly float MinY = -11.2f;                                        //This is the "floor" of the map
-    private readonly float Wrap = 57.601f;
+    private readonly float Wrap = 57.601f;                                       //This is one camera's space away from a border plus a camera's space off the border on the opposite side
     private readonly float FarMaxX = 37.69f;                                     //This is one camera's space away from the eastern border
     private readonly float FarMinX = -37.69f;                                    //This is one camera's space away from the western border
-    [SerializeField] private float CameraSpeed = 10.0f;                          //Change this variable to change camera movement speed.
+    private readonly float CameraVelocity;
+    [SerializeField] private float CameraSpeed = 10.0f;                          //Change this variable to change camera movement speed
+
+    public Rigidbody rb;
 
     Transform Camera1;                                                           //This variable stores the position of Camera 1
     Transform Camera2;                                                           //This variable stores the position of Camera 2
 
     void Awake()                                                                 //This happens once the object the script is attached to is instansiated
     {
+        rb = GetComponent<Rigidbody>();
         Camera1 = transform.Find("Camera 1");                                    //This associates the variable to the game object Camera 1
         Camera2 = transform.Find("Camera 2");                                    //This associates the variable to the game object Camera 2
     }
@@ -28,11 +32,17 @@ public class CameraController : MonoBehaviour
     {
         GetInput();                                                              //Calls input function once per frame
         CameraCheck();                                                           //Calls the camera loop function once per frame
-        CameraMovement();                                                        //Calls movement function once per frame
     }
 
-    void GetInput()                                                              //This function checks for player input
+    void GetInput()                                                              //This function checks for player input and moves the camera accordingly
     {                                                                            //Camera direction is not exclusive to either up, down, left or right.
+        if (Input.GetAxis("Mouse X") != 0)
+        {
+            //rb.AddForce(Input.GetAxisRaw("Mouse X") * Time.deltaTime * CameraSpeed, Input.GetAxisRaw("Mouse Y") * Time.deltaTime * CameraSpeed, 0.0f, ForceMode.Force);
+            transform.position += new Vector3(Input.GetAxisRaw("Mouse X") * Time.deltaTime * CameraSpeed, 
+                                               Input.GetAxisRaw("Mouse Y") * Time.deltaTime * CameraSpeed, 0.0f);
+        }
+
         CameraDirection = Vector2.zero;                                          //Zeroes the cameras direction
         if (Input.GetKey(KeyCode.W))                                             //Checks if W is being pressed
         {
@@ -56,14 +66,11 @@ public class CameraController : MonoBehaviour
         {
             CameraDirection += Vector2.right;                                    //Sets direction to right if D is being pressed
         }
-    }
 
-    void CameraMovement()                                                        //This function moves the camera
-    {
         transform.Translate(CameraDirection * CameraSpeed * Time.deltaTime);     //Moves the camera according to direction and speed times time in seconds
     }
 
-    void CameraCheck()                                                                                                                                   //This Function moves the individual cameras to wrap around the map.
+    void CameraCheck()                                                           //This Function moves the individual cameras to wrap around the map.
     {
         if (Camera1.position.x > MaxX)                                                                                                                   //If the main camera is over the right border
         {
