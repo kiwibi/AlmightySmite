@@ -7,6 +7,8 @@ public class TornadoBehaviour : MonoBehaviour
     public float TornadoSpeed;                                                             //variabel för hur snabbt tornadon ska röra sig
     public float TornadoMaxSpeed;                                                          //variabel som säger maxhastigheten tornadon kan röra sig i
     public float ChangeDirection;                                                          //timer variebel för hur ofta den ska kolla efter riktändring
+    [HideInInspector]
+    public float ChargeTime;
 
     private Vector2 Direction;                                                             //lokal variabel för vilken riktning den åker mot
     private SpriteRenderer TornadoSprite;                                                  //variabel för att förvara spriten för att kunna agera med den
@@ -23,6 +25,7 @@ public class TornadoBehaviour : MonoBehaviour
         TornadoCollider = GetComponent<CircleCollider2D>();                                //tar en circlecollider på objektet
         DmgDealer = GetComponent<DamageDealer>();
         IncreasingDmg = DmgDealer.DamageAmount;
+        ChargeTime = 0;
     }
 
     void Update()
@@ -30,9 +33,10 @@ public class TornadoBehaviour : MonoBehaviour
         TurnHandling();                                                                    //kallar funktionen turnhandling() som kollar om den ska svänga om lite
         if(AbilitiesInput.Charging == true)                                                //kollar om tornadon laddas
         {
-            TornadoSpeed += Time.deltaTime;                                                //farten på tornadon ökas varje frame med deltatime så länge den laddas
-            IncreasingDmg += Time.deltaTime;
-            UpdateSize();                                                                  //Kallar funktionen som updaterar storlek på bilden och storleken på collidern
+            ChargeTime++;
+            //TornadoSpeed += Time.deltaTime;                                                //farten på tornadon ökas varje frame med deltatime så länge den laddas
+            //IncreasingDmg += Time.deltaTime;
+            //UpdateSize();                                                                  //Kallar funktionen som updaterar storlek på bilden och storleken på collidern
             if (TornadoSpeed > TornadoMaxSpeed)                                            //kollar om den nuvarande farten är över maxfarten
             {
                 DmgDealer.DamageAmount = Mathf.RoundToInt(IncreasingDmg);
@@ -57,7 +61,7 @@ public class TornadoBehaviour : MonoBehaviour
         {
             Direction = Vector3.Lerp(Direction, WindBehaviour.GetWindMovement(), Mathf.SmoothStep(0f, 1f, 0.3f));                   //börjar röra från startpunkten(Direction) till den nya vindriktningen(WindBehaviour.GetWindMovement)
                                                                                                                                     //mathf.smoothstep är ungefär likadan men den går snabbare i början och långsamare i slutet
-            ChangeDirection = 2;                                                                                                    //sätter igång timern igen så att den inte kör klart rotationen
+            ChangeDirection = 0.5f;                                                                                                    //sätter igång timern igen så att den inte kör klart rotationen
         }
     }
 

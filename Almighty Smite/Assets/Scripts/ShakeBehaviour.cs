@@ -6,6 +6,8 @@ public class ShakeBehaviour : MonoBehaviour
 {
     private float camSize;                                                                                                                 //Variabel som sparar den orginella storleken på kameran
     public static ShakeBehaviour instance;                                                                                                 //variabel för att säga just vilken instance av scriptet vi vill ha
+    private Camera[] cameras;
+    private Coroutine LastCoroutine;
 
     public static bool isShaking;                                                                                                          //variabel som säger iffal skärmen redan skakar
 
@@ -14,6 +16,8 @@ public class ShakeBehaviour : MonoBehaviour
     {
         instance = this;                                                                                                                   //instance är just det här scriptet
         ShakeBehaviour.isShaking = false;                                                                                                  //skärmen skaks inte till att börja med
+        instance.cameras = Camera.allCameras;
+        
 
     }
 
@@ -21,7 +25,7 @@ public class ShakeBehaviour : MonoBehaviour
     {
         ShakeBehaviour.isShaking = true;                                                                                                   //då shake funktionen kallas så sätter vi boolen till true för nu skakar skärmen
         instance.camSize = Camera.main.orthographicSize;                                                                                   //tar den nuvarande storleken
-        instance.StartCoroutine(instance.cShake(duration, magnitude));                                                                     //startar funktionen cShake
+        instance.LastCoroutine = instance.StartCoroutine(instance.cShake(duration, magnitude));                                                                     //startar funktionen cShake
     }
 
     public IEnumerator cShake(float duration, float magnitude)
@@ -31,14 +35,30 @@ public class ShakeBehaviour : MonoBehaviour
 
         while (Time.time < endTime)                                                                                                        //medans tiden inte är slut gör det inom nästa { }
         {
-            Camera.main.orthographicSize = Random.Range(4.5f, 5.0f);                                                                       //sätter kamerans size till ett nummer mellan 4.5 och 5
-
+            float sizeChange = Random.Range(4.5f, 5.0f);                                                                                   //sätter kamerans size till ett nummer mellan 4.5 och 5
+            foreach (var cam in cameras)
+            {
+                cam.orthographicSize = sizeChange;
+            }
             duration -= Time.deltaTime;                                                                                                    //sänker tiden med deltatime
 
             yield return null;                                                                                                             //hoppar tillbaka upp till början av cShake
         }
 
-        Camera.main.orthographicSize = camSize;                                                                                            //sätter kamerans storlek till den orginella storleken
+        foreach (var cam in cameras)
+        {
+            cam.orthographicSize = camSize;
+        }                                                                                            //sätter kamerans storlek till den orginella storleken
         ShakeBehaviour.isShaking = false;                                                                                                  //nu skakar kameran inte längre så den sätts till false
+    }
+
+    public static void StopShake()
+    {
+        instance.StopCoroutine(instance.LastCoroutine);
+        foreach (var cam in instance.cameras)
+        {
+            cam.orthographicSize = instance.camSize;
+        }                                                                                            //sätter kamerans storlek till den orginella storleken
+        ShakeBehaviour.isShaking = false;
     }
 }

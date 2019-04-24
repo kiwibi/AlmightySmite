@@ -21,11 +21,19 @@ public class QuakeBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        QuakeCollider.radius += GrowthRate;                                                                                                            //öka storleken på jordbävning lite varje frame
+        if (AbilitiesInput.EarthQuakeDestroy == true)
+        {
+            AbilitiesInput.EarthQuakeDestroy = false;
+            Destroy(gameObject);
+        }
+        QuakeCollider.radius += GrowthRate * Time.deltaTime;                                                                                                            //öka storleken på jordbävning lite varje frame
+
+
     }
 
     void OnDestroy()
     {
+        ShakeBehaviour.StopShake();
         AbilitiesInput.EarthquakeSpawned = false;                                                                               //när jorbävningen dör ut så sätts boolen till false för det finns ingen tornado spawnad längre                                              
     }
 }

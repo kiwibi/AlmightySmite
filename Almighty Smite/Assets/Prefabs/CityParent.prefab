@@ -56,7 +56,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a150ced3378a780489a2c0e4c7295750, type: 2}
   - {fileID: 11400000, guid: e1b554ab8d579ef4a9259f34f42598ad, type: 2}
   Smokes:
-  - {fileID: 2043206715542808686, guid: 10cca8fd0a6a4dc41ad033f7a4c3fafd, type: 3}
+  - {fileID: 6210257430153249989, guid: b6953747cfc33234eba304d705aa6cdf, type: 3}
   - {fileID: 7948163890016319065, guid: 2651ebbf197f1c344846563034961d35, type: 3}
   - {fileID: 8959601241150254214, guid: 8bd4dbc1aa7ae484bb55202c7c81e6b3, type: 3}
   - {fileID: 8501324533961651955, guid: f39da626ebbcf834eb808847749b4a63, type: 3}
