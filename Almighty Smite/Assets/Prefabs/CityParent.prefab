@@ -60,7 +60,7 @@ MonoBehaviour:
   - {fileID: 7948163890016319065, guid: 2651ebbf197f1c344846563034961d35, type: 3}
   - {fileID: 8959601241150254214, guid: 8bd4dbc1aa7ae484bb55202c7c81e6b3, type: 3}
   - {fileID: 8501324533961651955, guid: f39da626ebbcf834eb808847749b4a63, type: 3}
-  MaxHealth: 5
+  MaxHealth: 100
   MaxUpgradeTimer: 15
   MaxRespawnTimer: 1
   SpawnIndex: 0

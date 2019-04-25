@@ -74,7 +74,7 @@ public class CityBehaviour : MonoBehaviour
         if (RespawnTimer <= 0)
         {
             CurrentHealth = MaxHealth;
-            RespawnTimer = MaxUpgradeTimer /* * CurrentLevel*/;
+            RespawnTimer = MaxRespawnTimer /* * CurrentLevel*/;
             CurrentLevel = 1;
             SwitchState();
             ChooseType();
