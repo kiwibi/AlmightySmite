@@ -48,9 +48,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TornadoSpeed: 0.5
-  TornadoMaxSpeed: 3
+  TornadoMaxSpeed: 2
   ChangeDirection: 1
-  ChargeTime: 0
 --- !u!114 &6401914942164158891
 MonoBehaviour:
   m_ObjectHideFlags: 0

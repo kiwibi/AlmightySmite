@@ -7,8 +7,6 @@ public class TornadoBehaviour : MonoBehaviour
     public float TornadoSpeed;                                                             //variabel för hur snabbt tornadon ska röra sig
     public float TornadoMaxSpeed;                                                          //variabel som säger maxhastigheten tornadon kan röra sig i
     public float ChangeDirection;                                                          //timer variebel för hur ofta den ska kolla efter riktändring
-    [HideInInspector]
-    public float ChargeTime;
 
     private Vector2 Direction;                                                             //lokal variabel för vilken riktning den åker mot
     private SpriteRenderer TornadoSprite;                                                  //variabel för att förvara spriten för att kunna agera med den
@@ -16,6 +14,7 @@ public class TornadoBehaviour : MonoBehaviour
     private DamageDealer DmgDealer;
     private float IncreasingDmg;
     private bool moving;
+    private float DestructionTime;
 
     void Start()
     {
@@ -25,18 +24,20 @@ public class TornadoBehaviour : MonoBehaviour
         TornadoCollider = GetComponent<CircleCollider2D>();                                //tar en circlecollider på objektet
         DmgDealer = GetComponent<DamageDealer>();
         IncreasingDmg = DmgDealer.DamageAmount;
-        ChargeTime = 0;
+        DestructionTime = GetComponent<DestroyAfterSecond>().DestroyAfter;
     }
 
     void Update()
     {
+        if(TornadoSpeed < 0.2f || gameObject.transform.localScale == new Vector3(0.1f,0.1f))
+        {
+            Destroy(gameObject);
+        }
         TurnHandling();                                                                    //kallar funktionen turnhandling() som kollar om den ska svänga om lite
         if(AbilitiesInput.Charging == true)                                                //kollar om tornadon laddas
         {
-            ChargeTime++;
-            //TornadoSpeed += Time.deltaTime;                                                //farten på tornadon ökas varje frame med deltatime så länge den laddas
-            //IncreasingDmg += Time.deltaTime;
-            //UpdateSize();                                                                  //Kallar funktionen som updaterar storlek på bilden och storleken på collidern
+            
+            UpdateSize(true);                                                                  //Kallar funktionen som updaterar storlek på bilden och storleken på collidern
             if (TornadoSpeed > TornadoMaxSpeed)                                            //kollar om den nuvarande farten är över maxfarten
             {
                 DmgDealer.DamageAmount = Mathf.RoundToInt(IncreasingDmg);
@@ -50,8 +51,12 @@ public class TornadoBehaviour : MonoBehaviour
             moving = true;                                                                 //den rör på sig när den inte laddas så det sätts till true
             GetComponent<DestroyAfterSecond>().enabled = true;                             //sätter igång scriptet som förstör objektet efter en viss tid
         }
-        if(moving == true)                                                                 //om tornadon "rör" på sig
+        if (moving == true)                                                                 //om tornadon "rör" på sig
+        {
             transform.Translate(Direction * Time.deltaTime * TornadoSpeed);                //flyttar tornadon åt riktningen(Direction) i deltatime så att den inte är beroende på framecount och farten beroende på hastigheten
+            UpdateSize(false);
+        }
+        
     }
 
     private void TurnHandling()
@@ -65,11 +70,23 @@ public class TornadoBehaviour : MonoBehaviour
         }
     }
 
-    private void UpdateSize()
+    private void UpdateSize(bool up)
     {
         float SizeIncrement = 0.1f;
-        TornadoSprite.transform.localScale += new Vector3(SizeIncrement, SizeIncrement);                 //spriten skalas upp med 0.1 varje frame den laddar
-        TornadoCollider.radius += (SizeIncrement / 10);                                                  //Då radiusen är en tiondel av startskalan tornadon börjar växer den en tiondel så snabbt
+        if (up == true)
+        {
+            TornadoSprite.transform.localScale += new Vector3(SizeIncrement, SizeIncrement);                 //spriten skalas upp med 0.1 varje frame den laddar
+            TornadoCollider.radius += (SizeIncrement / 10);                                                  //Då radiusen är en tiondel av startskalan tornadon börjar växer den en tiondel så snabbt
+            TornadoSpeed += Time.deltaTime;                                                //farten på tornadon ökas varje frame med deltatime så länge den laddas
+            IncreasingDmg += Time.deltaTime;
+        }
+        else
+        {
+            TornadoSprite.transform.localScale -= new Vector3(SizeIncrement / 2, SizeIncrement / 2);                 //spriten skalas upp med 0.1 varje frame den laddar
+            TornadoCollider.radius -= ((SizeIncrement / 2) / 10);                                                  //Då radiusen är en tiondel av startskalan tornadon börjar växer den en tiondel så snabbt
+            TornadoSpeed -= 0.2f * Time.deltaTime;                                                //farten på tornadon ökas varje frame med deltatime så länge den laddas
+            IncreasingDmg -= 0.2f * Time.deltaTime;
+        }
     }
 
     void OnDestroy()
