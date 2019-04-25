@@ -29,7 +29,7 @@ public class TornadoBehaviour : MonoBehaviour
 
     void Update()
     {
-        if(TornadoSpeed < 0.2f || gameObject.transform.localScale == new Vector3(0.1f,0.1f))
+        if(TornadoSpeed < 0.2f || TornadoSprite.transform.localScale.x <= 0.00001f)
         {
             Destroy(gameObject);
         }
@@ -72,18 +72,19 @@ public class TornadoBehaviour : MonoBehaviour
 
     private void UpdateSize(bool up)
     {
-        float SizeIncrement = 0.1f;
+        float SizeIncrement = 0.001f;
+        float RadiusIncrement = 0.1f;
         if (up == true)
         {
             TornadoSprite.transform.localScale += new Vector3(SizeIncrement, SizeIncrement);                 //spriten skalas upp med 0.1 varje frame den laddar
-            TornadoCollider.radius += (SizeIncrement / 10);                                                  //Då radiusen är en tiondel av startskalan tornadon börjar växer den en tiondel så snabbt
+            TornadoCollider.radius += (RadiusIncrement / 10);                                                  //Då radiusen är en tiondel av startskalan tornadon börjar växer den en tiondel så snabbt
             TornadoSpeed += Time.deltaTime;                                                //farten på tornadon ökas varje frame med deltatime så länge den laddas
             IncreasingDmg += Time.deltaTime;
         }
         else
         {
             TornadoSprite.transform.localScale -= new Vector3(SizeIncrement / 2, SizeIncrement / 2);                 //spriten skalas upp med 0.1 varje frame den laddar
-            TornadoCollider.radius -= ((SizeIncrement / 2) / 10);                                                  //Då radiusen är en tiondel av startskalan tornadon börjar växer den en tiondel så snabbt
+            TornadoCollider.radius -= ((RadiusIncrement / 2) / 10);                                                  //Då radiusen är en tiondel av startskalan tornadon börjar växer den en tiondel så snabbt
             TornadoSpeed -= 0.2f * Time.deltaTime;                                                //farten på tornadon ökas varje frame med deltatime så länge den laddas
             IncreasingDmg -= 0.2f * Time.deltaTime;
         }

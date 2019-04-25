@@ -42,6 +42,12 @@ public class CameraController : MonoBehaviour
             transform.position += new Vector3(Input.GetAxisRaw("Mouse X") * Time.deltaTime * CameraSpeed, 
                                                Input.GetAxisRaw("Mouse Y") * Time.deltaTime * CameraSpeed, 0.0f);
         }
+        transform.position = new Vector3(
+
+            transform.position.x,
+            Mathf.Clamp(transform.position.y, MinY, MaxY),
+            0
+        );
 
         CameraDirection = Vector2.zero;                                          //Zeroes the cameras direction
         if (Input.GetKey(KeyCode.W))                                             //Checks if W is being pressed
