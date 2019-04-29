@@ -6,7 +6,7 @@ public class CityAlive : MonoBehaviour
 {
     private DamageDealer parentScript;
     private float Timer;
-    // Start is called before the first frame update
+
     void Start()
     {
         parentScript = GetComponentInParent<DamageDealer>();
