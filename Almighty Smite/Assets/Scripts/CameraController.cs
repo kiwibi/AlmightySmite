@@ -52,6 +52,7 @@ public class CameraController : MonoBehaviour
         CameraDirection = Vector2.zero;                                          //Zeroes the cameras direction
         if (Input.GetKey(KeyCode.W))                                             //Checks if W is being pressed
         {
+             
             if (Camera1.position.y < MaxY && Camera2.position.y < MaxY)          //Checks if the cameras have reached the roof of the map
             {
                 CameraDirection += Vector2.up;                                   //Sets direction to up if W is being pressed
