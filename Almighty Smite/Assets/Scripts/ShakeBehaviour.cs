@@ -6,7 +6,7 @@ public class ShakeBehaviour : MonoBehaviour
 {
     private float camSize;                                                                                                                 //Variabel som sparar den orginella storleken på kameran
     public static ShakeBehaviour instance;                                                                                                 //variabel för att säga just vilken instance av scriptet vi vill ha
-    private Camera[] cameras;
+    private List<Camera> cameras;
     private Coroutine LastCoroutine;
 
     public static bool isShaking;                                                                                                          //variabel som säger iffal skärmen redan skakar
@@ -16,8 +16,15 @@ public class ShakeBehaviour : MonoBehaviour
     {
         instance = this;                                                                                                                   //instance är just det här scriptet
         ShakeBehaviour.isShaking = false;                                                                                                  //skärmen skaks inte till att börja med
-        instance.cameras = Camera.allCameras;
-        
+        cameras = new List<Camera>();                                                                                                      //ger en tom lista
+        for (int i = 0; i < Camera.allCameras.Length - 1; i++)
+        {
+            instance.cameras.Add(Camera.allCameras[i]);
+            if (instance.cameras[i].tag != "MainCamera")
+            {
+                instance.cameras.RemoveAt(i);
+            }
+        }
 
     }
 
