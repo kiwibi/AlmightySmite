@@ -5,5 +5,5 @@ using UnityEngine;
 public class DamageType : ScriptableObject
 {
     [Tooltip("The objects which inflict damage from this object.")]
-    public List<DamageType> TakesDamageFrom = new List<DamageType>();
+    public List<DamageType> TakesDamageFrom = new List<DamageType>();                                                                                       //lista över vad som kan skada en en annan type
 }

@@ -14,9 +14,9 @@ public class Restart : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.P))
+        if(Input.GetKeyDown(KeyCode.P))                                                                                                                           //om p är nertryckt
         {
-            SceneManager.LoadScene("StartScene");
+            SceneManager.LoadScene("StartScene");                                                                                                                 //byt till menu scene
         }
     }
 }
