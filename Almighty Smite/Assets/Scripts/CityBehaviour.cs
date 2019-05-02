@@ -16,6 +16,9 @@ public class CityBehaviour : MonoBehaviour
     private float Timer = 0.0f;
     public DamageType[] DamageKinds;                                                                                                    //en array för att hålla alla olika sorters dmg den ska känna till
     public ParticleSystem[] Smokes;                                                                                                     //en arrat för att hålla alla sorters olika smoke så den vet vad som ska spawnas
+    public Sprite[] DifferentCities;
+    private SpriteRenderer CityRenderer;
+    private BoxCollider2D CityCollider;
     private ProgressbarBehaviour Pool;
     private int CurrentLevel;                                                                                                           //vilken lvl staden är. bestämmer vilka värden som används
     public float MaxHealth;                                                                                                             //max health för staden
@@ -35,6 +38,8 @@ public class CityBehaviour : MonoBehaviour
     void Start()
     {
         Pool = GameObject.Find("GameUI").GetComponent<ProgressbarBehaviour>();
+        CityRenderer = GetComponentInChildren<SpriteRenderer>();
+        CityCollider = GetComponentInChildren<BoxCollider2D>();
         CurrentLevel = 1;                                                                                                               //staden börjar på lvl 1
         UpgradeTimer = MaxUpgradeTimer;                                                                                                 //sätter alla timers + health till sina max values
         CurrentHealth = MaxHealth;
@@ -45,6 +50,7 @@ public class CityBehaviour : MonoBehaviour
 
         Dead.gameObject.SetActive(false);                                                                                               //sätter den döda till false
         dmgDealer = GetComponent<DamageDealer>();                                                                                       //hämtar komponenterna från damagedealer scriptet
+        CityRenderer.sprite = DifferentCities[CurrentLevel - 1];
         ChooseType();                                                                                                                   //callar funktionen ChooseType
     }
 
@@ -58,7 +64,7 @@ public class CityBehaviour : MonoBehaviour
             AliveUpdate();
             if (Timer > TickTime)
             {
-                Pool.ProgressPool += 0.01f;
+                Pool.ProgressPool += 0.005f;
                 Timer = 0.0f;
             }
        }    
@@ -74,6 +80,7 @@ public class CityBehaviour : MonoBehaviour
         {
             SwitchState();
             Pool.ProgressPool -= 0.2f;
+            return;
         }
         UpgradeCity();                                                                                                                  //callar funktionen upgradecity
     }
@@ -88,6 +95,8 @@ public class CityBehaviour : MonoBehaviour
             CurrentLevel = 1;                                                                                                              //level sätts till 1
             SwitchState();                                                                                                                 //byter state till alive
             ChooseType();                                                                                                                  //byter stad så att den är stark mot det den ska vara
+            CityRenderer.sprite = DifferentCities[CurrentLevel - 1];
+            CityCollider.size = new Vector2(1, 1);
         }
     }
 
@@ -97,8 +106,18 @@ public class CityBehaviour : MonoBehaviour
         if (UpgradeTimer <= 0 && CurrentLevel < 3)                                                                                         //om timern är mindre eller likamed 0 och leveln inte är högre än 3
         {
             CurrentLevel++;                                                                                                                //öka lvln med 1
-            CurrentHealth = MaxHealth * CurrentLevel;                                                                                      //öka health valuet
+            float lostHealth = MaxHealth - CurrentHealth;
+            CurrentHealth = (MaxHealth * CurrentLevel) - lostHealth;                                                                       //öka health valuet
             UpgradeTimer = (MaxUpgradeTimer * CurrentLevel);                                                                               //sätt en ny uppgradetimer
+            CityRenderer.sprite = DifferentCities[CurrentLevel - 1];
+            if(CurrentLevel == 2)
+            {
+                CityCollider.size = new Vector2(1.6f, CityCollider.size.y);
+            }
+            else if(CurrentLevel == 3)
+            {
+                CityCollider.size = new Vector2(2.3f, 1.75f);
+            }
         }
     }
 
