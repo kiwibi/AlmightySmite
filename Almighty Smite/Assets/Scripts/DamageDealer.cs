@@ -13,7 +13,7 @@ public class DamageDealer : MonoBehaviour
         DamageDealer damageDealer = col.gameObject.GetComponent<DamageDealer>();                                                                                //vilken sorts damage tod objektet
         if (damageDealer != null)                                                                                                                               //om det faktiskt va något som gjorde dmg
         {
-            //Debug.Log(damageType.name + " hit: " + damageDealer.damageType.name);
+            //Debug.Log(damageDealer.damageType.name);
             if (damageType.TakesDamageFrom.Contains(damageDealer.damageType))                                                                                   //om objektet ska ta full dmg från det som träffade
             {
                 gameObject.GetComponent<CityBehaviour>().DealDamage(damageDealer.DamageAmount, damageDealer.damageType);                                        //kalla funktionen på huset som gör dmg
