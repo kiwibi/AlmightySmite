@@ -18,6 +18,10 @@ public class DamageDealer : MonoBehaviour
             {
                 gameObject.GetComponent<CityBehaviour>().DealDamage(damageDealer.DamageAmount, damageDealer.damageType);                                        //kalla funktionen på huset som gör dmg
             }
+            else                                                                                                                                                //om den inte skulle göra full dmg
+            {
+                gameObject.GetComponent<CityBehaviour>().DealDamage(damageDealer.DamageAmount / 2, damageDealer.damageType);                                    //gör hälften av dmg på huset
+            }
         }
     }
 }
