@@ -12,9 +12,11 @@ public class CityBehaviour : MonoBehaviour
         LIGHTNING,                                                                                                                      //3
         TORNADO                                                                                                                         //4
     }
+    private readonly float TickTime = 1.0f;
+    private float Timer = 0.0f;
     public DamageType[] DamageKinds;                                                                                                    //en array för att hålla alla olika sorters dmg den ska känna till
     public ParticleSystem[] Smokes;                                                                                                     //en arrat för att hålla alla sorters olika smoke så den vet vad som ska spawnas
-
+    private ProgressbarBehaviour Pool;
     private int CurrentLevel;                                                                                                           //vilken lvl staden är. bestämmer vilka värden som används
     public float MaxHealth;                                                                                                             //max health för staden
     public float MaxUpgradeTimer;                                                                                                       //hur lång tid ska det ta att uppgradera stadens level
@@ -32,6 +34,7 @@ public class CityBehaviour : MonoBehaviour
     
     void Start()
     {
+        Pool = GameObject.Find("GameUI").GetComponent<ProgressbarBehaviour>();
         CurrentLevel = 1;                                                                                                               //staden börjar på lvl 1
         UpgradeTimer = MaxUpgradeTimer;                                                                                                 //sätter alla timers + health till sina max values
         CurrentHealth = MaxHealth;
@@ -48,10 +51,16 @@ public class CityBehaviour : MonoBehaviour
     
     void Update()
     {
+        Timer += Time.deltaTime;
+
        if(Alive.gameObject.activeSelf == true)                                                                                          //om objektet Alive är aktivt i scenen gör funktionen AliveUpdate
        {
             AliveUpdate();
-
+            if (Timer > TickTime)
+            {
+                Pool.ProgressPool += 0.01f;
+                Timer = 0.0f;
+            }
        }    
        else                                                                                                                             //annars gör deadUpdate
        {
@@ -64,6 +73,7 @@ public class CityBehaviour : MonoBehaviour
         if(CurrentHealth <= 0)                                                                                                          //om stadens health är mindre eller likamed 0 byt till död
         {
             SwitchState();
+            Pool.ProgressPool -= 0.2f;
         }
         UpgradeCity();                                                                                                                  //callar funktionen upgradecity
     }
