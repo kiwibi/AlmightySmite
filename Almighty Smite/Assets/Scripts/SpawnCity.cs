@@ -54,7 +54,7 @@ public class SpawnCity : MonoBehaviour
     {
         int index = Random.Range(0, TotalColliderAmount.Length-1);                                                                                                  //väljer en random zone mellan 0 och max mängden colliders
         Collider2D currentCol = TotalColliderAmount[index];                                                                                                         //hämtar all info om den nuvarande zonen
-        SpawnLocation.Set(Random.Range(currentCol.bounds.min.x + SpawnBoarder, currentCol.bounds.max.x - SpawnBoarder), Random.Range(currentCol.bounds.min.y + SpawnBoarder, currentCol.bounds.max.y - SpawnBoarder), 0);
+        SpawnLocation.Set(currentCol.bounds.center.x , Random.Range(currentCol.bounds.min.y + SpawnBoarder, currentCol.bounds.max.y - SpawnBoarder), 0);
                                                                                                                                                                     //sätter en preliminär lokation att spawna mellan min & max i zonen
         
         if(Cities.Count == 0)                                                                                                                                       //om det är den första staden
@@ -75,7 +75,7 @@ public class SpawnCity : MonoBehaviour
         if (CanSpawn == true)                                                                                                                                       //om det fanns en ledig zone
         {
             currentCol = TotalColliderAmount[index];                                                                                                                //tar informationen om den zonen
-            SpawnLocation.Set(Random.Range(currentCol.bounds.min.x + SpawnBoarder, currentCol.bounds.max.x - SpawnBoarder), Random.Range(currentCol.bounds.min.y + SpawnBoarder, currentCol.bounds.max.y - SpawnBoarder), 0);           //sätter en ny lokation i den zonen
+            SpawnLocation.Set(currentCol.bounds.center.x , Random.Range(currentCol.bounds.min.y + SpawnBoarder, currentCol.bounds.max.y - SpawnBoarder), 0);           //sätter en ny lokation i den zonen
             var clone = Instantiate(City, SpawnLocation, Quaternion.identity);                                                                                      //Spawna staden
             Cities.Add(clone);                                                                                                                                      //lägg till i listan
             clone.GetComponent<CityBehaviour>().SetSpawnIndex(index);                                                                                               //sätter så att staden vet vilken zone den är i

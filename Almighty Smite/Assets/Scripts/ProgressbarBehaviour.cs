@@ -16,13 +16,12 @@ public class ProgressbarBehaviour : MonoBehaviour
         LoseText.SetActive(false);
         WinText.SetActive(false);
         Time.timeScale = 1;
-        ProgressBar.fillAmount = 0;
+        ProgressBar.fillAmount = 0.3f;
     }
 
     void Update()
     {
         ProgressBar.fillAmount = ProgressPool;
-        Debug.Log(ProgressPool);
         if (ProgressPool >= 1)
         {
             LoseText.SetActive(true);

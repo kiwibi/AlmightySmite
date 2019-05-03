@@ -16,6 +16,7 @@ public class Restart : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.P))                                                                                                                           //om p är nertryckt
         {
+            Time.timeScale = 1;
             SceneManager.LoadScene("StartScene");                                                                                                                 //byt till menu scene
         }
     }

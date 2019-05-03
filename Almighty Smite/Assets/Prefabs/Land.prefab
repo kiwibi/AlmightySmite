@@ -276,7 +276,6 @@ GameObject:
   - component: {fileID: 9035365753806179613}
   - component: {fileID: 3425266685289044414}
   - component: {fileID: 6382064747587348537}
-  - component: {fileID: 7886659142680150349}
   m_Layer: 0
   m_Name: South America
   m_TagString: Land
@@ -340,19 +339,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 4}
   m_EdgeRadius: 0
---- !u!70 &7886659142680150349
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4890600535340263753}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -13.6, y: -3.89}
-  m_Size: {x: 1.45, y: 1.05}
-  m_Direction: 1
