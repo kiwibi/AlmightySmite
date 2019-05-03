@@ -64,7 +64,7 @@ public class CityBehaviour : MonoBehaviour
             AliveUpdate();
             if (Timer > TickTime)
             {
-                Pool.ProgressPool += 0.005f;
+                Pool.ProgressPool += 0.0005f;
                 Timer = 0.0f;
             }
        }    
@@ -79,7 +79,7 @@ public class CityBehaviour : MonoBehaviour
         if(CurrentHealth <= 0)                                                                                                          //om stadens health är mindre eller likamed 0 byt till död
         {
             SwitchState();
-            Pool.ProgressPool -= 0.2f;
+            Pool.ProgressPool -= 0.08f;
             return;
         }
         UpgradeCity();                                                                                                                  //callar funktionen upgradecity
