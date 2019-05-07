@@ -16,6 +16,8 @@ public class QuakeBehaviour : MonoBehaviour
 
         if(ShakeBehaviour.isShaking == false)                                                                                                           //ser till så att kameran inte redan skakar
             ShakeBehaviour.Shake(ShakeDuration, ShakeMagnitude);                                                                                        //startar skaka skärmen med längden och styrkan som sätts i unity
+
+        EventManager.TriggerEvent("Earthquake");
     }
 
     // Update is called once per frame
@@ -33,6 +35,7 @@ public class QuakeBehaviour : MonoBehaviour
 
     void OnDestroy()
     {
+        EventManager.TriggerEvent("StopSound");
         ShakeBehaviour.StopShake();
         AbilitiesInput.EarthquakeSpawned = false;                                                                               //när jorbävningen dör ut så sätts boolen till false för det finns ingen tornado spawnad längre                                              
     }

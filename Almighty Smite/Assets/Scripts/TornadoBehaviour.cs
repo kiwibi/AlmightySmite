@@ -25,6 +25,7 @@ public class TornadoBehaviour : MonoBehaviour
         DmgDealer = GetComponent<DamageDealer>();
         IncreasingDmg = DmgDealer.DamageAmount;
         DestructionTime = GetComponent<DestroyAfterSecond>().DestroyAfter;
+        EventManager.TriggerEvent("Tornado");
     }
 
     void Update()
@@ -92,6 +93,7 @@ public class TornadoBehaviour : MonoBehaviour
 
     void OnDestroy()
     {
+        EventManager.TriggerEvent("stopSound");
         AbilitiesInput.TornadoSpawned = false;                                              //när tornadon dör ut så sätts boolen till false för det finns ingen tornado spawnad längre                                              
     }
 }
