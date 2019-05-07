@@ -5434,6 +5434,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3326997486376412710, guid: 2ff11a44a044b82438774547cda94bf2,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ff11a44a044b82438774547cda94bf2, type: 3}
 --- !u!1001 &4942265991322317632
@@ -5503,5 +5508,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2162058147190310623, guid: 7ae82dce6c8b28a4bb1f549b37461e59,
+        type: 3}
+      propertyPath: EarthquakeSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 935b82d683465714094afea4fadb4c48, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ae82dce6c8b28a4bb1f549b37461e59, type: 3}

@@ -141,5 +141,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EarthquakeSound: {fileID: 8300000, guid: 59779b37d14ed0f4eb8633b1f78830ee, type: 3}
-  TornadoSound: {fileID: 8300000, guid: a13b07f72282a844385208421941a92f, type: 3}
+  TornadoSound: {fileID: 8300000, guid: 82ab108c993a5564eb83e9a3916fb5ec, type: 3}
   LightningSound: {fileID: 8300000, guid: 643d933f358da9d47831066f4bd62089, type: 3}

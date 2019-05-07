@@ -93,7 +93,7 @@ public class TornadoBehaviour : MonoBehaviour
 
     void OnDestroy()
     {
-        EventManager.TriggerEvent("stopSound");
+        EventManager.TriggerEvent("StopSound");
         AbilitiesInput.TornadoSpawned = false;                                              //när tornadon dör ut så sätts boolen till false för det finns ingen tornado spawnad längre                                              
     }
 }
