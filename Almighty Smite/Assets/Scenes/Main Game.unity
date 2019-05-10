@@ -2242,7 +2242,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &803610677
 Transform:
   m_ObjectHideFlags: 0
@@ -3598,6 +3598,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1506923119}
+  - component: {fileID: 1506923120}
   m_Layer: 9
   m_Name: Map Master
   m_TagString: Untagged
@@ -3629,6 +3630,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1506923120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1506923118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3706cd346b73c5049bbc27e6ec89e885, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1590386479
 GameObject:
   m_ObjectHideFlags: 0
@@ -5072,7 +5085,7 @@ PrefabInstance:
     - target: {fileID: 2454351328192986335, guid: 00a221337600a2e499baa6d5d1732898,
         type: 3}
       propertyPath: m_Name
-      value: Land
+      value: LandBoxes
       objectReference: {fileID: 0}
     - target: {fileID: 2454351328192986332, guid: 00a221337600a2e499baa6d5d1732898,
         type: 3}
