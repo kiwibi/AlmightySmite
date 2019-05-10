@@ -26,25 +26,45 @@ public class WindBehaviour : MonoBehaviour
     void Update()
     {   
         {
-            if (Input.GetKeyUp(KeyCode.Keypad8))                    //nord
-                WindDirection = 0; 
-            else if (Input.GetKeyUp(KeyCode.Keypad9))               //nordöst
-                WindDirection = 1;
-            else if (Input.GetKeyUp(KeyCode.Keypad6))               //öst
-                WindDirection = 2;
-            else if (Input.GetKeyUp(KeyCode.Keypad3))               //sydöst
-                WindDirection = 3;
-            else if (Input.GetKeyUp(KeyCode.Keypad2))               //syd
-                WindDirection = 4;
-            else if (Input.GetKeyUp(KeyCode.Keypad1))               //sydväst
-                WindDirection = 5;
-            else if (Input.GetKeyUp(KeyCode.Keypad4))               //väst
-                WindDirection = 6;
-            else if (Input.GetKeyUp(KeyCode.Keypad7))               //nordväst
-                WindDirection = 7;
+            //if (Input.GetKey(KeyCode.Keypad8))                    //nord
+            //    WindDirection = 0; 
+            //else if (Input.GetKey(KeyCode.Keypad8) && Input.GetKey(KeyCode.Keypad6))               //nordöst
+            //    WindDirection = 1;
+            //else if (Input.GetKey(KeyCode.Keypad6))               //öst
+            //    WindDirection = 2;
+            //else if (Input.GetKey(KeyCode.Keypad6) && Input.GetKey(KeyCode.Keypad2))               //sydöst
+            //    WindDirection = 3;
+            //else if (Input.GetKeyUp(KeyCode.Keypad2))               //syd
+            //    WindDirection = 4;
+            //else if (Input.GetKey(KeyCode.Keypad2) && Input.GetKey(KeyCode.Keypad4))               //sydväst
+            //    WindDirection = 5;
+            //else if (Input.GetKey(KeyCode.Keypad4))               //väst
+            //    WindDirection = 6;
+            //else if (Input.GetKey(KeyCode.Keypad4) && Input.GetKey(KeyCode.Keypad8))               //nordväst
+            //    WindDirection = 7;
+            if(Input.GetButton("Up"))
+            {
+                WindMovement += Vector2.up;
+            }
+            if (Input.GetButton("Down"))
+            {
+                WindMovement -= Vector2.up;
+            }
+            if (Input.GetButton("Right"))
+            {
+                WindMovement += Vector2.right;
+            }
+            if (Input.GetButton("Left"))
+            {
+                WindMovement -= Vector2.right;
+            }
         }                                                                                                            //check for input                                             
-
-        ChooseDirection();                                                                                             //direction
+        WindMovement.Normalize();
+        Quaternion rotation = Quaternion.LookRotation(WindMovement, new Vector3(0,0,1));
+        rotation.x = 0;
+        rotation.y = 0;
+        WindIndicatorRenderer.transform.rotation = rotation;
+        //ChooseDirection();                                                                                             //direction
     }
 
     private void ChooseDirection()

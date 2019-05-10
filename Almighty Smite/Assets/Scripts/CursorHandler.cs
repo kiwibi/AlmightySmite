@@ -46,7 +46,7 @@ public class CursorHandler : MonoBehaviour
     {
         if (col.gameObject.tag != "Land" && col.gameObject.tag != "MainCamera")                                                                               //om den inte krockar med någonting vi inte bryr oss om
         {
-            Debug.Log("Highlight City");
+            //Debug.Log("Highlight City");
         }
     }
 }
