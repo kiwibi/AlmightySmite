@@ -31,12 +31,14 @@ public class CityBehaviour : MonoBehaviour
     public int SpawnIndex;                                                                                                              //i vilken collider den spawnade i
     private DamageType LastAttackedBy;                                                                                                  //vilken sorts damage attackerade staden sist
     private DamageDealer dmgDealer;                                                                                                     //scriptet för damagedealer
+    private float UpgradeRandTimer = 0;
 
     private Transform Alive;                                                                                                            //child objektet CityAlive
     private Transform Dead;                                                                                                             //child objektet CityDead
     
     void Start()
     {
+        UpgradeRandTimer = Random.Range(10.0f, 25.0f);
         Pool = GameObject.Find("GameUI").GetComponent<ProgressbarBehaviour>();
         CityRenderer = GetComponentInChildren<SpriteRenderer>();
         CityCollider = GetComponentInChildren<BoxCollider2D>();
@@ -59,19 +61,19 @@ public class CityBehaviour : MonoBehaviour
     {
         Timer += Time.deltaTime;
 
-       if(Alive.gameObject.activeSelf == true)                                                                                          //om objektet Alive är aktivt i scenen gör funktionen AliveUpdate
-       {
+        if(Alive.gameObject.activeSelf == true)                                                                                          //om objektet Alive är aktivt i scenen gör funktionen AliveUpdate
+        {
             AliveUpdate();
             if (Timer > TickTime)
             {
                 Pool.ProgressPool += 0.0005f;
                 Timer = 0.0f;
             }
-       }    
-       else                                                                                                                             //annars gör deadUpdate
-       {
+        }    
+        else                                                                                                                             //annars gör deadUpdate
+        {
             DeadUpdate();
-       }
+        }
     }
 
     private void AliveUpdate()                                                                                                      

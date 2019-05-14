@@ -260,7 +260,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 6cf0a46fe17728f4eb6f16ff3102bf4b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d6409eae8cc5618488bdb43dc6e54ecb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -454,11 +454,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 35427868115302179}
     m_Modifications:
-    - target: {fileID: 6210257430153249989, guid: b6953747cfc33234eba304d705aa6cdf,
-        type: 3}
-      propertyPath: prewarm
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6210257430153249991, guid: b6953747cfc33234eba304d705aa6cdf,
         type: 3}
       propertyPath: m_Name
@@ -472,6 +467,11 @@ PrefabInstance:
     - target: {fileID: 6210257430153249991, guid: b6953747cfc33234eba304d705aa6cdf,
         type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6210257430153249989, guid: b6953747cfc33234eba304d705aa6cdf,
+        type: 3}
+      propertyPath: prewarm
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6210257430153249988, guid: b6953747cfc33234eba304d705aa6cdf,
@@ -574,6 +574,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 35427868115302179}
     m_Modifications:
+    - target: {fileID: 6210257430153249991, guid: b6953747cfc33234eba304d705aa6cdf,
+        type: 3}
+      propertyPath: m_Name
+      value: Damage03
+      objectReference: {fileID: 0}
+    - target: {fileID: 6210257430153249991, guid: b6953747cfc33234eba304d705aa6cdf,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6210257430153249991, guid: b6953747cfc33234eba304d705aa6cdf,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6210257430153249989, guid: b6953747cfc33234eba304d705aa6cdf,
         type: 3}
       propertyPath: prewarm
@@ -598,21 +613,6 @@ PrefabInstance:
         type: 3}
       propertyPath: InitialModule.startColor.maxColor.b
       value: 0.5504183
-      objectReference: {fileID: 0}
-    - target: {fileID: 6210257430153249991, guid: b6953747cfc33234eba304d705aa6cdf,
-        type: 3}
-      propertyPath: m_Name
-      value: Damage03
-      objectReference: {fileID: 0}
-    - target: {fileID: 6210257430153249991, guid: b6953747cfc33234eba304d705aa6cdf,
-        type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 6210257430153249991, guid: b6953747cfc33234eba304d705aa6cdf,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6210257430153249988, guid: b6953747cfc33234eba304d705aa6cdf,
         type: 3}
@@ -714,6 +714,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 35427868115302179}
     m_Modifications:
+    - target: {fileID: 6210257430153249991, guid: b6953747cfc33234eba304d705aa6cdf,
+        type: 3}
+      propertyPath: m_Name
+      value: Damage02
+      objectReference: {fileID: 0}
+    - target: {fileID: 6210257430153249991, guid: b6953747cfc33234eba304d705aa6cdf,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6210257430153249991, guid: b6953747cfc33234eba304d705aa6cdf,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6210257430153249989, guid: b6953747cfc33234eba304d705aa6cdf,
         type: 3}
       propertyPath: prewarm
@@ -733,21 +748,6 @@ PrefabInstance:
         type: 3}
       propertyPath: InitialModule.startColor.maxColor.b
       value: 0.5849056
-      objectReference: {fileID: 0}
-    - target: {fileID: 6210257430153249991, guid: b6953747cfc33234eba304d705aa6cdf,
-        type: 3}
-      propertyPath: m_Name
-      value: Damage02
-      objectReference: {fileID: 0}
-    - target: {fileID: 6210257430153249991, guid: b6953747cfc33234eba304d705aa6cdf,
-        type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 6210257430153249991, guid: b6953747cfc33234eba304d705aa6cdf,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6210257430153249988, guid: b6953747cfc33234eba304d705aa6cdf,
         type: 3}
