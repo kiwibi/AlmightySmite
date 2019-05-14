@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class AbilitiesInput : MonoBehaviour
 {
+    public static AbilitiesInput instance;
     [Header("Camera")]
     public Camera cam;
     [Header("Tornado related things")]
     public GameObject tornado;                                                                                          //GameObjectet som ska spawnas vid knapptryckning
     private KeyCode TornadoKey;
     public static bool TornadoSpawned;                                                                                         //säger true eller false ifall en tornado existerar eller inte
+    private float TornadoSpin;
+    private float tornadoTimer;
     [Header("Earthquake related things")]
     public GameObject earthquake;
     private KeyCode EarthquakeKey;
@@ -25,10 +28,13 @@ public class AbilitiesInput : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        instance = this;
         TornadoKey = KeyCode.Space;                                                                                     //sätter en keycode för enklare återanvänding
         EarthquakeKey = KeyCode.C;                                                                                      //sätter en keycode för enklare återanvänding
         LightningKey = KeyCode.V;
         EarthquakeTimer = 0;
+        TornadoSpin = 0;
+        tornadoTimer = 0;
 
         AbilitiesInput.Charging = false;                                                                                 //vi börjar inte med att charga tornados vid starten så det är false
         AbilitiesInput.TornadoSpawned = false;                                                                                          //i början finns inga tornados så den sätts till false
@@ -40,6 +46,7 @@ public class AbilitiesInput : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         EarthQuake();                                                                                                  //callar funktionen för att kolla allt med en earthquake
 
         Tornado();                                                                                                     //callar funktionen som ska ha med tornado spawning att göra
@@ -49,20 +56,48 @@ public class AbilitiesInput : MonoBehaviour
 
     private void Tornado()
     {
-        if (Input.GetKey(TornadoKey))                                                                                  //kollar ifall tornadoknappen är nertryckt ger true eller false varje frame
+        TornadoSpin = Input.GetAxis("Mouse ScrollWheel");
+        if (TornadoSpin != 0)
+        {
+            TornadoTimer();
+        }
+        if (TornadoTimer() != 0)                                                                                  //kollar ifall tornadoknappen är nertryckt ger true eller false varje frame
         {
             if (TornadoSpawned == false)                                                                               //kollar ifall det redan finns en tornado i gamespacet
             {
                 AbilitiesInput.Charging = true;                                                                        //sätter en bool till true för att säga att tornadon laddas upp
                 AbilitiesInput.TornadoSpawned = true;                                                                                 //sätter en bool till sant som säger att det finns redan en tornado spawnad
                 var clone = Instantiate(tornado, cam.ScreenToWorldPoint(new Vector3(Screen.width / 2, Screen.height / 2, cam.nearClipPlane)), Quaternion.identity);
+                Invoke("StopTornado", 2);
                 //spawnar en tornado på kamerans mittpunkt och med en rotation som i det här momentet är vad den är i prefaben
             }
         }
-        else if (Input.GetKeyUp(TornadoKey))                                                                           //kollar om knappen har blivit släppt och ger en true i framen det händer
+        else if(TornadoTimer() == 0)
         {
-            AbilitiesInput.Charging = false;                                                                           //sätter boolen som säger att vi inte laddar längre
+            StopTornado();
         }
+    }
+
+    private float TornadoTimer()
+    {
+        if (tornadoTimer < 0)
+        {
+            tornadoTimer += 1 * Time.deltaTime;
+            if (tornadoTimer > 0)
+                tornadoTimer = 0;
+        }
+        else if (tornadoTimer > 0)
+        {
+            tornadoTimer -= 1 * Time.deltaTime;
+            if (tornadoTimer < 0)
+                tornadoTimer = 0;
+        }
+
+        if (TornadoSpin != 0)
+        {
+            tornadoTimer = 0.2f;
+        }
+        return tornadoTimer;
     }
 
     private void EarthQuake()
@@ -99,5 +134,15 @@ public class AbilitiesInput : MonoBehaviour
         {
             var clone = Instantiate(lightning, cam.ScreenToWorldPoint(new Vector3(Screen.width / 2, Screen.height / 2, cam.nearClipPlane)), Quaternion.identity);
         }
+    }
+
+    private void StopTornado()
+    {
+        AbilitiesInput.Charging = false;                                                                           //sätter boolen som säger att vi inte laddar längre
+    }
+
+    public static float TornadoIncrease()
+    {
+        return instance.TornadoSpin;
     }
 }
