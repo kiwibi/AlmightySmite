@@ -33,6 +33,9 @@ public class CityBehaviour : MonoBehaviour
     private DamageDealer dmgDealer;                                                                                                     //scriptet för damagedealer
     private float UpgradeRandTimer = 0;
 
+    public Transform Damage01;
+    public Transform Damage02;
+    public Transform Damage03;
     private Transform Alive;                                                                                                            //child objektet CityAlive
     private Transform Dead;                                                                                                             //child objektet CityDead
     
@@ -64,10 +67,40 @@ public class CityBehaviour : MonoBehaviour
         if(Alive.gameObject.activeSelf == true)                                                                                          //om objektet Alive är aktivt i scenen gör funktionen AliveUpdate
         {
             AliveUpdate();
+            if (CurrentHealth < MaxHealth / 1.1)
+            {
+                Damage01.gameObject.SetActive(true);
+            } else {
+                Damage01.gameObject.SetActive(false);
+            }
+            if (CurrentHealth < MaxHealth / 1.8)
+            {
+                Damage02.gameObject.SetActive(true);
+            } else {
+                Damage02.gameObject.SetActive(false);
+            }
+            if (CurrentHealth < MaxHealth / 2.5)
+            {
+                Damage03.gameObject.SetActive(true);
+            } else {
+                Damage03.gameObject.SetActive(false);
+            }
+
             if (Timer > TickTime)
             {
-                Pool.ProgressPool += 0.0005f;
-                Timer = 0.0f;
+                if (CurrentLevel == 1)
+                {
+                    Pool.ProgressPool += 0.0007f;
+                    Timer = 0.0f;
+                } else if (CurrentLevel == 2)
+                {
+                    Pool.ProgressPool += 0.0028f;
+                    Timer = 0.0f;
+                } else if (CurrentLevel == 3)
+                {
+                    Pool.ProgressPool += 0.0089f;
+                    Timer = 0.0f;
+                }
             }
         }    
         else                                                                                                                             //annars gör deadUpdate

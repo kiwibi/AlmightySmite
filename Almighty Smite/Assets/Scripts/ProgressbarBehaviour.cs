@@ -8,15 +8,14 @@ public class ProgressbarBehaviour : MonoBehaviour
     public Image ProgressBar;
     public GameObject WinText;
     public GameObject LoseText;
-    public float ProgressPool = 0.0f;
-    public float AddPoolTMP = 0.1f;
+    public float ProgressPool = 0;
 
     void Awake()
     {
         LoseText.SetActive(false);
         WinText.SetActive(false);
         Time.timeScale = 1;
-        ProgressBar.fillAmount = 0.3f;
+        ProgressPool = 0.3f;
     }
 
     void Update()

@@ -66,8 +66,11 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 6cf0a46fe17728f4eb6f16ff3102bf4b, type: 3}
   MaxHealth: 80
   MaxUpgradeTimer: 5
-  MaxRespawnTimer: 1
+  MaxRespawnTimer: 10
   SpawnIndex: 0
+  Damage01: {fileID: 6993696948421756858}
+  Damage02: {fileID: 4144383234715132784}
+  Damage03: {fileID: 1076640966532241974}
 --- !u!114 &8123066163285762019
 MonoBehaviour:
   m_ObjectHideFlags: 0
