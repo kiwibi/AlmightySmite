@@ -9,6 +9,7 @@ public class ProgressbarBehaviour : MonoBehaviour
     public GameObject WinText;
     public GameObject LoseText;
     public float ProgressPool = 0;
+    public bool DEVSWITCH = false;
 
     void Awake()
     {
@@ -20,16 +21,19 @@ public class ProgressbarBehaviour : MonoBehaviour
 
     void Update()
     {
-        ProgressBar.fillAmount = ProgressPool;
-        if (ProgressPool >= 1)
+        if (DEVSWITCH == false)
         {
-            LoseText.SetActive(true);
-            Time.timeScale = 0;
-        }
-        if (ProgressPool < 0)
-        {
-            WinText.SetActive(true);
-            Time.timeScale = 0;
+            ProgressBar.fillAmount = ProgressPool;
+            if (ProgressPool >= 1)
+            {
+                LoseText.SetActive(true);
+                Time.timeScale = 0;
+            }
+            if (ProgressPool < 0)
+            {
+                WinText.SetActive(true);
+                Time.timeScale = 0;
+            }
         }
     }
 }

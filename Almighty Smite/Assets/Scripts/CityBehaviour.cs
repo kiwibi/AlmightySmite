@@ -23,16 +23,15 @@ public class CityBehaviour : MonoBehaviour
     private CityMaster CitiesAlive;
     private int CurrentLevel;                                                                                                           //vilken lvl staden är. bestämmer vilka värden som används
     public float MaxHealth;                                                                                                             //max health för staden
-    public float MaxUpgradeTimer;                                                                                                       //hur lång tid ska det ta att uppgradera stadens level
+    private float MaxUpgradeTimer;                                                                                                       //hur lång tid ska det ta att uppgradera stadens level
     private float UpgradeTimer;                                                                                                         //vart timer ligger just nu
-    public float MaxRespawnTimer;                                                                                                       //hur lång tid ska det ta för att staden ska spawna igen
+    private float MaxRespawnTimer;                                                                                                       //hur lång tid ska det ta för att staden ska spawna igen
     private float RespawnTimer;                                                                                                         //vart tiden ligger just nu
     private float CurrentHealth;                                                                                                        //vart healthen ligger just nu
     private CityType CurrentType;                                                                                                       //vilken sorts stad den är just nu bestämt av enumens i början av scriptet
     public int SpawnIndex;                                                                                                              //i vilken collider den spawnade i
     private DamageType LastAttackedBy;                                                                                                  //vilken sorts damage attackerade staden sist
     private DamageDealer dmgDealer;                                                                                                     //scriptet för damagedealer
-    private float UpgradeRandTimer = 0;
 
     public Transform Minimap01;
     public Transform Minimap02;
@@ -46,7 +45,8 @@ public class CityBehaviour : MonoBehaviour
     
     void Start()
     {
-        UpgradeRandTimer = Random.Range(10.0f, 25.0f);
+        MaxUpgradeTimer = Random.Range(10.0f, 25.0f);
+        MaxRespawnTimer = Random.Range(5.0f, 60.0f);
         Pool = GameObject.Find("GameUI").GetComponent<ProgressbarBehaviour>();
         CitiesAlive = GameObject.Find("City Master").GetComponent<CityMaster>();
         CityRenderer = GetComponentInChildren<SpriteRenderer>();
