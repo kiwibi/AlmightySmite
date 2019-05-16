@@ -100,10 +100,10 @@ public class CityBehaviour : MonoBehaviour
                 Minimap03.gameObject.SetActive(true);
             } else { Minimap03.gameObject.SetActive(false); }
 
-            if (CurrentHealth < MaxHealth / 1.1)
+            if (CurrentHealth < MaxHealth)
             {
                 Damage01.gameObject.SetActive(true);
-                if (CurrentHealth < MaxHealth / 1.8)
+                if (CurrentHealth < MaxHealth / 1.5)
                 {
                     Damage02.gameObject.SetActive(true);
                     if (CurrentHealth < MaxHealth / 2.5)
@@ -111,6 +111,11 @@ public class CityBehaviour : MonoBehaviour
                         Damage03.gameObject.SetActive(true);
                     }
                 }
+            } else
+            {
+                Damage01.gameObject.SetActive(false);
+                Damage02.gameObject.SetActive(false);
+                Damage03.gameObject.SetActive(false);
             }
         }
         else                                                                                                                             //annars gör deadUpdate
@@ -124,9 +129,6 @@ public class CityBehaviour : MonoBehaviour
         if(CurrentHealth <= 0)                                                                                                          //om stadens health är mindre eller likamed 0 byt till död
         {
             SwitchState();
-            Damage01.gameObject.SetActive(false);
-            Damage02.gameObject.SetActive(false);
-            Damage03.gameObject.SetActive(false);
             Pool.ProgressPool -= 0.08f;
             return;
         }
