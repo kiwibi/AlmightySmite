@@ -130,6 +130,7 @@ public class CityBehaviour : MonoBehaviour
             CurrentHealth = MaxHealth;                                                                                                     //health går till max
             RespawnTimer = MaxRespawnTimer /* * CurrentLevel*/;                                                                            //respawntimer resetas
             CurrentLevel = 1;                                                                                                              //level sätts till 1
+            UpgradeTimer = MaxUpgradeTimer;
             SwitchState();                                                                                                                 //byter state till alive
             ChooseType();                                                                                                                  //byter stad så att den är stark mot det den ska vara
             CityRenderer.sprite = DifferentCities[CurrentLevel - 1];
@@ -216,9 +217,13 @@ public class CityBehaviour : MonoBehaviour
         {
             Alive.gameObject.SetActive(false);                                                                                           //gör ena enabled och den andra inte
             Dead.gameObject.SetActive(true);
+            transform.GetChild(2).GetComponent<Animator>().SetBool("Dead", true);
+            CityAnimator.SetBool("Upgrade1", false);
+            CityAnimator.SetBool("Upgrade1", false);
         }
         else
         {
+            transform.GetChild(2).GetComponent<Animator>().SetBool("Dead", false);
             Alive.gameObject.SetActive(true);                                                                                           //gör ena enabled och den andra inte
             Dead.gameObject.SetActive(false);
             CurrentType = ChooseType();                                                                                                 //skaffa en ny citytype nu när den spawnar

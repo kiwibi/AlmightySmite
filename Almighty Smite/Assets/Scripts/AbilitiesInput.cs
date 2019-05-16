@@ -9,7 +9,6 @@ public class AbilitiesInput : MonoBehaviour
     public Camera cam;
     [Header("Tornado related things")]
     public GameObject tornado;                                                                                          //GameObjectet som ska spawnas vid knapptryckning
-    private KeyCode TornadoKey;
     public static bool TornadoSpawned;                                                                                         //säger true eller false ifall en tornado existerar eller inte
     private float TornadoSpin;
     private float tornadoTimer;
@@ -29,7 +28,6 @@ public class AbilitiesInput : MonoBehaviour
     void Start()
     {
         instance = this;
-        TornadoKey = KeyCode.Space;                                                                                     //sätter en keycode för enklare återanvänding
         EarthquakeKey = KeyCode.C;                                                                                      //sätter en keycode för enklare återanvänding
         LightningKey = KeyCode.V;
         EarthquakeTimer = 0;

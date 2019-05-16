@@ -15,7 +15,7 @@ public class CityAlive : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D col)
     {
-        if (col.gameObject.tag != "Land" && col.gameObject.tag != "MainCamera")                                                                               //om den inte krockar med någonting vi inte bryr oss om
+        if (col.gameObject.tag != "Land" && col.gameObject.tag != "MainCamera" && col.gameObject.tag != "Ocean")                                                                               //om den inte krockar med någonting vi inte bryr oss om
         {
             if(col.gameObject.name == "Lightning")                                                                                                            //om det va lightning som träffade
             {
