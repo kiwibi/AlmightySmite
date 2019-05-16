@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class WindBehaviour : MonoBehaviour
 {
                                                                                                                         //privata variabler
-    private int WindDirection;
     private Vector2 WindMovement;
     private Image WindIndicatorRenderer;
 
@@ -19,7 +18,6 @@ public class WindBehaviour : MonoBehaviour
     void Start()
     {
         WindMovement = Vector2.up;
-        WindDirection = 0;                                                                                              //sätter vinden till at börja peka mot norr
         WindIndicatorRenderer = GetComponentsInChildren<Image>()[1];                                           //getcomponent av pekarens sprite som ska flyttas och roteras
         instance = this;                                                                                                //klargör att instance är just det här scriptet
     }
