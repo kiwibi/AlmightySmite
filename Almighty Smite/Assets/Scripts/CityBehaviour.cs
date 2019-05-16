@@ -33,6 +33,7 @@ public class CityBehaviour : MonoBehaviour
     private DamageDealer dmgDealer;                                                                                                     //scriptet för damagedealer
     private float UpgradeRandTimer = 0;
 
+    private Animator CityAnimator;
     private Transform Alive;                                                                                                            //child objektet CityAlive
     private Transform Dead;                                                                                                             //child objektet CityDead
     
@@ -49,6 +50,7 @@ public class CityBehaviour : MonoBehaviour
 
         Alive = transform.GetChild(0);                                                                                                  //hämtar komponenterna från de två child objekten
         Dead = transform.GetChild(1);
+        CityAnimator = GetComponentInChildren<Animator>();
 
         Dead.gameObject.SetActive(false);                                                                                               //sätter den döda till false
         dmgDealer = GetComponent<DamageDealer>();                                                                                       //hämtar komponenterna från damagedealer scriptet
@@ -111,13 +113,14 @@ public class CityBehaviour : MonoBehaviour
             float lostHealth = MaxHealth - CurrentHealth;
             CurrentHealth = (MaxHealth * CurrentLevel) - lostHealth;                                                                       //öka health valuet
             UpgradeTimer = (MaxUpgradeTimer * CurrentLevel);                                                                               //sätt en ny uppgradetimer
-            CityRenderer.sprite = DifferentCities[CurrentLevel - 1];
             if(CurrentLevel == 2)
             {
+                CityAnimator.SetBool("Upgrade1", true);
                 CityCollider.size = new Vector2(1.6f, CityCollider.size.y);
             }
             else if(CurrentLevel == 3)
             {
+                CityAnimator.SetBool("Upgrade2", true);
                 CityCollider.size = new Vector2(2.3f, 1.75f);
             }
         }

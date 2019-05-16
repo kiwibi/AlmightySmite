@@ -1631,11 +1631,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: CityParent (9)
       objectReference: {fileID: 0}
-    - target: {fileID: 35427866822959562, guid: 6c4803f7c69720a42b2238e854cecabf,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 35427866822959560, guid: 6c4803f7c69720a42b2238e854cecabf,
         type: 3}
       propertyPath: m_LocalPosition.x
