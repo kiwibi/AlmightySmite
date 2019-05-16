@@ -743,12 +743,12 @@ PrefabInstance:
     - target: {fileID: 6210257430153249988, guid: b6953747cfc33234eba304d705aa6cdf,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.4
+      value: -0.31
       objectReference: {fileID: 0}
     - target: {fileID: 6210257430153249988, guid: b6953747cfc33234eba304d705aa6cdf,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.09923729
+      value: 0.06
       objectReference: {fileID: 0}
     - target: {fileID: 6210257430153249988, guid: b6953747cfc33234eba304d705aa6cdf,
         type: 3}
@@ -798,7 +798,7 @@ PrefabInstance:
     - target: {fileID: 6210257430153249988, guid: b6953747cfc33234eba304d705aa6cdf,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.21000071
+      value: 0.08
       objectReference: {fileID: 0}
     - target: {fileID: 6210257430153249991, guid: b6953747cfc33234eba304d705aa6cdf,
         type: 3}
@@ -848,27 +848,27 @@ PrefabInstance:
     - target: {fileID: 6210257430153249989, guid: b6953747cfc33234eba304d705aa6cdf,
         type: 3}
       propertyPath: InitialModule.startColor.maxColor.r
-      value: 0.6617397
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6210257430153249989, guid: b6953747cfc33234eba304d705aa6cdf,
         type: 3}
       propertyPath: InitialModule.startColor.maxColor.g
-      value: 0.8773585
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6210257430153249989, guid: b6953747cfc33234eba304d705aa6cdf,
         type: 3}
       propertyPath: InitialModule.startColor.maxColor.b
-      value: 0.5504183
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6210257430153249988, guid: b6953747cfc33234eba304d705aa6cdf,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.16
+      value: -0.08
       objectReference: {fileID: 0}
     - target: {fileID: 6210257430153249988, guid: b6953747cfc33234eba304d705aa6cdf,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.59
+      value: 0.35
       objectReference: {fileID: 0}
     - target: {fileID: 6210257430153249988, guid: b6953747cfc33234eba304d705aa6cdf,
         type: 3}
@@ -918,7 +918,12 @@ PrefabInstance:
     - target: {fileID: 6210257430153249988, guid: b6953747cfc33234eba304d705aa6cdf,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.27
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6210257430153249988, guid: b6953747cfc33234eba304d705aa6cdf,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.29
       objectReference: {fileID: 0}
     - target: {fileID: 6210257430153249991, guid: b6953747cfc33234eba304d705aa6cdf,
         type: 3}
@@ -963,27 +968,27 @@ PrefabInstance:
     - target: {fileID: 6210257430153249989, guid: b6953747cfc33234eba304d705aa6cdf,
         type: 3}
       propertyPath: InitialModule.startColor.maxColor.r
-      value: 0.5849056
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6210257430153249989, guid: b6953747cfc33234eba304d705aa6cdf,
         type: 3}
       propertyPath: InitialModule.startColor.maxColor.g
-      value: 0.5849056
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6210257430153249989, guid: b6953747cfc33234eba304d705aa6cdf,
         type: 3}
       propertyPath: InitialModule.startColor.maxColor.b
-      value: 0.5849056
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6210257430153249988, guid: b6953747cfc33234eba304d705aa6cdf,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.28
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 6210257430153249988, guid: b6953747cfc33234eba304d705aa6cdf,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.32
+      value: 0.13
       objectReference: {fileID: 0}
     - target: {fileID: 6210257430153249988, guid: b6953747cfc33234eba304d705aa6cdf,
         type: 3}
@@ -1038,7 +1043,7 @@ PrefabInstance:
     - target: {fileID: 6210257430153249988, guid: b6953747cfc33234eba304d705aa6cdf,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.21000071
+      value: 0.11
       objectReference: {fileID: 0}
     - target: {fileID: 6210257430153249991, guid: b6953747cfc33234eba304d705aa6cdf,
         type: 3}
