@@ -33,6 +33,9 @@ public class CityBehaviour : MonoBehaviour
     private DamageDealer dmgDealer;                                                                                                     //scriptet för damagedealer
     private float UpgradeRandTimer = 0;
 
+    public Transform Minimap01;
+    public Transform Minimap02;
+    public Transform Minimap03;
     public Transform Damage01;
     public Transform Damage02;
     public Transform Damage03;
@@ -69,41 +72,46 @@ public class CityBehaviour : MonoBehaviour
         if(Alive.gameObject.activeSelf == true)                                                                                          //om objektet Alive är aktivt i scenen gör funktionen AliveUpdate
         {
             AliveUpdate();
+            if (CurrentLevel == 1)
+            {
+                if (Timer > TickTime)
+                {
+                    Pool.ProgressPool += Random.Range(0, 0.001f);
+                    Timer = 0.0f;
+                }
+                Minimap01.gameObject.SetActive(true);
+            } else { Minimap01.gameObject.SetActive(false); }
+            if (CurrentLevel == 2)
+            {
+                if (Timer > TickTime)
+                {
+                    Pool.ProgressPool += Random.Range(0.0005f, 0.003f);
+                    Timer = 0.0f;
+                }
+                Minimap02.gameObject.SetActive(true);
+            } else { Minimap02.gameObject.SetActive(false); }
+            if (CurrentLevel == 3)
+            {
+                if (Timer > TickTime)
+                {
+                    Pool.ProgressPool += Random.Range(0.001f, 0.01f);
+                    Timer = 0.0f;
+                }
+                Minimap03.gameObject.SetActive(true);
+            } else { Minimap03.gameObject.SetActive(false); }
+
             if (CurrentHealth < MaxHealth / 1.1)
             {
                 Damage01.gameObject.SetActive(true);
-            } else {
-                Damage01.gameObject.SetActive(false);
-            }
-            if (CurrentHealth < MaxHealth / 1.8)
-            {
-                Damage02.gameObject.SetActive(true);
-            } else {
-                Damage02.gameObject.SetActive(false);
-            }
-            if (CurrentHealth < MaxHealth / 2.5)
-            {
-                Damage03.gameObject.SetActive(true);
-            } else {
-                Damage03.gameObject.SetActive(false);
-            }
-
-            if (Timer > TickTime)
-            {
-                if (CurrentLevel == 1)
+                if (CurrentHealth < MaxHealth / 1.8)
                 {
-                    Pool.ProgressPool += 0.0007f;
-                    Timer = 0.0f;
-                } else if (CurrentLevel == 2)
-                {
-                    Pool.ProgressPool += 0.0028f;
-                    Timer = 0.0f;
-                } else if (CurrentLevel == 3)
-                {
-                    Pool.ProgressPool += 0.0089f;
-                    Timer = 0.0f;
-                }
-            }
+                    Damage02.gameObject.SetActive(true);
+                    if (CurrentHealth < MaxHealth / 2.5)
+                    {
+                        Damage03.gameObject.SetActive(true);
+                    } else { Damage01.gameObject.SetActive(false); }
+                } else { Damage02.gameObject.SetActive(false); }
+            } else { Damage03.gameObject.SetActive(false); }
         }    
         else                                                                                                                             //annars gör deadUpdate
         {
