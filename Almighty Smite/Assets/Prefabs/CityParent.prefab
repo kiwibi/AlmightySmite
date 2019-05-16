@@ -114,8 +114,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 35427867363498703}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.041, y: -0.064, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.061, y: 0.022, z: 0}
+  m_LocalScale: {x: 0.12769839, y: 0.12769839, z: 0.12769839}
   m_Children: []
   m_Father: {fileID: 35427867626450999}
   m_RootOrder: 0
@@ -157,7 +157,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: b77cd67cf6d902e41a0c6445dd5579ee, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ce217d5f823baa042b6de2e1e16f78f9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -740,6 +740,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 35427868115302179}
     m_Modifications:
+    - target: {fileID: 6210257430153249991, guid: b6953747cfc33234eba304d705aa6cdf,
+        type: 3}
+      propertyPath: m_Name
+      value: Damage01
+      objectReference: {fileID: 0}
+    - target: {fileID: 6210257430153249991, guid: b6953747cfc33234eba304d705aa6cdf,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6210257430153249991, guid: b6953747cfc33234eba304d705aa6cdf,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6210257430153249988, guid: b6953747cfc33234eba304d705aa6cdf,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -800,21 +815,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 0.08
       objectReference: {fileID: 0}
-    - target: {fileID: 6210257430153249991, guid: b6953747cfc33234eba304d705aa6cdf,
-        type: 3}
-      propertyPath: m_Name
-      value: Damage01
-      objectReference: {fileID: 0}
-    - target: {fileID: 6210257430153249991, guid: b6953747cfc33234eba304d705aa6cdf,
-        type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 6210257430153249991, guid: b6953747cfc33234eba304d705aa6cdf,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6210257430153249990, guid: b6953747cfc33234eba304d705aa6cdf,
         type: 3}
       propertyPath: m_CastShadows
@@ -845,6 +845,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 35427868115302179}
     m_Modifications:
+    - target: {fileID: 6210257430153249991, guid: b6953747cfc33234eba304d705aa6cdf,
+        type: 3}
+      propertyPath: m_Name
+      value: Damage03
+      objectReference: {fileID: 0}
+    - target: {fileID: 6210257430153249991, guid: b6953747cfc33234eba304d705aa6cdf,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6210257430153249991, guid: b6953747cfc33234eba304d705aa6cdf,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6210257430153249989, guid: b6953747cfc33234eba304d705aa6cdf,
         type: 3}
       propertyPath: InitialModule.startColor.maxColor.r
@@ -925,21 +940,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 0.29
       objectReference: {fileID: 0}
-    - target: {fileID: 6210257430153249991, guid: b6953747cfc33234eba304d705aa6cdf,
-        type: 3}
-      propertyPath: m_Name
-      value: Damage03
-      objectReference: {fileID: 0}
-    - target: {fileID: 6210257430153249991, guid: b6953747cfc33234eba304d705aa6cdf,
-        type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 6210257430153249991, guid: b6953747cfc33234eba304d705aa6cdf,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6210257430153249990, guid: b6953747cfc33234eba304d705aa6cdf,
         type: 3}
       propertyPath: m_CastShadows
@@ -965,6 +965,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 35427868115302179}
     m_Modifications:
+    - target: {fileID: 6210257430153249991, guid: b6953747cfc33234eba304d705aa6cdf,
+        type: 3}
+      propertyPath: m_Name
+      value: Damage02
+      objectReference: {fileID: 0}
+    - target: {fileID: 6210257430153249991, guid: b6953747cfc33234eba304d705aa6cdf,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6210257430153249991, guid: b6953747cfc33234eba304d705aa6cdf,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6210257430153249989, guid: b6953747cfc33234eba304d705aa6cdf,
         type: 3}
       propertyPath: InitialModule.startColor.maxColor.r
@@ -1044,21 +1059,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.y
       value: 0.11
-      objectReference: {fileID: 0}
-    - target: {fileID: 6210257430153249991, guid: b6953747cfc33234eba304d705aa6cdf,
-        type: 3}
-      propertyPath: m_Name
-      value: Damage02
-      objectReference: {fileID: 0}
-    - target: {fileID: 6210257430153249991, guid: b6953747cfc33234eba304d705aa6cdf,
-        type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 6210257430153249991, guid: b6953747cfc33234eba304d705aa6cdf,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6210257430153249990, guid: b6953747cfc33234eba304d705aa6cdf,
         type: 3}
