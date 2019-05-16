@@ -67,7 +67,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 6cf0a46fe17728f4eb6f16ff3102bf4b, type: 3}
   MaxHealth: 80
   MaxUpgradeTimer: 5
-  MaxRespawnTimer: 10
+  MaxRespawnTimer: 100
   SpawnIndex: 0
   Minimap01: {fileID: 2876759286897664113}
   Minimap02: {fileID: 3159338748477682807}

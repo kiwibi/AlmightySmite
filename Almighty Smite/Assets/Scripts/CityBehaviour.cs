@@ -20,6 +20,7 @@ public class CityBehaviour : MonoBehaviour
     private SpriteRenderer CityRenderer;
     private BoxCollider2D CityCollider;
     private ProgressbarBehaviour Pool;
+    private CityMaster CitiesAlive;
     private int CurrentLevel;                                                                                                           //vilken lvl staden är. bestämmer vilka värden som används
     public float MaxHealth;                                                                                                             //max health för staden
     public float MaxUpgradeTimer;                                                                                                       //hur lång tid ska det ta att uppgradera stadens level
@@ -47,6 +48,7 @@ public class CityBehaviour : MonoBehaviour
     {
         UpgradeRandTimer = Random.Range(10.0f, 25.0f);
         Pool = GameObject.Find("GameUI").GetComponent<ProgressbarBehaviour>();
+        CitiesAlive = GameObject.Find("City Master").GetComponent<CityMaster>();
         CityRenderer = GetComponentInChildren<SpriteRenderer>();
         CityCollider = GetComponentInChildren<BoxCollider2D>();
         CurrentLevel = 1;                                                                                                               //staden börjar på lvl 1
@@ -129,6 +131,7 @@ public class CityBehaviour : MonoBehaviour
         if(CurrentHealth <= 0)                                                                                                          //om stadens health är mindre eller likamed 0 byt till död
         {
             SwitchState();
+            CitiesAlive.CitiesAlive--;
             Pool.ProgressPool -= 0.08f;
             return;
         }
@@ -145,6 +148,7 @@ public class CityBehaviour : MonoBehaviour
             CurrentLevel = 1;                                                                                                              //level sätts till 1
             UpgradeTimer = MaxUpgradeTimer;
             SwitchState();                                                                                                                 //byter state till alive
+            CitiesAlive.CitiesAlive++;
             ChooseType();                                                                                                                  //byter stad så att den är stark mot det den ska vara
             CityRenderer.sprite = DifferentCities[CurrentLevel - 1];
             CityCollider.size = new Vector2(1, 1);
