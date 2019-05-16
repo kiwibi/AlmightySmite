@@ -228,6 +228,9 @@ public class CityBehaviour : MonoBehaviour
             transform.GetChild(2).GetComponent<Animator>().SetBool("Dead", true);
             CityAnimator.SetBool("Upgrade1", false);
             CityAnimator.SetBool("Upgrade1", false);
+            Damage01.gameObject.SetActive(false);
+            Damage02.gameObject.SetActive(false);
+            Damage03.gameObject.SetActive(false);
         }
         else
         {
