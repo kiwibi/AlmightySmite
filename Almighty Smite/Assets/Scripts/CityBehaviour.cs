@@ -129,9 +129,18 @@ public class CityBehaviour : MonoBehaviour
     {  
         if(CurrentHealth <= 0)                                                                                                          //om stadens health är mindre eller likamed 0 byt till död
         {
+            if (CurrentLevel == 1)
+            {
+                Pool.ProgressPool -= 0.01f;
+            } else if (CurrentLevel == 2)
+            {
+                Pool.ProgressPool -= 0.02f;
+            } else if (CurrentLevel == 3)
+            {
+                Pool.ProgressPool -= 0.03f;
+            }
             SwitchState();
             CitiesAlive.CitiesAlive--;
-            Pool.ProgressPool -= 0.08f;
             return;
         }
         UpgradeCity();                                                                                                                  //callar funktionen upgradecity
