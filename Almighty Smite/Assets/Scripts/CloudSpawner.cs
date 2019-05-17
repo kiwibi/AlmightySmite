@@ -11,7 +11,6 @@ public class CloudSpawner : MonoBehaviour
     private Vector3 SpawnLocation;
     private Transform ParentSpawn;
 
-    // Start is called before the first frame update
     void Start()
     {
         ParentSpawn = GameObject.Find("Map Master").transform;
@@ -20,7 +19,6 @@ public class CloudSpawner : MonoBehaviour
         TotalColliderAmount = CloudArea.GetComponentsInChildren<Collider2D>();                                                                                          //sätter hur många zoner det va i världen
     }
 
-    // Update is called once per frame
     void Update()
     {
         SpawnDelay -= 1 * Time.timeScale;
