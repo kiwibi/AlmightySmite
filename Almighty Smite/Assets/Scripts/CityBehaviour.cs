@@ -14,8 +14,7 @@ public class CityBehaviour : MonoBehaviour
     }
     private readonly float TickTime = 1.0f;
     private float Timer = 0.0f;
-    public DamageType[] DamageKinds;                                                                                                    //en array för att hålla alla olika sorters dmg den ska känna till
-    public ParticleSystem[] Smokes;                                                                                                     //en arrat för att hålla alla sorters olika smoke så den vet vad som ska spawnas
+    public DamageType[] DamageKinds;                                                                                                    //en array för att hålla alla olika sorters dmg den ska känna till                                                                                                 //en arrat för att hålla alla sorters olika smoke så den vet vad som ska spawnas
     public Sprite[] DifferentCities;
     private SpriteRenderer CityRenderer;
     private BoxCollider2D CityCollider;
@@ -204,27 +203,6 @@ public class CityBehaviour : MonoBehaviour
             TmpType = CityType.WATER;                                                                                                     //sätt till rätta variabler till type och dmgtype
             dmgDealer.damageType = DamageKinds[7];
         }
-        var smoke = GetComponentInChildren<ParticleSystem>();                                                                             //försöker hitta om det redan finns rök effekter
-        Destroy(smoke);                                                                                                                   //förstör den 
-        ParticleSystem clone;                                                                                                             //skapa ett nytt particle system
-        switch (CurrentType)                                                                                                              //går in i caset söm CityType är = med
-        {
-            case CityType.NORMAL:
-                break;
-            case CityType.EARTHQUAKE:
-                clone = Instantiate(Smokes[0], transform);                                                                                //spawna röken
-                break;
-            case CityType.WATER:
-                Instantiate(Smokes[3], transform);                                                                                        //spawna röken
-                break;
-            case CityType.LIGHTNING:
-                Instantiate(Smokes[2], transform);                                                                                       //spawna röken
-                break;
-            case CityType.TORNADO:
-                Instantiate(Smokes[1], transform);                                                                                       //spawna röken
-                break;
-        }
-
         return TmpType;                                                                                                                  //skicka tillbakla temporär variabeln
     }
 
@@ -234,6 +212,7 @@ public class CityBehaviour : MonoBehaviour
         {
             Alive.gameObject.SetActive(false);                                                                                           //gör ena enabled och den andra inte
             Dead.gameObject.SetActive(true);
+            transform.GetChild(2).localScale = new Vector3(0.7f, 0.7f);
             transform.GetChild(2).GetComponent<Animator>().SetBool("Dead", true);
             CityAnimator.SetBool("Upgrade1", false);
             CityAnimator.SetBool("Upgrade1", false);
@@ -241,6 +220,7 @@ public class CityBehaviour : MonoBehaviour
         else
         {
             transform.GetChild(2).GetComponent<Animator>().SetBool("Dead", false);
+            transform.GetChild(2).localScale = new Vector3(0.27f, 0.27f);
             Alive.gameObject.SetActive(true);                                                                                           //gör ena enabled och den andra inte
             Dead.gameObject.SetActive(false);
             CurrentType = ChooseType();                                                                                                 //skaffa en ny citytype nu när den spawnar

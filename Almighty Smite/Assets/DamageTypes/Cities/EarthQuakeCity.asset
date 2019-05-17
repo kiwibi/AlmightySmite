@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: EarthQuakeCity
   m_EditorClassIdentifier: 
   TakesDamageFrom:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: a57feec23fd883941af2fddecc61fbdd, type: 2}
+  - {fileID: 11400000, guid: cfd0a4205d46a674ab54b57a32844f3a, type: 2}
+  - {fileID: 11400000, guid: 39b83a76821ca244dafe1b56e75c58d1, type: 2}

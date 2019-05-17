@@ -98,8 +98,8 @@ public class TornadoBehaviour : MonoBehaviour
         }
         else
         {
-            TornadoSprite.transform.localScale -= new Vector3(SizeIncrement, SizeIncrement);                 //spriten skalas upp med 0.1 varje frame den laddar
-            TornadoCollider.radius -= (RadiusIncrement / 10);                                                  //Då radiusen är en tiondel av startskalan tornadon börjar växer den en tiondel så snabbt
+            TornadoSprite.transform.localScale -= new Vector3(SizeIncrement / 2, SizeIncrement / 2);                 //spriten skalas upp med 0.1 varje frame den laddar
+            TornadoCollider.radius -= (RadiusIncrement / 20);                                                  //Då radiusen är en tiondel av startskalan tornadon börjar växer den en tiondel så snabbt
             TornadoSpeed -= 0.2f * Time.deltaTime;                                                //farten på tornadon ökas varje frame med deltatime så länge den laddas
             MaxDmg -= 0.2f * Time.deltaTime;
         }

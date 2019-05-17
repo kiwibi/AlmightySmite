@@ -12,4 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e778579f2ba0fd4478cbc05f36077343, type: 3}
   m_Name: LightningCity
   m_EditorClassIdentifier: 
-  TakesDamageFrom: []
+  TakesDamageFrom:
+  - {fileID: 11400000, guid: f6418743c79568a4998ad177588e2ed2, type: 2}
+  - {fileID: 11400000, guid: cfd0a4205d46a674ab54b57a32844f3a, type: 2}
+  - {fileID: 11400000, guid: 39b83a76821ca244dafe1b56e75c58d1, type: 2}
