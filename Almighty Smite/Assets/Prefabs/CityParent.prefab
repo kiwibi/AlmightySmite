@@ -754,7 +754,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7193285026315526286}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.8, z: 0}
+  m_LocalPosition: {x: 0, y: 1.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 35427867837411644}
@@ -821,7 +821,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 5, y: 4.93}
+  m_Size: {x: 5, y: 5.41}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
@@ -846,6 +846,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 35427868115302179}
     m_Modifications:
+    - target: {fileID: 6210257430153249991, guid: b6953747cfc33234eba304d705aa6cdf,
+        type: 3}
+      propertyPath: m_Name
+      value: Damage01
+      objectReference: {fileID: 0}
+    - target: {fileID: 6210257430153249991, guid: b6953747cfc33234eba304d705aa6cdf,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6210257430153249991, guid: b6953747cfc33234eba304d705aa6cdf,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6210257430153249988, guid: b6953747cfc33234eba304d705aa6cdf,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -906,21 +921,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 0.08
       objectReference: {fileID: 0}
-    - target: {fileID: 6210257430153249991, guid: b6953747cfc33234eba304d705aa6cdf,
-        type: 3}
-      propertyPath: m_Name
-      value: Damage01
-      objectReference: {fileID: 0}
-    - target: {fileID: 6210257430153249991, guid: b6953747cfc33234eba304d705aa6cdf,
-        type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 6210257430153249991, guid: b6953747cfc33234eba304d705aa6cdf,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6210257430153249990, guid: b6953747cfc33234eba304d705aa6cdf,
         type: 3}
       propertyPath: m_CastShadows
@@ -951,6 +951,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 35427868115302179}
     m_Modifications:
+    - target: {fileID: 6210257430153249991, guid: b6953747cfc33234eba304d705aa6cdf,
+        type: 3}
+      propertyPath: m_Name
+      value: Damage03
+      objectReference: {fileID: 0}
+    - target: {fileID: 6210257430153249991, guid: b6953747cfc33234eba304d705aa6cdf,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6210257430153249991, guid: b6953747cfc33234eba304d705aa6cdf,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6210257430153249988, guid: b6953747cfc33234eba304d705aa6cdf,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1016,21 +1031,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 0.29
       objectReference: {fileID: 0}
-    - target: {fileID: 6210257430153249991, guid: b6953747cfc33234eba304d705aa6cdf,
-        type: 3}
-      propertyPath: m_Name
-      value: Damage03
-      objectReference: {fileID: 0}
-    - target: {fileID: 6210257430153249991, guid: b6953747cfc33234eba304d705aa6cdf,
-        type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 6210257430153249991, guid: b6953747cfc33234eba304d705aa6cdf,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6210257430153249990, guid: b6953747cfc33234eba304d705aa6cdf,
         type: 3}
       propertyPath: m_CastShadows
@@ -1071,6 +1071,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 35427868115302179}
     m_Modifications:
+    - target: {fileID: 6210257430153249991, guid: b6953747cfc33234eba304d705aa6cdf,
+        type: 3}
+      propertyPath: m_Name
+      value: Damage02
+      objectReference: {fileID: 0}
+    - target: {fileID: 6210257430153249991, guid: b6953747cfc33234eba304d705aa6cdf,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6210257430153249991, guid: b6953747cfc33234eba304d705aa6cdf,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6210257430153249988, guid: b6953747cfc33234eba304d705aa6cdf,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1135,21 +1150,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.y
       value: 0.11
-      objectReference: {fileID: 0}
-    - target: {fileID: 6210257430153249991, guid: b6953747cfc33234eba304d705aa6cdf,
-        type: 3}
-      propertyPath: m_Name
-      value: Damage02
-      objectReference: {fileID: 0}
-    - target: {fileID: 6210257430153249991, guid: b6953747cfc33234eba304d705aa6cdf,
-        type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 6210257430153249991, guid: b6953747cfc33234eba304d705aa6cdf,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6210257430153249990, guid: b6953747cfc33234eba304d705aa6cdf,
         type: 3}
