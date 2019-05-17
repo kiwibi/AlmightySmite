@@ -128,7 +128,7 @@ public class AbilitiesInput : MonoBehaviour
 
     private void Lightning()
     {
-        if(Input.GetKeyDown(LightningKey))
+        if(Input.GetKeyDown(LightningKey) && Cooldowns.LightningOnCD == false)
         {
             var clone = Instantiate(lightning, cam.ScreenToWorldPoint(new Vector3(Screen.width / 2, Screen.height / 2, cam.nearClipPlane)), Quaternion.identity);
         }

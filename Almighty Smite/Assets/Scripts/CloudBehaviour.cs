@@ -6,8 +6,9 @@ public class CloudBehaviour : MonoBehaviour
 {
     public Sprite[] CloudSprites;
     private SpriteRenderer CloudRenderer;
-    private Vector3 Movement;
+    private Vector2 Movement;
     private float Timer = 0.0f;
+    private float ChangeDirection;
     Color CloudColor;
 
     void Start()
@@ -17,14 +18,15 @@ public class CloudBehaviour : MonoBehaviour
         CloudRenderer.material.color = CloudColor;
         CloudRenderer.sprite = CloudSprites[Random.Range(0, CloudSprites.Length - 1)];
         //Movement = Random.insideUnitCircle.normalized;
-        Movement = new Vector3(Random.Range(-3.0f, 3.0f), 0, 0);
+        Movement = WindBehaviour.GetWindMovement();
         CloudColor.a = 0.0f;
         CloudRenderer.material.color = CloudColor;
+        ChangeDirection = 0.5f;
     }
 
     void Update()
     {
-        transform.position += Movement * Time.deltaTime;
+        transform.Translate(Movement * Time.deltaTime);
         Timer += Time.deltaTime;
         if (Timer < 4.0f)
         {
@@ -35,6 +37,7 @@ public class CloudBehaviour : MonoBehaviour
             StartCoroutine("FadeOut");
             Timer = 0.0f;
         }
+        TurnHandling();
     }
 
     IEnumerator FadeIn()
@@ -56,6 +59,17 @@ public class CloudBehaviour : MonoBehaviour
             CloudColor.a = f;
             CloudRenderer.material.color = CloudColor;
             yield return null;
+        }
+    }
+
+    private void TurnHandling()
+    {
+        ChangeDirection -= Time.deltaTime;                                                 //timern ökar lite varje frame
+        if (ChangeDirection < 0)                                                           //om timern har gått förbi noll
+        {
+            Movement = Vector3.Lerp(Movement, WindBehaviour.GetWindMovement(), Mathf.SmoothStep(0f, 1f, .3f));                   //börjar röra från startpunkten(Direction) till den nya vindriktningen(WindBehaviour.GetWindMovement)
+                                                                                                                                    //mathf.smoothstep är ungefär likadan men den går snabbare i början och långsamare i slutet
+            ChangeDirection = 1f;                                                                                                    //sätter igång timern igen så att den inte kör klart rotationen
         }
     }
 }

@@ -61,7 +61,6 @@ public class CityMaster : MonoBehaviour
             Wave02 = false;
         }
 
-        Debug.Log(CitiesAlive);
         if (Index < 12)
         {
             SpawnTimer -= Time.deltaTime;

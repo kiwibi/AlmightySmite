@@ -26,7 +26,7 @@ public class LightningBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (cameras[0].transform.position.x < CamController.MinX || cameras[0].transform.position.x > CamController.MaxX)
+        if (cameras[0].transform.position.x + (cameras[0].orthographicSize) < CamController.MinX || cameras[0].transform.position.x + (cameras[0].orthographicSize) > CamController.MaxX)
         {
             transform.position = FindMiddleOfScreen(1);
         }
@@ -38,6 +38,7 @@ public class LightningBehaviour : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.V))                                                                                                                                       //if key is released
         {
             Instantiate(Lightning, transform.position, Quaternion.identity);                                                                                                //spawn the lightning at this objects position
+            Cooldowns.instance.SetCooldown(5);
             EventManager.TriggerEvent("Lightning");
             Destroy(gameObject);                                                                                                                                            //destroy this (the shadow)
         }

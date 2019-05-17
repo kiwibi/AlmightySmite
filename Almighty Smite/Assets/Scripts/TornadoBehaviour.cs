@@ -77,7 +77,7 @@ public class TornadoBehaviour : MonoBehaviour
         ChangeDirection -= Time.deltaTime;                                                 //timern ökar lite varje frame
         if (ChangeDirection < 0)                                                           //om timern har gått förbi noll
         {
-            Direction = Vector3.Lerp(Direction, WindBehaviour.GetWindMovement(), Mathf.SmoothStep(0f, 1f, 3.3f));                   //börjar röra från startpunkten(Direction) till den nya vindriktningen(WindBehaviour.GetWindMovement)
+            Direction = Vector3.Lerp(Direction, WindBehaviour.GetWindMovement(), Mathf.SmoothStep(0f, 1f, 0.5f));                   //börjar röra från startpunkten(Direction) till den nya vindriktningen(WindBehaviour.GetWindMovement)
                                                                                                                                     //mathf.smoothstep är ungefär likadan men den går snabbare i början och långsamare i slutet
             ChangeDirection = 0.5f;                                                                                                    //sätter igång timern igen så att den inte kör klart rotationen
         }
