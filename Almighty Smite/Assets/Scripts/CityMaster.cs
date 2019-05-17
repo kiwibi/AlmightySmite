@@ -93,7 +93,7 @@ public class CityMaster : MonoBehaviour
         if (Wave02 == true)
         {
             Cities[Index].gameObject.SetActive(true);
-            SpawnTimer = Random.Range(1.0f, 4.0f);
+            SpawnTimer = Random.Range(0.0f, 1.0f);
             CitiesAlive++;
             Index++;
         }

@@ -134,10 +134,10 @@ public class CityBehaviour : MonoBehaviour
                 Pool.ProgressPool -= 0.01f;
             } else if (CurrentLevel == 2)
             {
-                Pool.ProgressPool -= 0.02f;
+                Pool.ProgressPool -= 0.2f;
             } else if (CurrentLevel == 3)
             {
-                Pool.ProgressPool -= 0.03f;
+                Pool.ProgressPool -= 0.8f;
             }
             SwitchState();
             CitiesAlive.CitiesAlive--;
