@@ -44,7 +44,7 @@ public class CityBehaviour : MonoBehaviour
     
     void Start()
     {
-        MaxUpgradeTimer = Random.Range(10.0f, 25.0f);
+        MaxUpgradeTimer = Random.Range(8.0f, 15.0f);
         MaxRespawnTimer = Random.Range(5.0f, 60.0f);
         Pool = GameObject.Find("GameUI").GetComponent<ProgressbarBehaviour>();
         CitiesAlive = GameObject.Find("City Master").GetComponent<CityMaster>();
@@ -77,7 +77,7 @@ public class CityBehaviour : MonoBehaviour
             {
                 if (Timer > TickTime)
                 {
-                    Pool.ProgressPool += Random.Range(0, 0.001f);
+                    Pool.ProgressPool += Random.Range(0, 0.004f);
                     Timer = 0.0f;
                 }
                 Minimap01.gameObject.SetActive(true);
@@ -86,7 +86,7 @@ public class CityBehaviour : MonoBehaviour
             {
                 if (Timer > TickTime)
                 {
-                    Pool.ProgressPool += Random.Range(0.0005f, 0.002f);
+                    Pool.ProgressPool += Random.Range(0.0005f, 0.008f);
                     Timer = 0.0f;
                 }
                 Minimap02.gameObject.SetActive(true);
@@ -95,7 +95,7 @@ public class CityBehaviour : MonoBehaviour
             {
                 if (Timer > TickTime)
                 {
-                    Pool.ProgressPool += Random.Range(0.001f, 0.003f);
+                    Pool.ProgressPool += Random.Range(0.001f, 0.006f);
                     Timer = 0.0f;
                 }
                 Minimap03.gameObject.SetActive(true);
@@ -131,13 +131,13 @@ public class CityBehaviour : MonoBehaviour
         {
             if (CurrentLevel == 1)
             {
-                Pool.ProgressPool -= 0.01f;
+                Pool.ProgressPool -= 0.066f;
             } else if (CurrentLevel == 2)
             {
-                Pool.ProgressPool -= 0.2f;
+                Pool.ProgressPool -= 0.11f;
             } else if (CurrentLevel == 3)
             {
-                Pool.ProgressPool -= 0.8f;
+                Pool.ProgressPool -= 0.28f;
             }
             SwitchState();
             CitiesAlive.CitiesAlive--;
