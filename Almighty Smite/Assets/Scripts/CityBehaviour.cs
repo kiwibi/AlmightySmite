@@ -5,7 +5,7 @@ using UnityEngine;
 public class CityBehaviour : MonoBehaviour
 {
     enum CityType                                                                                                                       //Enum som ger stringen av bokstäver en siffra      
-    {   
+    {
         NORMAL,                                                                                                                         //0
         EARTHQUAKE,                                                                                                                     //1
         WATER,                                                                                                                          //2
@@ -107,7 +107,7 @@ public class CityBehaviour : MonoBehaviour
                 if (CurrentHealth < MaxHealth / 1.5)
                 {
                     Damage02.gameObject.SetActive(true);
-                    if (CurrentHealth < MaxHealth / 2.5)
+                    if (CurrentHealth < MaxHealth / 2)
                     {
                         Damage03.gameObject.SetActive(true);
                     }
