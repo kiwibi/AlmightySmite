@@ -5530,7 +5530,7 @@ MonoBehaviour:
   WinText: {fileID: 1879326540}
   LoseText: {fileID: 262114267}
   ProgressPool: 0
-  DEVSWITCH: 1
+  DEVSWITCH: 0
 --- !u!4 &1758617526 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 35427866822959560, guid: 6c4803f7c69720a42b2238e854cecabf,
