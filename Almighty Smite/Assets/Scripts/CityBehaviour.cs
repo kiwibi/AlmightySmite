@@ -86,7 +86,7 @@ public class CityBehaviour : MonoBehaviour
             {
                 if (Timer > TickTime)
                 {
-                    Pool.ProgressPool += Random.Range(0.0005f, 0.003f);
+                    Pool.ProgressPool += Random.Range(0.0005f, 0.002f);
                     Timer = 0.0f;
                 }
                 Minimap02.gameObject.SetActive(true);
@@ -95,7 +95,7 @@ public class CityBehaviour : MonoBehaviour
             {
                 if (Timer > TickTime)
                 {
-                    Pool.ProgressPool += Random.Range(0.001f, 0.01f);
+                    Pool.ProgressPool += Random.Range(0.001f, 0.003f);
                     Timer = 0.0f;
                 }
                 Minimap03.gameObject.SetActive(true);
