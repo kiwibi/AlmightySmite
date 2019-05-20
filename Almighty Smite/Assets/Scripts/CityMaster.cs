@@ -9,8 +9,7 @@ public class CityMaster : MonoBehaviour
     private int Index = 0;
     public int CitiesAlive = 0;
     private static readonly int AmmountOfCities = 25;
-    private bool Wave01 = false;
-    private bool Wave02 = false;
+    private bool SecondWave = false;
 
     void Start()
     {
@@ -41,8 +40,7 @@ public class CityMaster : MonoBehaviour
         Cities[23] = transform.Find("CityParent (23)");
         Cities[24] = transform.Find("CityParent (24)");
 
-        SpawnTimer = Random.Range(1.0f, 4.0f);
-        Wave01 = true;
+        SpawnTimer = 0;
 
         for (int i = 0; i < AmmountOfCities; i++)
         {
@@ -52,49 +50,25 @@ public class CityMaster : MonoBehaviour
 
     void Update()
     {
-        if (CitiesAlive < 6 && Index == 12)
-        {
-            Wave02 = true;
-        }
-        if (Index == 25)
-        {
-            Wave02 = false;
-        }
-
+        SpawnTimer -= Time.deltaTime;
         if (Index < 12)
         {
-            SpawnTimer -= Time.deltaTime;
-            if (SpawnTimer < 0)
-            {
-                SpawnCity();
-            }
-        } else { Wave01 = false; Wave02 = true; }
-
-        if (Index < 25 && Wave02 == true)
+            SpawnCity();
+        }
+        if (Index == 12 && CitiesAlive < 6)
         {
-            SpawnTimer -= Time.deltaTime;
-            if (SpawnTimer < 0)
-            {
-                SpawnCity();
-            }
+            SecondWave = true;
+        }
+        if (SecondWave == true && Index < 25)
+        {
+            SpawnCity();
         }
     }
 
     private void SpawnCity()
     {
-        if (Wave01 == true)
-        {
-            Cities[Index].gameObject.SetActive(true);
-            SpawnTimer = Random.Range(1.0f, 4.0f);
-            CitiesAlive++;
-            Index++;
-        }
-        if (Wave02 == true)
-        {
-            Cities[Index].gameObject.SetActive(true);
-            SpawnTimer = Random.Range(0.0f, 1.0f);
-            CitiesAlive++;
-            Index++;
-        }
+        Cities[Index].gameObject.SetActive(true);
+        CitiesAlive++;
+        Index++;
     }
 }

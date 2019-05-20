@@ -1,7 +1,79 @@
 fileFormatVersion: 2
 guid: 1a89c89e894b74e4aab571facbd9bb8d
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -3621067367575382639
+    second: World props_0
+  - first:
+      213: -6714131667129405297
+    second: World props_1
+  - first:
+      213: 7528914487586936965
+    second: World props_2
+  - first:
+      213: -6378607654903340817
+    second: World props_3
+  - first:
+      213: -5286482630049650136
+    second: World props_4
+  - first:
+      213: -2322136836629203725
+    second: World props_5
+  - first:
+      213: 4900833382946830074
+    second: World props_6
+  - first:
+      213: 8464148703174406056
+    second: World props_7
+  - first:
+      213: 6813496894530153833
+    second: World props_8
+  - first:
+      213: -2719986727259696851
+    second: World props_9
+  - first:
+      213: -768152570972141155
+    second: World props_10
+  - first:
+      213: -2738490486850932311
+    second: World props_11
+  - first:
+      213: -262368470492598856
+    second: World props_12
+  - first:
+      213: 8482421277007433854
+    second: World props_13
+  - first:
+      213: -593525080041827281
+    second: World props_14
+  - first:
+      213: 7036925166269057751
+    second: World props_15
+  - first:
+      213: -4483049860303878380
+    second: World props_16
+  - first:
+      213: -8666538363932839936
+    second: World props_17
+  - first:
+      213: 285683555216428025
+    second: World props_18
+  - first:
+      213: -7644546541869635465
+    second: World props_19
+  - first:
+      213: 7169777967167087594
+    second: World props_20
+  - first:
+      213: -8075273370866717427
+    second: World props_21
+  - first:
+      213: 2887836742917053788
+    second: World props_22
+  - first:
+      213: 1624042439800596468
+    second: World props_23
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -40,7 +112,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -69,9 +141,524 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: World props_0
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 3266
+        width: 710
+        height: 686
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ae5d69e2d26da84686fb70de24e7f7e
+      internalID: -3621067367575382639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World props_1
+      rect:
+        serializedVersion: 2
+        x: 1076
+        y: 3278
+        width: 693
+        height: 530
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b30a05f8d6a62e48a25baa3c27bb76a
+      internalID: -6714131667129405297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World props_2
+      rect:
+        serializedVersion: 2
+        x: 2843
+        y: 3247
+        width: 593
+        height: 564
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a406baefb6a8b9b499652fdf1d66004a
+      internalID: 7528914487586936965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World props_3
+      rect:
+        serializedVersion: 2
+        x: 3561
+        y: 3247
+        width: 239
+        height: 559
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e9b2c7a6e4fd2a44af631563fc938ec
+      internalID: -6378607654903340817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World props_4
+      rect:
+        serializedVersion: 2
+        x: 3922
+        y: 3203
+        width: 999
+        height: 693
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f003a363b02eb14a90e08434b6baf89
+      internalID: -5286482630049650136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World props_5
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 2492
+        width: 705
+        height: 706
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98221de1abe345447b76bf3505166c13
+      internalID: -2322136836629203725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World props_6
+      rect:
+        serializedVersion: 2
+        x: 1078
+        y: 2573
+        width: 710
+        height: 468
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61be10dc14b8acd4bbfcb5addf76c23d
+      internalID: 4900833382946830074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World props_7
+      rect:
+        serializedVersion: 2
+        x: 2869
+        y: 2448
+        width: 535
+        height: 540
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3599fc41873939843908cdeefbacfce8
+      internalID: 8464148703174406056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World props_8
+      rect:
+        serializedVersion: 2
+        x: 3590
+        y: 2436
+        width: 195
+        height: 525
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2237073199eeb584ebcf7cd1aa78c747
+      internalID: 6813496894530153833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World props_9
+      rect:
+        serializedVersion: 2
+        x: 3942
+        y: 2387
+        width: 958
+        height: 654
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73bbf0db09e2be040a8d959de4d4a313
+      internalID: -2719986727259696851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World props_10
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 1574
+        width: 695
+        height: 842
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e5df56b8786a664a88156f77a7ded8f
+      internalID: -768152570972141155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World props_11
+      rect:
+        serializedVersion: 2
+        x: 1107
+        y: 1918
+        width: 701
+        height: 491
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b788d1fd42dcb1545b2e3662e9945159
+      internalID: -2738490486850932311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World props_12
+      rect:
+        serializedVersion: 2
+        x: 2577
+        y: 1650
+        width: 576
+        height: 295
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f56ea18a40d3fda44935457f222e7812
+      internalID: -262368470492598856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World props_13
+      rect:
+        serializedVersion: 2
+        x: 3848
+        y: 1609
+        width: 961
+        height: 529
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c106fdcb73dcdf040ac8db8d5bdb2172
+      internalID: 8482421277007433854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World props_14
+      rect:
+        serializedVersion: 2
+        x: 1111
+        y: 1300
+        width: 697
+        height: 491
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51b5d56baca78cf4c9305966682cc54f
+      internalID: -593525080041827281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World props_15
+      rect:
+        serializedVersion: 2
+        x: 3297
+        y: 1647
+        width: 400
+        height: 235
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d838a745a2fddb4db1fa0a11bf6a5a0
+      internalID: 7036925166269057751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World props_16
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 756
+        width: 700
+        height: 410
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50a90017c3c661a41adfc8ca6e861052
+      internalID: -4483049860303878380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World props_17
+      rect:
+        serializedVersion: 2
+        x: 1101
+        y: 753
+        width: 699
+        height: 411
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da1418c292c9b1041b427a5e5460856c
+      internalID: -8666538363932839936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World props_18
+      rect:
+        serializedVersion: 2
+        x: 2631
+        y: 1027
+        width: 529
+        height: 293
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4593f35f70112340a7d36e1ceb8a367
+      internalID: 285683555216428025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World props_19
+      rect:
+        serializedVersion: 2
+        x: 3332
+        y: 1019
+        width: 370
+        height: 228
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 259441a849e22e740aa8995d49471185
+      internalID: -7644546541869635465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World props_20
+      rect:
+        serializedVersion: 2
+        x: 3869
+        y: 963
+        width: 818
+        height: 474
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6b25ee478d534a41aeb05fbe0eb08a0
+      internalID: 7169777967167087594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World props_21
+      rect:
+        serializedVersion: 2
+        x: 4672
+        y: 1059
+        width: 75
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a577eee4fc38be44a34cb213d041424
+      internalID: -8075273370866717427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World props_22
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 160
+        width: 705
+        height: 435
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e67672708e4126d4da489a0ad69bad93
+      internalID: 2887836742917053788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World props_23
+      rect:
+        serializedVersion: 2
+        x: 1100
+        y: 158
+        width: 705
+        height: 434
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f1bc953292325c438879bba1aedeac3
+      internalID: 1624042439800596468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

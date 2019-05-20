@@ -17,7 +17,7 @@ public class CityBehaviour : MonoBehaviour
     public DamageType[] DamageKinds;                                                                                                    //en array för att hålla alla olika sorters dmg den ska känna till                                                                                                 //en arrat för att hålla alla sorters olika smoke så den vet vad som ska spawnas
     public Sprite[] DifferentCities;
     private SpriteRenderer CityRenderer;
-    private BoxCollider2D CityCollider;
+    private CircleCollider2D CityCollider;
     private ProgressbarBehaviour Pool;
     private CityMaster CitiesAlive;
     private int CurrentLevel;                                                                                                           //vilken lvl staden är. bestämmer vilka värden som används
@@ -49,7 +49,7 @@ public class CityBehaviour : MonoBehaviour
         Pool = GameObject.Find("GameUI").GetComponent<ProgressbarBehaviour>();
         CitiesAlive = GameObject.Find("City Master").GetComponent<CityMaster>();
         CityRenderer = GetComponentInChildren<SpriteRenderer>();
-        CityCollider = GetComponentInChildren<BoxCollider2D>();
+        CityCollider = GetComponentInChildren<CircleCollider2D>();
         CurrentLevel = 1;                                                                                                               //staden börjar på lvl 1
         UpgradeTimer = MaxUpgradeTimer;                                                                                                 //sätter alla timers + health till sina max values
         CurrentHealth = MaxHealth;
@@ -77,7 +77,10 @@ public class CityBehaviour : MonoBehaviour
             {
                 if (Timer > TickTime)
                 {
-                    Pool.ProgressPool += Random.Range(0, 0.003f);
+                    if (CitiesAlive.CitiesAlive < 17)
+                    {
+                        Pool.ProgressPool += 0.0015f;
+                    } else { Pool.ProgressPool += 0; }
                     Timer = 0.0f;
                 }
                 Minimap01.gameObject.SetActive(true);
@@ -86,7 +89,11 @@ public class CityBehaviour : MonoBehaviour
             {
                 if (Timer > TickTime)
                 {
-                    Pool.ProgressPool += Random.Range(0.002f, 0.004f);
+                    if (CitiesAlive.CitiesAlive < 17)
+                    {
+                        Pool.ProgressPool += 0.004f;
+                    }
+                    else { Pool.ProgressPool += 0.001f; }
                     Timer = 0.0f;
                 }
                 Minimap02.gameObject.SetActive(true);
@@ -95,7 +102,11 @@ public class CityBehaviour : MonoBehaviour
             {
                 if (Timer > TickTime)
                 {
-                    Pool.ProgressPool += Random.Range(0.001f, 0.006f);
+                    if (CitiesAlive.CitiesAlive < 17)
+                    {
+                        Pool.ProgressPool += 0.002f;
+                    }
+                    else { Pool.ProgressPool += 0; }
                     Timer = 0.0f;
                 }
                 Minimap03.gameObject.SetActive(true);
@@ -159,7 +170,7 @@ public class CityBehaviour : MonoBehaviour
             CitiesAlive.CitiesAlive++;
             ChooseType();                                                                                                                  //byter stad så att den är stark mot det den ska vara
             CityRenderer.sprite = DifferentCities[CurrentLevel - 1];
-            CityCollider.size = new Vector2(1, 1);
+            CityCollider.radius = 0.8f;
         }
     }
 
@@ -175,12 +186,12 @@ public class CityBehaviour : MonoBehaviour
             if(CurrentLevel == 2)
             {
                 CityAnimator.SetBool("Upgrade1", true);
-                CityCollider.size = new Vector2(1.6f, CityCollider.size.y);
+                CityCollider.radius = 1.4f;
             }
             else if(CurrentLevel == 3)
             {
                 CityAnimator.SetBool("Upgrade2", true);
-                CityCollider.size = new Vector2(2.3f, 1.75f);
+                CityCollider.radius = 1.8f;
             }
         }
     }

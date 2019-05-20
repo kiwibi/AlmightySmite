@@ -16,7 +16,7 @@ public class ProgressbarBehaviour : MonoBehaviour
         LoseText.SetActive(false);
         WinText.SetActive(false);
         Time.timeScale = 1;
-        ProgressPool = 0.3f;
+        ProgressPool = 0.5f;
     }
 
     void Update()
