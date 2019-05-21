@@ -25,7 +25,7 @@ public class QuakeBehaviour : MonoBehaviour
     {
         if (AbilitiesInput.EarthQuakeDestroy == true)
         {
-            AbilitiesInput.EarthQuakeDestroy = false;
+            //AbilitiesInput.EarthQuakeDestroy = false;
             Destroy(gameObject);
         }
         QuakeCollider.radius += GrowthRate * Time.deltaTime;                                                                                                            //öka storleken på jordbävning lite varje frame

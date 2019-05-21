@@ -24,9 +24,24 @@ public class AbilitiesInput : MonoBehaviour
     public static bool LightningSpawned;
 
     public static bool Charging;                                                                                        //en bool som ska säga när playern chargar en ability
+    private CameraController CamController;
+    private List<Camera> cameras;
     // Start is called before the first frame update
+
     void Start()
     {
+        CamController = GameObject.Find("CameraController").GetComponent<CameraController>();
+
+        cameras = new List<Camera>();
+        for (int i = 0; i < Camera.allCameras.Length - 1; i++)
+        {
+            cameras.Add(Camera.allCameras[i]);
+            if (cameras[i].tag != "MainCamera")
+            {
+                cameras.RemoveAt(i);
+            }
+        }
+
         instance = this;
         EarthquakeKey = KeyCode.C;                                                                                      //sätter en keycode för enklare återanvänding
         LightningKey = KeyCode.V;
@@ -63,11 +78,22 @@ public class AbilitiesInput : MonoBehaviour
         {
             if (TornadoSpawned == false)                                                                               //kollar ifall det redan finns en tornado i gamespacet
             {
-                AbilitiesInput.Charging = true;                                                                        //sätter en bool till true för att säga att tornadon laddas upp
-                AbilitiesInput.TornadoSpawned = true;                                                                                 //sätter en bool till sant som säger att det finns redan en tornado spawnad
-                var clone = Instantiate(tornado, cam.ScreenToWorldPoint(new Vector3(Screen.width / 2, Screen.height / 2, cam.nearClipPlane)), Quaternion.identity);
-                Invoke("StopTornado", 2);
-                //spawnar en tornado på kamerans mittpunkt och med en rotation som i det här momentet är vad den är i prefaben
+                if (cameras[0].transform.position.x + (cameras[0].orthographicSize) < CamController.MinX || cameras[0].transform.position.x + (cameras[0].orthographicSize) > CamController.MaxX)
+                {
+                    AbilitiesInput.Charging = true;                                                                        //sätter en bool till true för att säga att tornadon laddas upp
+                    AbilitiesInput.TornadoSpawned = true;                                                                                 //sätter en bool till sant som säger att det finns redan en tornado spawnad                                                                          //säger att det nu finns en earthquake
+                    Instantiate(tornado, cameras[0].ScreenToWorldPoint(new Vector3(Screen.width / 2, Screen.height / 2, cam.nearClipPlane)), Quaternion.identity);
+                    Instantiate(tornado, cameras[1].ScreenToWorldPoint(new Vector3(Screen.width / 2, Screen.height / 2, cam.nearClipPlane)), Quaternion.identity);
+                    Invoke("StopTornado", 2);
+                }
+                else
+                {
+                    AbilitiesInput.Charging = true;                                                                        //sätter en bool till true för att säga att tornadon laddas upp
+                    AbilitiesInput.TornadoSpawned = true;                                                                                 //sätter en bool till sant som säger att det finns redan en tornado spawnad
+                    var clone = Instantiate(tornado, cam.ScreenToWorldPoint(new Vector3(Screen.width / 2, Screen.height / 2, cam.nearClipPlane)), Quaternion.identity);
+                    Invoke("StopTornado", 2);
+                    //spawnar en tornado på kamerans mittpunkt och med en rotation som i det här momentet är vad den är i prefaben
+                }
             }
         }
         else if(TornadoTimer() == 0)
@@ -107,15 +133,26 @@ public class AbilitiesInput : MonoBehaviour
             AbilitiesInput.EarthQuakeDestroy = true;
             EarthquakeTimer = 0;
         }
+        else
+            AbilitiesInput.EarthQuakeDestroy = false;
 
         if (Input.GetKeyDown(EarthquakeKey))                                                                                             //Kollar om knappen för earthquakes är nedtryckt
         {
             if (AbilitiesInput.EarthquakeSpawned == false)                                                                               //kollar ifall det redan finns en earthquake
             {
-                AbilitiesInput.EarthquakeSpawned = true;                                                                                //säger att det nu finns en earthquake
-                var clone = Instantiate(earthquake, cam.ScreenToWorldPoint(new Vector3(Screen.width / 2, Screen.height / 2, cam.nearClipPlane)), Quaternion.identity);
-                EarthquakeTimer += 1.0f;
-                                                                                                                                        //Spawnar en earthquake i mitten av kameran
+                if (cameras[0].transform.position.x + (cameras[0].orthographicSize) < CamController.MinX || cameras[0].transform.position.x + (cameras[0].orthographicSize) > CamController.MaxX)
+                {
+                    AbilitiesInput.EarthquakeSpawned = true;                                                                                //säger att det nu finns en earthquake
+                    Instantiate(earthquake, cameras[0].ScreenToWorldPoint(new Vector3(Screen.width / 2, Screen.height / 2, cam.nearClipPlane)), Quaternion.identity);
+                    Instantiate(earthquake, cameras[1].ScreenToWorldPoint(new Vector3(Screen.width / 2, Screen.height / 2, cam.nearClipPlane)), Quaternion.identity);
+                    EarthquakeTimer += 1.0f;
+                }
+                else
+                {
+                    AbilitiesInput.EarthquakeSpawned = true;                                                                                //säger att det nu finns en earthquake
+                    var clone = Instantiate(earthquake, cam.ScreenToWorldPoint(new Vector3(Screen.width / 2, Screen.height / 2, cam.nearClipPlane)), Quaternion.identity);
+                    EarthquakeTimer += 1.0f;
+                }                                                                                                                        //Spawnar en earthquake i mitten av kameran
             }
             else if(AbilitiesInput.EarthquakeSpawned == true && EarthquakeTimer > 0)
             {
