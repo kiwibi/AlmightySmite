@@ -186,12 +186,12 @@ public class CityBehaviour : MonoBehaviour
             if(CurrentLevel == 2)
             {
                 CityAnimator.SetBool("Upgrade1", true);
-                CityCollider.radius = 1.4f;
+                CityCollider.radius = 0.9f;
             }
             else if(CurrentLevel == 3)
             {
                 CityAnimator.SetBool("Upgrade2", true);
-                CityCollider.radius = 1.8f;
+                CityCollider.radius = 1.0f;
             }
         }
     }
