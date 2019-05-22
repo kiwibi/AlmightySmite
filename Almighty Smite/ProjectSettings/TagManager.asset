@@ -9,6 +9,7 @@ TagManager:
   - Border
   - World
   - Ocean
+  - Disaster
   layers:
   - Default
   - TransparentFX

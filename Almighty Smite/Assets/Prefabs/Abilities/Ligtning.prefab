@@ -114,7 +114,7 @@ GameObject:
   - component: {fileID: 5739938953961065543}
   m_Layer: 0
   m_Name: Ligtning
-  m_TagString: Untagged
+  m_TagString: Disaster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

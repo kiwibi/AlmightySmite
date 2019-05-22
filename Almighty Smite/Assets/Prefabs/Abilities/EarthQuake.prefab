@@ -4825,7 +4825,7 @@ GameObject:
   - component: {fileID: 7860196617620535786}
   m_Layer: 0
   m_Name: EarthQuake
-  m_TagString: Untagged
+  m_TagString: Disaster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
