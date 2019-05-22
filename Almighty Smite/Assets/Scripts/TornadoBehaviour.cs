@@ -17,6 +17,8 @@ public class TornadoBehaviour : MonoBehaviour
     private bool moving;
     private bool growing;
     private CameraController CamController;
+    public float damageGrowth;
+    public float damageRoof;
 
     void Start()
     {
@@ -59,7 +61,6 @@ public class TornadoBehaviour : MonoBehaviour
             CurrentDmg = Mathf.MoveTowards(MaxDmg, CurrentDmg, 5 * Time.deltaTime);
             UpdateSize(false, 0.001f);
         }
-        Debug.Log(MaxDmg);
         if(moving == true)
             MovingUpdate();
     }
@@ -67,7 +68,9 @@ public class TornadoBehaviour : MonoBehaviour
     private void ChargingUpdate()
     {
         TornadoMaxSpeed += 0.5f * Time.deltaTime;                                                //farten på tornadon ökas varje frame med deltatime så länge den laddas
-        MaxDmg *= 1.026f;
+        MaxDmg += damageGrowth * Time.deltaTime;
+        if (MaxDmg >= damageRoof)
+            MaxDmg = damageRoof;
     }
 
     private void MovingUpdate()

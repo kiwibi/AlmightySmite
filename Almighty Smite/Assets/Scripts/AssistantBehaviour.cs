@@ -1,17 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AssistantBehaviour : MonoBehaviour
 {
     public enum AssistantState
     {
         INTRO,
-        ABILITIES,
+        EARTHQUAKE,
+        TORNADO,
+        LIGHTNING,
+        STRENGTH,
+        SUPERCITY,
     }
     private static AssistantBehaviour instance;
     private bool CurrentlyActive;
-    private SpriteRenderer AssistantSprite;
+    private Image AssistantSprite;
+    private Text text;
     public Sprite[] AssitantLooks;
     public string Intro;
     private bool activated;
@@ -21,7 +27,9 @@ public class AssistantBehaviour : MonoBehaviour
     void Start()
     {
         instance = this;
-        AssistantSprite = GetComponentInChildren<SpriteRenderer>();
+        AssistantSprite = GetComponentInChildren<Image>();
+        text = GetComponentInChildren<Text>();
+        instance.currentState = AssistantState.INTRO;
     }
 
     // Update is called once per frame
@@ -36,6 +44,7 @@ public class AssistantBehaviour : MonoBehaviour
                 {
                     if(AssistantSprite.color.a != 1)
                         StartCoroutine("FadeIn");
+                    text.text = Intro;
                 }
                 else
                 {
@@ -46,7 +55,15 @@ public class AssistantBehaviour : MonoBehaviour
 
                 }
                 break;
-            case AssistantState.ABILITIES:
+            case AssistantState.EARTHQUAKE:
+                break;
+            case AssistantState.TORNADO:
+                break;
+            case AssistantState.LIGHTNING:
+                break;
+            case AssistantState.STRENGTH:
+                break;
+            case AssistantState.SUPERCITY:
                 break;
         }
     }
@@ -70,7 +87,6 @@ public class AssistantBehaviour : MonoBehaviour
         tmpColor = AssistantSprite.color;
         tmpColor.a = 1;
         AssistantSprite.color = tmpColor;
-        Invoke("TakeAwayTimer", TimeBeforeFadeOut);
         activated = true;
     }
 
