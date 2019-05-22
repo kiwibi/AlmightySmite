@@ -54,11 +54,12 @@ public class TornadoBehaviour : MonoBehaviour
         }
         else
         {
-            DmgDealer.DamageAmount = Mathf.RoundToInt(CurrentDmg);
+            DmgDealer.DamageAmount = Mathf.RoundToInt(MaxDmg);
             moving = true;                                                                 //den rör på sig när den inte laddas så det sätts till true
-            CurrentDmg = Mathf.MoveTowards(CurrentDmg, MaxDmg, 5 * Time.deltaTime);
+            CurrentDmg = Mathf.MoveTowards(MaxDmg, CurrentDmg, 5 * Time.deltaTime);
             UpdateSize(false, 0.001f);
         }
+        Debug.Log(MaxDmg);
         if(moving == true)
             MovingUpdate();
     }
@@ -66,7 +67,7 @@ public class TornadoBehaviour : MonoBehaviour
     private void ChargingUpdate()
     {
         TornadoMaxSpeed += 0.5f * Time.deltaTime;                                                //farten på tornadon ökas varje frame med deltatime så länge den laddas
-        MaxDmg += 2;
+        MaxDmg *= 1.026f;
     }
 
     private void MovingUpdate()
@@ -111,7 +112,7 @@ public class TornadoBehaviour : MonoBehaviour
             TornadoSprite.transform.localScale -= new Vector3(SizeIncrement / 6, SizeIncrement / 6);                 //spriten skalas upp med 0.1 varje frame den laddar
             TornadoCollider.radius -= (RadiusIncrement / 60);                                                  //Då radiusen är en tiondel av startskalan tornadon börjar växer den en tiondel så snabbt
             TornadoSpeed -= 0.2f * Time.deltaTime;                                                //farten på tornadon ökas varje frame med deltatime så länge den laddas
-            MaxDmg -= 0.2f * Time.deltaTime;
+            MaxDmg -= 1 * Time.deltaTime;
         }
     }
 
