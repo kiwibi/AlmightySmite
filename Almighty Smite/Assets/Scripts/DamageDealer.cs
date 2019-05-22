@@ -20,7 +20,7 @@ public class DamageDealer : MonoBehaviour
             }
             else                                                                                                                                                //om den inte skulle göra full dmg
             {
-                gameObject.GetComponent<CityBehaviour>().DealDamage(damageDealer.DamageAmount / 5, damageDealer.damageType);                                    //gör hälften av dmg på huset
+               //gameObject.GetComponent<CityBehaviour>().DealDamage(damageDealer.DamageAmount / 5, damageDealer.damageType);                                    //gör hälften av dmg på huset
             }
         }
     }

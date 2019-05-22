@@ -6,10 +6,7 @@ public class CityStrengths : MonoBehaviour
 {
     private DamageDealer ParentDamage;
     private Animator StrengthAnimator;
-
-
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         ParentDamage = GetComponentInParent<DamageDealer>();
         StrengthAnimator = GetComponent<Animator>();
@@ -18,19 +15,19 @@ public class CityStrengths : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(ParentDamage.damageType.name == "TornadoCity")
+        if (ParentDamage.damageType.name == "TornadoCity" && StrengthAnimator.GetBool("TornadoCity") != true)
         {
             StrengthAnimator.SetBool("TornadoCity", true);
             StrengthAnimator.SetBool("LightningCity", false);
             StrengthAnimator.SetBool("EarthquakeCity", false);
         }
-        else if(ParentDamage.damageType.name == "LightningCity")
+        else if (ParentDamage.damageType.name == "LightningCity" && StrengthAnimator.GetBool("LightningCity") != true)
         {
             StrengthAnimator.SetBool("TornadoCity", false);
             StrengthAnimator.SetBool("LightningCity", true);
             StrengthAnimator.SetBool("EarthquakeCity", false);
         }
-        else if(ParentDamage.damageType.name == "EarthQuakeCity")
+        else if (ParentDamage.damageType.name == "EarthQuakeCity" && StrengthAnimator.GetBool("EarthquakeCity") != true)
         {
             StrengthAnimator.SetBool("TornadoCity", false);
             StrengthAnimator.SetBool("LightningCity", false);

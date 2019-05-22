@@ -16,9 +16,11 @@ public class TornadoBehaviour : MonoBehaviour
     private float MaxDmg;
     private bool moving;
     private bool growing;
+    private CameraController CamController;
 
     void Start()
     {
+        CamController = GameObject.Find("CameraController").GetComponent<CameraController>();
         Direction = WindBehaviour.GetWindMovement();                                       //tar rikningen vinden är när den spawnas
         TornadoSprite = GetComponentInChildren<SpriteRenderer>();                          //tar spriten för tornado objectets child tornadosprite
         moving = false;                                                                    //den börjar med att inte röra sig då den antas laddas upp även om det är 0.1 sekund
@@ -35,6 +37,14 @@ public class TornadoBehaviour : MonoBehaviour
         if (TornadoSpeed < 0.2f || TornadoSprite.transform.localScale.x <= 0.00001f)
         {
             Destroy(gameObject);
+        }
+        if(transform.position.x <= CamController.MinX)
+        {
+            transform.position = new Vector3(transform.position.x + 57.58f, transform.position.y, 0);
+        }
+        else if(transform.position.x >= CamController.MaxX)
+        {
+            transform.position = new Vector3(transform.position.x - 57.58f, transform.position.y, 0);
         }
         if (AbilitiesInput.Charging == true)                                                //kollar om tornadon laddas
         {
@@ -55,7 +65,7 @@ public class TornadoBehaviour : MonoBehaviour
 
     private void ChargingUpdate()
     {
-        TornadoMaxSpeed += Time.deltaTime;                                                //farten på tornadon ökas varje frame med deltatime så länge den laddas
+        TornadoMaxSpeed += 0.5f * Time.deltaTime;                                                //farten på tornadon ökas varje frame med deltatime så länge den laddas
         MaxDmg += 2;
     }
 

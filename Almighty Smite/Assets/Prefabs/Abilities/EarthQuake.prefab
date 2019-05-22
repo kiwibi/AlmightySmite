@@ -4876,6 +4876,7 @@ MonoBehaviour:
   ShakeDuration: 2
   ShakeMagnitude: 2
   GrowthRate: 1
+  Cracks: {fileID: 2005909811072873219, guid: ed766005387277b43b7b7019887f9d11, type: 3}
 --- !u!114 &4016033107979147588
 MonoBehaviour:
   m_ObjectHideFlags: 0

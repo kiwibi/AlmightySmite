@@ -5,7 +5,7 @@ using UnityEngine;
 public class CloudBehaviour : MonoBehaviour
 {
     public Sprite[] CloudSprites;
-    private SpriteRenderer CloudRenderer;
+    private SpriteRenderer[] CloudRenderer;
     private Vector2 Movement;
     private float Timer = 0.0f;
     private float ChangeDirection;
@@ -13,14 +13,18 @@ public class CloudBehaviour : MonoBehaviour
 
     void Start()
     {
-        CloudRenderer = GetComponent<SpriteRenderer>();
-        Color CloudColor = CloudRenderer.material.color;
-        CloudRenderer.material.color = CloudColor;
-        CloudRenderer.sprite = CloudSprites[Random.Range(0, CloudSprites.Length - 1)];
+        CloudRenderer = GetComponentsInChildren<SpriteRenderer>();
+        int index = Random.Range(0, CloudSprites.Length - 1);
+        foreach (var renderer in CloudRenderer)
+        {
+            renderer.sprite = CloudSprites[index];
+            Color CloudColor = renderer.material.color;
+            CloudColor.a = 0.0f;
+            renderer.material.color = CloudColor;
+        }
+       
         //Movement = Random.insideUnitCircle.normalized;
         Movement = WindBehaviour.GetWindMovement();
-        CloudColor.a = 0.0f;
-        CloudRenderer.material.color = CloudColor;
         ChangeDirection = 0.5f;
     }
 
@@ -44,10 +48,13 @@ public class CloudBehaviour : MonoBehaviour
     {
         for (float f = 0f; f <= 1.0; f += 0.01f)
         {
-            Color CloudColor = CloudRenderer.material.color;
-            CloudColor.a = f;
-            CloudRenderer.material.color = CloudColor;
-            yield return null;
+            foreach (var renderer in CloudRenderer)
+            {
+                Color CloudColor = renderer.material.color;
+                CloudColor.a = f;
+                renderer.material.color = CloudColor;
+                yield return null;
+            }
         }
     }
 
@@ -55,10 +62,13 @@ public class CloudBehaviour : MonoBehaviour
     {
         for (float f = 1.0f; f >= 0; f -= 0.005f)
         {
-            Color CloudColor = CloudRenderer.material.color;
-            CloudColor.a = f;
-            CloudRenderer.material.color = CloudColor;
-            yield return null;
+            foreach (var renderer in CloudRenderer)
+            {
+                Color CloudColor = renderer.material.color;
+                CloudColor.a = f;
+                renderer.material.color = CloudColor;
+                yield return null;
+            }
         }
     }
 

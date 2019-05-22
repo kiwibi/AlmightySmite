@@ -1283,6 +1283,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AssitantLooks: []
+  Intro: 
+  TimeBeforeFadeOut: 3
 --- !u!4 &499407900
 Transform:
   m_ObjectHideFlags: 0

@@ -78,6 +78,7 @@ public class AbilitiesInput : MonoBehaviour
         {
             if (TornadoSpawned == false)                                                                               //kollar ifall det redan finns en tornado i gamespacet
             {
+
                 if (cameras[0].transform.position.x + (cameras[0].orthographicSize) < CamController.MinX || cameras[0].transform.position.x + (cameras[0].orthographicSize) > CamController.MaxX)
                 {
                     AbilitiesInput.Charging = true;                                                                        //sätter en bool till true för att säga att tornadon laddas upp

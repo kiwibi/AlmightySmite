@@ -31,7 +31,7 @@ public class CloudSpawner : MonoBehaviour
         int index = Random.Range(0, TotalColliderAmount.Length - 1);                                                                                                  //väljer en random zone mellan 0 och max mängden colliders
         Collider2D currentCol = TotalColliderAmount[index];                                                                                                         //hämtar all info om den nuvarande zonen
         SpawnLocation.Set(Random.Range(currentCol.bounds.min.x, currentCol.bounds.max.y), Random.Range(currentCol.bounds.min.y, currentCol.bounds.max.y), 0);
-        Instantiate(Cloud, SpawnLocation, Quaternion.identity, ParentSpawn);
-        SpawnDelay = 60;
+        var clone = Instantiate(Cloud, SpawnLocation, Quaternion.identity, ParentSpawn);
+        SpawnDelay = 120;
     }
 }

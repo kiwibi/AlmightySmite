@@ -7,6 +7,7 @@ public class QuakeBehaviour : MonoBehaviour
     public float ShakeDuration;                                                                                                                         //Variabel för hur länge skärmen ska skaka
     public float ShakeMagnitude;                                                                                                                        //variabel för hur starkt skärmen ska skaka
     public float GrowthRate;                                                                                                                            //variabel för hur snabbt jordbävningen växer
+    public GameObject Cracks;
 
     private CircleCollider2D QuakeCollider;                                                                                                             //variabel för att kunna komma åt collidern på objektet
     // Start is called before the first frame update
@@ -18,6 +19,7 @@ public class QuakeBehaviour : MonoBehaviour
             ShakeBehaviour.Shake(ShakeDuration, ShakeMagnitude);                                                                                        //startar skaka skärmen med längden och styrkan som sätts i unity
 
         EventManager.TriggerEvent("Earthquake");
+        Instantiate(Cracks, new Vector3(transform.position.x, transform.position.y), Quaternion.identity);
     }
 
     // Update is called once per frame
