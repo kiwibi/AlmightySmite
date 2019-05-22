@@ -890,14 +890,14 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 08d317583602e0e41be73dfd46a2b319, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 312d3311133fb0841b2ca9e0658d39ec, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 1
+  m_FillAmount: 0
   m_FillClockwise: 1
-  m_FillOrigin: 0
+  m_FillOrigin: 1
   m_UseSpriteMesh: 0
 --- !u!222 &66868003
 CanvasRenderer:
@@ -2311,7 +2311,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 312d3311133fb0841b2ca9e0658d39ec, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 08d317583602e0e41be73dfd46a2b319, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -8028,7 +8028,7 @@ RectTransform:
   m_GameObject: {fileID: 1282050658}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.7333949, y: 0.7333949, z: 0.7333949}
+  m_LocalScale: {x: 1.110509, y: 1.110509, z: 1.110509}
   m_Children:
   - {fileID: 980374146}
   m_Father: {fileID: 1754921716}
@@ -8036,7 +8036,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -66.51, y: 37.86}
+  m_AnchoredPosition: {x: -105, y: 60}
   m_SizeDelta: {x: 149.48, y: 83.38}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1282050660
@@ -9694,7 +9694,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1590386481}
   - component: {fileID: 1590386480}
-  - component: {fileID: 1590386482}
   m_Layer: 0
   m_Name: CursorManager
   m_TagString: Untagged
@@ -11205,7 +11204,7 @@ RectTransform:
   - {fileID: 1834524549}
   - {fileID: 1282050659}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -13823,7 +13822,7 @@ PrefabInstance:
     - target: {fileID: 1786024600028192932, guid: 97a4b3c2d4963764f8346038c8565ee1,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1786024600028192932, guid: 97a4b3c2d4963764f8346038c8565ee1,
         type: 3}

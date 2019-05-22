@@ -41,6 +41,7 @@ public class CityBehaviour : MonoBehaviour
     private Animator CityAnimator;
     private Transform Alive;                                                                                                            //child objektet CityAlive
     private Transform Dead;                                                                                                             //child objektet CityDead
+    public ParticleSystem dirtSplatter;
     
     void Start()
     {
@@ -261,5 +262,6 @@ public class CityBehaviour : MonoBehaviour
     {
         CurrentHealth -= DamageAmount;                                                                                                  //minskar health med så mycket dmg attacken hade
         LastAttackedBy = AttackType;                                                                                                    //va den sist blev attackerad av
+        Instantiate(dirtSplatter, transform);
     }
 }

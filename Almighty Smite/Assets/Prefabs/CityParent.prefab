@@ -68,6 +68,8 @@ MonoBehaviour:
   Damage01: {fileID: 6993696948421756858}
   Damage02: {fileID: 4144383234715132784}
   Damage03: {fileID: 1076640966532241974}
+  dirtSplatter: {fileID: 7593277438596968052, guid: 927fc81e5eef76e44a2b54cc4573c2b7,
+    type: 3}
 --- !u!114 &8123066163285762019
 MonoBehaviour:
   m_ObjectHideFlags: 0

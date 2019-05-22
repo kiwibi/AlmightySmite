@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7593277438596968053}
   - component: {fileID: 7593277438596968052}
   - component: {fileID: 7593277438596968051}
+  - component: {fileID: 2720524414173502789}
   m_Layer: 0
   m_Name: Dirt splatter
   m_TagString: Untagged
@@ -46,7 +47,7 @@ ParticleSystem:
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
@@ -4793,8 +4794,8 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0aa4392d0f525b64aa1a56734045227c, type: 2}
-  - {fileID: 2100000, guid: 0aa4392d0f525b64aa1a56734045227c, type: 2}
+  - {fileID: 2100000, guid: feea8ba0247e48a4e8a44cd30c3eab31, type: 2}
+  - {fileID: 2100000, guid: feea8ba0247e48a4e8a44cd30c3eab31, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4813,7 +4814,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_RenderMode: 0
   m_SortMode: 1
   m_MinParticleSize: 0
@@ -4837,3 +4838,16 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &2720524414173502789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7593277438596968050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9130581dca8ba9545b4e978b51823aeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DestroyAfter: 1.5
