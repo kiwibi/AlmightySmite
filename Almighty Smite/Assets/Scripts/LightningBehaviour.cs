@@ -38,7 +38,7 @@ public class LightningBehaviour : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.V))                                                                                                                                       //if key is released
         {
             Instantiate(Lightning, transform.position, Quaternion.identity);                                                                                                //spawn the lightning at this objects position
-            Cooldowns.instance.SetCooldown(1);
+            Cooldowns.instance.SetCooldown(1, "Lightning");
             EventManager.TriggerEvent("Lightning");
             Destroy(gameObject);                                                                                                                                            //destroy this (the shadow)
         }

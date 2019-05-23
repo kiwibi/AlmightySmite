@@ -19,9 +19,15 @@ public class TornadoBehaviour : MonoBehaviour
     private CameraController CamController;
     public float damageGrowth;
     public float damageRoof;
+    private Vector2 IndicatorDir;
+    public SpriteRenderer IndicatorRenderer;
+    private bool Charged;
+    private bool OnCd;
 
     void Start()
     {
+        OnCd = true;
+        Charged = false;
         CamController = GameObject.Find("CameraController").GetComponent<CameraController>();
         Direction = WindBehaviour.GetWindMovement();                                       //tar rikningen vinden är när den spawnas
         TornadoSprite = GetComponentInChildren<SpriteRenderer>();                          //tar spriten för tornado objectets child tornadosprite
@@ -32,6 +38,7 @@ public class TornadoBehaviour : MonoBehaviour
         CurrentDmg = DmgDealer.DamageAmount;
         MaxDmg = CurrentDmg;
         EventManager.TriggerEvent("Tornado");
+        StartCoroutine(TornadoSpawnable(4));
     }
 
     void Update()
@@ -40,6 +47,7 @@ public class TornadoBehaviour : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        SetIndicator();
         if(transform.position.x <= CamController.MinX)
         {
             transform.position = new Vector3(transform.position.x + 57.58f, transform.position.y, 0);
@@ -48,14 +56,16 @@ public class TornadoBehaviour : MonoBehaviour
         {
             transform.position = new Vector3(transform.position.x - 57.58f, transform.position.y, 0);
         }
-        if (AbilitiesInput.Charging == true)                                                //kollar om tornadon laddas
+        if (AbilitiesInput.Charging == true && Charged == false)                                                //kollar om tornadon laddas
         {
             ChargingUpdate();
             Direction = WindBehaviour.GetWindMovement();                                       //tar rikningen vinden är när den spawnas
-            UpdateSize(true, AbilitiesInput.TornadoIncrease() / 100);
+            if(AbilitiesInput.TornadoIncrease() != 0)
+                UpdateSize(true, AbilitiesInput.TornadoIncrease() / 100);
         }
         else
         {
+            Charged = true;
             DmgDealer.DamageAmount = Mathf.RoundToInt(MaxDmg);
             moving = true;                                                                 //den rör på sig när den inte laddas så det sätts till true
             CurrentDmg = Mathf.MoveTowards(MaxDmg, CurrentDmg, 5 * Time.deltaTime);
@@ -68,7 +78,7 @@ public class TornadoBehaviour : MonoBehaviour
     private void ChargingUpdate()
     {
         TornadoMaxSpeed += 0.5f * Time.deltaTime;                                                //farten på tornadon ökas varje frame med deltatime så länge den laddas
-        MaxDmg += damageGrowth * Time.deltaTime;
+        MaxDmg += damageGrowth;
         if (MaxDmg >= damageRoof)
             MaxDmg = damageRoof;
     }
@@ -106,14 +116,16 @@ public class TornadoBehaviour : MonoBehaviour
         if (up == true)
         {
             TornadoSprite.transform.localScale += new Vector3(SizeIncrement / 2, SizeIncrement / 2);                 //spriten skalas upp med 0.1 varje frame den laddar
-            TornadoCollider.radius += ((RadiusIncrement / 2) / 10);                                                  //Då radiusen är en tiondel av startskalan tornadon börjar växer den en tiondel så snabbt
+            TornadoCollider.radius += ((RadiusIncrement/ 10));                                                  //Då radiusen är en tiondel av startskalan tornadon börjar växer den en tiondel så snabbt
+            IndicatorRenderer.transform.localScale += new Vector3(SizeIncrement * 50, SizeIncrement * 50);
             CurrentDmg = Mathf.MoveTowards(CurrentDmg, MaxDmg, 2);
             TornadoSpeed = Mathf.MoveTowards(TornadoSpeed, TornadoMaxSpeed, Time.deltaTime);
         }
         else
         {
             TornadoSprite.transform.localScale -= new Vector3(SizeIncrement / 6, SizeIncrement / 6);                 //spriten skalas upp med 0.1 varje frame den laddar
-            TornadoCollider.radius -= (RadiusIncrement / 60);                                                  //Då radiusen är en tiondel av startskalan tornadon börjar växer den en tiondel så snabbt
+            IndicatorRenderer.transform.localScale -= new Vector3(SizeIncrement * 17, SizeIncrement * 17);
+            TornadoCollider.radius -= (RadiusIncrement / 40);                                                  //Då radiusen är en tiondel av startskalan tornadon börjar växer den en tiondel så snabbt
             TornadoSpeed -= 0.2f * Time.deltaTime;                                                //farten på tornadon ökas varje frame med deltatime så länge den laddas
             MaxDmg -= 1 * Time.deltaTime;
         }
@@ -121,8 +133,33 @@ public class TornadoBehaviour : MonoBehaviour
 
     void OnDestroy()
     {
-        EventManager.TriggerEvent("StopSound");
-        AbilitiesInput.TornadoSpawned = false;                                              //när tornadon dör ut så sätts boolen till false för det finns ingen tornado spawnad längre                                              
+        if (gameObject != null)
+        {
+            EventManager.TriggerEvent("StopSound");
+            if (OnCd == true)
+                AbilitiesInput.TornadoSpawned = false;
+        }
+    }
+
+    void SetIndicator()
+    {
+        IndicatorDir = Direction;
+        if (IndicatorDir != Vector2.zero)
+        {
+            IndicatorDir.Normalize();
+            Vector3 up = new Vector3(0, 0, -1);
+            Quaternion rotation = Quaternion.LookRotation(IndicatorDir, up);
+            rotation.x = 0;
+            rotation.y = 0;
+            IndicatorRenderer.transform.rotation = rotation;
+        }
+    }
+
+    IEnumerator TornadoSpawnable(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        AbilitiesInput.TornadoSpawned = false;
+        OnCd = false;
     }
 
     void OnApplicationQuit()

@@ -14,7 +14,10 @@ public class PostLightningSpawn : MonoBehaviour
 
     private void OnDestroy()
     {
-        clone.transform.GetChild(0).GetComponent<Animator>().SetBool("Disperse", true);
-        AbilitiesInput.LightningSpawned = false;
+        if (clone != null)
+        {
+            clone.transform.GetChild(0).GetComponent<Animator>().SetBool("Disperse", true);
+            AbilitiesInput.LightningSpawned = false;
+        }
     }
 }

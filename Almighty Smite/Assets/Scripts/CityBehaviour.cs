@@ -84,7 +84,7 @@ public class CityBehaviour : MonoBehaviour
                 {
                     if (CitiesAlive.CitiesAlive < 17)
                     {
-                        Pool.ProgressPool += 0.0015f;
+                        Pool.ProgressPool += 0.001f;
                     } else { Pool.ProgressPool += 0; }
                     Timer = 0.0f;
                 }
@@ -96,7 +96,7 @@ public class CityBehaviour : MonoBehaviour
                 {
                     if (CitiesAlive.CitiesAlive < 17)
                     {
-                        Pool.ProgressPool += 0.004f;
+                        Pool.ProgressPool += 0.0015f;
                     }
                     else { Pool.ProgressPool += 0.001f; }
                     Timer = 0.0f;
@@ -147,13 +147,13 @@ public class CityBehaviour : MonoBehaviour
         {
             if (CurrentLevel == 1)
             {
-                Pool.ProgressPool -= 0.066f;
+                Pool.ProgressPool -= 0.05f;
             } else if (CurrentLevel == 2)
             {
                 Pool.ProgressPool -= 0.11f;
             } else if (CurrentLevel == 3)
             {
-                Pool.ProgressPool -= 0.28f;
+                Pool.ProgressPool -= 0.22f;
             }
             citySoundPlayer.clip = citySoundClips[1];
             citySoundPlayer.Play();
@@ -176,8 +176,7 @@ public class CityBehaviour : MonoBehaviour
             SwitchState();                                                                                                                 //byter state till alive
             CitiesAlive.CitiesAlive++;
             ChooseType();                                                                                                                  //byter stad så att den är stark mot det den ska vara
-            CityRenderer.sprite = DifferentCities[CurrentLevel - 1];
-            CityCollider.radius = 0.8f;
+            CityCollider.radius = 0.55f;
             AssistantBehaviour.Respawned = true;
         }
     }

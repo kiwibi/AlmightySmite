@@ -59,7 +59,6 @@ public class AbilitiesInput : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         EarthQuake();                                                                                                  //callar funktionen för att kolla allt med en earthquake
 
         Tornado();                                                                                                     //callar funktionen som ska ha med tornado spawning att göra
@@ -78,7 +77,7 @@ public class AbilitiesInput : MonoBehaviour
         {
             if (TornadoSpawned == false)                                                                               //kollar ifall det redan finns en tornado i gamespacet
             {
-
+                Cooldowns.instance.SetCooldown(4, "Tornado");
                 if (cameras[0].transform.position.x + (cameras[0].orthographicSize) < CamController.MinX || cameras[0].transform.position.x + (cameras[0].orthographicSize) > CamController.MaxX)
                 {
                     AbilitiesInput.Charging = true;                                                                        //sätter en bool till true för att säga att tornadon laddas upp
@@ -120,7 +119,7 @@ public class AbilitiesInput : MonoBehaviour
 
         if (TornadoSpin != 0)
         {
-            tornadoTimer = 0.2f;
+            tornadoTimer = 0.5f;
         }
         return tornadoTimer;
     }

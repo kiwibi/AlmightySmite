@@ -29,6 +29,7 @@ public class QuakeBehaviour : MonoBehaviour
         {
             //AbilitiesInput.EarthQuakeDestroy = false;
             Destroy(gameObject);
+            ShakeBehaviour.StopShake();
         }
         QuakeCollider.radius += GrowthRate * Time.deltaTime;                                                                                                            //öka storleken på jordbävning lite varje frame
 
@@ -37,8 +38,10 @@ public class QuakeBehaviour : MonoBehaviour
 
     void OnDestroy()
     {
-        EventManager.TriggerEvent("StopSound");
-        ShakeBehaviour.StopShake();
-        AbilitiesInput.EarthquakeSpawned = false;                                                                               //när jorbävningen dör ut så sätts boolen till false för det finns ingen tornado spawnad längre                                              
+        if (gameObject != null)
+        {
+            EventManager.TriggerEvent("StopSound"); 
+            AbilitiesInput.EarthquakeSpawned = false;                                                                               //när jorbävningen dör ut så sätts boolen till false för det finns ingen tornado spawnad längre  
+        }
     }
 }

@@ -26,14 +26,27 @@ public class ProgressbarBehaviour : MonoBehaviour
             ProgressBar.fillAmount = ProgressPool;
             if (ProgressPool >= 1)
             {
+                DestoryDisasters();
+                ShakeBehaviour.StopShake();
                 LoseText.SetActive(true);
                 Time.timeScale = 0;
             }
             if (ProgressPool < 0)
             {
+                DestoryDisasters();
+                ShakeBehaviour.StopShake();
                 WinText.SetActive(true);
                 Time.timeScale = 0;
             }
+        }
+    }
+
+    private void DestoryDisasters()
+    {
+        GameObject[] tmpObj = GameObject.FindGameObjectsWithTag("Disaster");
+        for (var i = 0; i < tmpObj.Length; i++)
+        {
+            Destroy(tmpObj[i]);
         }
     }
 }

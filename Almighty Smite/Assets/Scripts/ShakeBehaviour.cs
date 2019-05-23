@@ -61,6 +61,8 @@ public class ShakeBehaviour : MonoBehaviour
 
     public static void StopShake()
     {
+        if (instance.LastCoroutine == null)
+            return;
         instance.StopCoroutine(instance.LastCoroutine);
         foreach (var cam in instance.cameras)
         {
