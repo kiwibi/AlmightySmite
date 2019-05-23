@@ -70,6 +70,10 @@ MonoBehaviour:
   Damage03: {fileID: 1076640966532241974}
   dirtSplatter: {fileID: 7593277438596968052, guid: 927fc81e5eef76e44a2b54cc4573c2b7,
     type: 3}
+  citySoundPlayer: {fileID: 7271060850267017807}
+  citySoundClips:
+  - {fileID: 8300000, guid: f7ae2791ac1f83143b63f5524a7d69d0, type: 3}
+  - {fileID: 8300000, guid: 83379544e794a074eb4ee43ef138dc2d, type: 3}
 --- !u!114 &8123066163285762019
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -384,6 +388,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ChildAnim: {fileID: 6365229419483763379}
+  StrengthAudio: {fileID: 7448288978227689442}
+  StrengthClips:
+  - {fileID: 8300000, guid: 5d00f79af1a66c94da7428fcff1efbc8, type: 3}
+  - {fileID: 8300000, guid: ee9cce12c0dcbfe49bb7b3c66065aaa5, type: 3}
 --- !u!1 &1656144450753771817
 GameObject:
   m_ObjectHideFlags: 0
@@ -395,6 +403,7 @@ GameObject:
   - component: {fileID: 7846783649151156063}
   - component: {fileID: 8937943020178522499}
   - component: {fileID: 6407704695318625119}
+  - component: {fileID: 7271060850267017807}
   m_Layer: 10
   m_Name: Spawn&Destory
   m_TagString: Untagged
@@ -411,7 +420,7 @@ Transform:
   m_GameObject: {fileID: 1656144450753771817}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.27, y: 0.27, z: 0.7}
+  m_LocalScale: {x: 0.2764009, y: 0.2764009, z: 0.2764009}
   m_Children: []
   m_Father: {fileID: 35427866822959560}
   m_RootOrder: 2
@@ -483,6 +492,102 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!82 &7271060850267017807
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1656144450753771817}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 11
+  Pan2D: 0
+  rolloffMode: 1
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &3571506862263669164
 GameObject:
   m_ObjectHideFlags: 0
@@ -732,6 +837,7 @@ GameObject:
   - component: {fileID: 6365229419483763379}
   - component: {fileID: 1789764363110010404}
   - component: {fileID: 5111982724311908584}
+  - component: {fileID: 7448288978227689442}
   m_Layer: 10
   m_Name: Strength
   m_TagString: Untagged
@@ -808,7 +914,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -832,6 +938,102 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8da5a11c89737d740a73608dd1e7a9b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!82 &7448288978227689442
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7193285026315526286}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 5d00f79af1a66c94da7428fcff1efbc8, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 11
+  Pan2D: 0
+  rolloffMode: 1
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &3972700887753311102
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1034,21 +1236,6 @@ PrefabInstance:
       propertyPath: m_SortMode
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 6210257430153249989, guid: b6953747cfc33234eba304d705aa6cdf,
-        type: 3}
-      propertyPath: InitialModule.startColor.maxColor.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6210257430153249989, guid: b6953747cfc33234eba304d705aa6cdf,
-        type: 3}
-      propertyPath: InitialModule.startColor.maxColor.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6210257430153249989, guid: b6953747cfc33234eba304d705aa6cdf,
-        type: 3}
-      propertyPath: InitialModule.startColor.maxColor.b
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b6953747cfc33234eba304d705aa6cdf, type: 3}
 --- !u!4 &1076640966532241974 stripped
@@ -1158,21 +1345,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SortMode
       value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6210257430153249989, guid: b6953747cfc33234eba304d705aa6cdf,
-        type: 3}
-      propertyPath: InitialModule.startColor.maxColor.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6210257430153249989, guid: b6953747cfc33234eba304d705aa6cdf,
-        type: 3}
-      propertyPath: InitialModule.startColor.maxColor.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6210257430153249989, guid: b6953747cfc33234eba304d705aa6cdf,
-        type: 3}
-      propertyPath: InitialModule.startColor.maxColor.b
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b6953747cfc33234eba304d705aa6cdf, type: 3}

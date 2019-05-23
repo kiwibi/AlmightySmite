@@ -7,7 +7,9 @@ public class CityAlive : MonoBehaviour
     private DamageDealer parentScript;                                                                                                                        //scriptet där dmghandling händer
     private float Timer;                                                                                                                                      //timer för att allting inte ska göra dmg varje frame
     public Animator ChildAnim;
-        
+    public AudioSource StrengthAudio;
+    public AudioClip[] StrengthClips;
+
     void Start()
     {
         parentScript = GetComponentInParent<DamageDealer>();                                                                                                  //hämta komponenter
@@ -42,6 +44,21 @@ public class CityAlive : MonoBehaviour
             {
                 ChildAnim.SetBool("Active", true);
             }
+            if(parentScript.damageType.name == "TornadoCity")
+            {
+                StrengthAudio.clip = StrengthClips[0];
+                StrengthAudio.Play();
+            }
+            else if (parentScript.damageType.name == "LightningCity")
+            {
+                StrengthAudio.clip = StrengthClips[1];
+                StrengthAudio.Play();
+            }
+            //else if (parentScript.damageType.name == "EarthQuakeCity")
+            //{
+            //    StrengthAudio.clip = StrengthClips[2];
+            //    StrengthAudio.Play();
+            //}
         }
     }
 

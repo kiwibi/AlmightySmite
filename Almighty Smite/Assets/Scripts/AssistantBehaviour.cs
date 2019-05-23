@@ -13,6 +13,7 @@ public class AssistantBehaviour : MonoBehaviour
         LIGHTNING,
         STRENGTH,
         SUPERCITY,
+        FADEOUT,
     }
     private static AssistantBehaviour instance;
     private bool CurrentlyActive;
@@ -90,7 +91,7 @@ public class AssistantBehaviour : MonoBehaviour
                 }
                 else
                 {
-                    if (AbilitiesInput.LightningSpawned == true && TutorialAlpha.alpha != 0)
+                    if (AbilitiesInput.LightningSpawned == true && TutorialAlpha.alpha == 1)
                         StartCoroutine("FadeOut");
 
                     if (AssistantBehaviour.Respawned == true)
@@ -100,9 +101,15 @@ public class AssistantBehaviour : MonoBehaviour
             case AssistantState.STRENGTH:
                 if (activated != true)
                 {
-                    if (TutorialAlpha.alpha != 1)
+                    if (TutorialAlpha.alpha == 0)
                         StartCoroutine("FadeIn");
                     text.text = AddLineBreak(Strength);
+                    activated = true;
+                }
+                else
+                {
+                    if(TutorialAlpha.alpha == 1)
+                        StartCoroutine(ChangeState(AssistantState.FADEOUT, 3));
                 }
                 break;
             case AssistantState.SUPERCITY:
@@ -112,6 +119,10 @@ public class AssistantBehaviour : MonoBehaviour
                         StartCoroutine("FadeIn");
                     text.text = AddLineBreak(SuperCity);
                 }
+                break;
+            case AssistantState.FADEOUT:
+                if(TutorialAlpha.alpha != 0)
+                    StartCoroutine("FadeOut");
                 break;
         }
     }

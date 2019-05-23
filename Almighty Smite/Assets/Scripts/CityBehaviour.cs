@@ -42,6 +42,8 @@ public class CityBehaviour : MonoBehaviour
     private Transform Alive;                                                                                                            //child objektet CityAlive
     private Transform Dead;                                                                                                             //child objektet CityDead
     public ParticleSystem dirtSplatter;
+    public AudioSource citySoundPlayer;
+    public AudioClip[] citySoundClips;
     
     void Start()
     {
@@ -64,6 +66,8 @@ public class CityBehaviour : MonoBehaviour
         dmgDealer = GetComponent<DamageDealer>();                                                                                       //hämtar komponenterna från damagedealer scriptet
         CityRenderer.sprite = DifferentCities[CurrentLevel - 1];
         ChooseType();                                                                                                                   //callar funktionen ChooseType
+        citySoundPlayer.clip = citySoundClips[0];
+        citySoundPlayer.Play();
     }
 
     
@@ -151,6 +155,8 @@ public class CityBehaviour : MonoBehaviour
             {
                 Pool.ProgressPool -= 0.28f;
             }
+            citySoundPlayer.clip = citySoundClips[1];
+            citySoundPlayer.Play();
             SwitchState();
             CitiesAlive.CitiesAlive--;
             return;
@@ -246,6 +252,8 @@ public class CityBehaviour : MonoBehaviour
             Alive.gameObject.SetActive(true);                                                                                           //gör ena enabled och den andra inte
             Dead.gameObject.SetActive(false);
             CurrentType = ChooseType();                                                                                                 //skaffa en ny citytype nu när den spawnar
+            citySoundPlayer.clip = citySoundClips[0];
+            citySoundPlayer.Play();
         }
     }
     
