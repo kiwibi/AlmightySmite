@@ -172,6 +172,7 @@ public class CityBehaviour : MonoBehaviour
             ChooseType();                                                                                                                  //byter stad så att den är stark mot det den ska vara
             CityRenderer.sprite = DifferentCities[CurrentLevel - 1];
             CityCollider.radius = 0.8f;
+            AssistantBehaviour.Respawned = true;
         }
     }
 
