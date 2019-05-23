@@ -23,7 +23,7 @@ public class Cooldowns : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CDIcon.fillAmount -= 0.2f * Time.deltaTime;
+        CDIcon.fillAmount -= 1.0f * Time.deltaTime;
         if (timeStamp < Time.time)
         {
             Cooldowns.LightningOnCD = false;

@@ -7,7 +7,7 @@ public class TreeBehaviour : MonoBehaviour
     private TreeMaster TreesAlive;
     private Transform Alive;
     private Transform Dead;
-    private float Timer = 5.0f;
+    private float Timer = 20.0f;
     private BoxCollider2D TreeCollider;
 
     void Start()
@@ -33,7 +33,7 @@ public class TreeBehaviour : MonoBehaviour
         Timer -= 1 * Time.deltaTime;
         if (Timer < 0)
         {
-            Timer = 8.0f;
+            Timer = 20.0f;
             TreesAlive.TreesAlive++;
             SwitchState();
         }

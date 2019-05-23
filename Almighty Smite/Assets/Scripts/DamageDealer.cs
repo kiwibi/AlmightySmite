@@ -17,6 +17,7 @@ public class DamageDealer : MonoBehaviour
             if (damageType.TakesDamageFrom.Contains(damageDealer.damageType))                                                                                   //om objektet ska ta full dmg från det som träffade
             {
                 gameObject.GetComponent<CityBehaviour>().DealDamage(damageDealer.DamageAmount, damageDealer.damageType);                                        //kalla funktionen på huset som gör dmg
+                //gameObject.GetComponent<BossCityBehaviour>().DealDamage(damageDealer.DamageAmount, damageDealer.damageType);
             }
             else                                                                                                                                                //om den inte skulle göra full dmg
             {
