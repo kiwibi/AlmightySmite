@@ -226,7 +226,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6117391778117005782
 Transform:
   m_ObjectHideFlags: 0
@@ -279,7 +279,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 3
   m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 0.20784314, g: 0, b: 0.04843235, a: 1}
+  m_Color: {r: 0.8039216, g: 0.013705952, b: 0.10458617, a: 0.8666667}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -917,6 +917,8 @@ MonoBehaviour:
   Damage02: {fileID: 5371339312323359447}
   Damage03: {fileID: 9077538846586030993}
   dirtSplatter: {fileID: 7593277438596968052, guid: 927fc81e5eef76e44a2b54cc4573c2b7,
+    type: 3}
+  RippleEffect: {fileID: 2957991903237755576, guid: 10b318c0dc8cd6a48a0377d63df2c3cd,
     type: 3}
   citySoundPlayer: {fileID: 1724567961918899176}
   citySoundClips: []

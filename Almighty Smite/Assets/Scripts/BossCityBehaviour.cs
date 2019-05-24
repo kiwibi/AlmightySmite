@@ -34,6 +34,7 @@ public class BossCityBehaviour : MonoBehaviour
     private Transform Alive;
     private Transform Dead;
     public ParticleSystem dirtSplatter;
+    public ParticleSystem RippleEffect;
     public AudioSource citySoundPlayer;
     public AudioClip[] citySoundClips;
 
@@ -49,7 +50,7 @@ public class BossCityBehaviour : MonoBehaviour
         CityAnimator = GetComponentInChildren<Animator>();
         Dead.gameObject.SetActive(false);
         dmgDealer = GetComponent<DamageDealer>();
-
+        Instantiate(RippleEffect, transform);
         ChooseType();
         //citySoundPlayer.clip = citySoundClips[0];
         //citySoundPlayer.Play();
