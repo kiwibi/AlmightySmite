@@ -31,13 +31,13 @@ public class ProgressbarBehaviour : MonoBehaviour
                 LoseText.SetActive(true);
                 Time.timeScale = 0;
             }
-            if (ProgressPool < 0)
-            {
-                DestoryDisasters();
-                ShakeBehaviour.StopShake();
-                WinText.SetActive(true);
-                Time.timeScale = 0;
-            }
+            //if (ProgressPool < 0)
+            //{
+            //    DestoryDisasters();
+            //    ShakeBehaviour.StopShake();
+            //    WinText.SetActive(true);
+            //    Time.timeScale = 0;
+            //}
         }
     }
 

@@ -155,15 +155,39 @@ public class CityBehaviour : MonoBehaviour
     {  
         if(CurrentHealth <= 0)                                                                                                          //om stadens health är mindre eller likamed 0 byt till död
         {
-            if (CurrentLevel == 1)
+            if (AssistantBehaviour.Tutorial == false)
             {
-                Pool.ProgressPool -= 0.05f;
-            } else if (CurrentLevel == 2)
-            {
-                Pool.ProgressPool -= 0.11f;
-            } else if (CurrentLevel == 3)
-            {
-                Pool.ProgressPool -= 0.22f;
+                if (CurrentLevel == 1)
+                {
+                    if (CitiesAlive.CitiesAlive > 12)
+                    {
+                        Pool.ProgressPool -= 0.05f;
+                    }
+                    else
+                    {
+                        Pool.ProgressPool -= 0.035f;
+                    }
+                } else if (CurrentLevel == 2)
+                {
+                    if (CitiesAlive.CitiesAlive > 12)
+                    {
+                        Pool.ProgressPool -= 0.11f;
+                    }
+                    else
+                    {
+                        Pool.ProgressPool -= 0.06f;
+                    }
+                } else if (CurrentLevel == 3)
+                {
+                    if (CitiesAlive.CitiesAlive > 12)
+                    {
+                        Pool.ProgressPool -= 0.22f;
+                    }
+                    else
+                    {
+                        Pool.ProgressPool -= 0.16f;
+                   }
+            }
             }
             citySoundPlayer.clip = citySoundClips[1];
             citySoundPlayer.Play();

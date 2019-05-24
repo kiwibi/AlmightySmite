@@ -6,13 +6,21 @@ public class CityMaster : MonoBehaviour
 {
     private float SpawnTimer;
     private Transform[] Cities;
+    private Transform[] BossCities;
     private int Index = 0;
     public int CitiesAlive = 0;
     private static readonly int AmmountOfCities = 25;
+    private static readonly int AmmountOfBossCities = 1;
+    private ProgressbarBehaviour Pool;
     private bool SecondWave = false;
+    private bool ThirdWave = false;
+    private bool BossWave = false;
 
     void Start()
     {
+        Pool = GameObject.Find("GameUI").GetComponent<ProgressbarBehaviour>();
+        BossCities = new Transform[AmmountOfBossCities];
+        BossCities[0] = transform.Find("BossCity[WIP]");
         Cities = new Transform[AmmountOfCities];
         Cities[0] = transform.Find("CityParent");
         Cities[1] = transform.Find("CityParent (1)");
@@ -61,17 +69,39 @@ public class CityMaster : MonoBehaviour
         }
         else
         {
-            if (Index < 12)
-            {
-                SpawnCity();
-            }
-            if (Index == 12 && CitiesAlive < 6)
+            if (Index == 10 && CitiesAlive < 6)
             {
                 SecondWave = true;
             }
-            if (SecondWave == true && Index < 25)
+            if (Index == 16 && CitiesAlive < 12)
+            {
+                ThirdWave = true;
+            }
+            if (ThirdWave == true && Pool.ProgressPool >= 0.95f)
+            {
+                Debug.Log("Bosswave active WOOO");
+                BossWave = true;
+            }
+
+            if (Index < 10)
             {
                 SpawnCity();
+            }
+            if (SecondWave == true && Index < 16)
+            {
+                SpawnCity();
+            }
+            if (ThirdWave == true && Index < 25)
+            {
+                SpawnCity();
+            }
+            if (BossWave == true)
+            {
+                for (int i = 0; i < AmmountOfCities; i++)
+                {
+                    Cities[i].gameObject.SetActive(false);
+                }
+                BossCities[Random.Range(0, 0)].gameObject.SetActive(true);
             }
         }
     }
