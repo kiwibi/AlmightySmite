@@ -15,6 +15,7 @@ public class AssistantBehaviour : MonoBehaviour
         SUPERCITY,
         FADEOUT,
     }
+    public bool Tutorial = true;
     private static AssistantBehaviour instance;
     private bool CurrentlyActive;
     private Image AssistantSprite;
@@ -43,87 +44,88 @@ public class AssistantBehaviour : MonoBehaviour
         AssistantBehaviour.Respawned = false;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
 
-        switch(currentState)
-        {
-            case AssistantState.INTRO:
-                if(activated != true)
-                {
-                    if(TutorialAlpha.alpha != 1)
-                        StartCoroutine("FadeIn");
-                    text.text = AddLineBreak(Intro);
-                    StartCoroutine(ChangeState(AssistantState.EARTHQUAKE, 3));
-                }
-                break;
-            case AssistantState.EARTHQUAKE:
-                if(activated != true)
-                {
-                    text.text = AddLineBreak(Earthquake);
-                    activated = true;
-                }
-                else
-                {
-                    if (AbilitiesInput.EarthquakeSpawned == true)
-                        StartCoroutine(ChangeState(AssistantState.TORNADO, 0));
-                }
-                break;
-            case AssistantState.TORNADO:
-                if (activated != true)
-                {
-                    text.text = AddLineBreak(Tornado);
-                    activated = true;
-                }
-                else
-                {
-                    if (AbilitiesInput.TornadoSpawned == true)
-                        StartCoroutine(ChangeState(AssistantState.LIGHTNING, 0));
-                }
-                break;
-            case AssistantState.LIGHTNING:
-                if (activated != true)
-                {
-                    text.text = AddLineBreak(Lightning);
-                    activated = true;
-                }
-                else
-                {
-                    if (AbilitiesInput.LightningSpawned == true && TutorialAlpha.alpha == 1)
+        if (Tutorial == true) {
+            switch (currentState)
+            {
+                case AssistantState.INTRO:
+                    if (activated != true)
+                    {
+                        if (TutorialAlpha.alpha != 1)
+                            StartCoroutine("FadeIn");
+                        text.text = AddLineBreak(Intro);
+                        StartCoroutine(ChangeState(AssistantState.EARTHQUAKE, 3));
+                    }
+                    break;
+                case AssistantState.EARTHQUAKE:
+                    if (activated != true)
+                    {
+                        text.text = AddLineBreak(Earthquake);
+                        activated = true;
+                    }
+                    else
+                    {
+                        if (AbilitiesInput.EarthquakeSpawned == true)
+                            StartCoroutine(ChangeState(AssistantState.TORNADO, 0));
+                    }
+                    break;
+                case AssistantState.TORNADO:
+                    if (activated != true)
+                    {
+                        text.text = AddLineBreak(Tornado);
+                        activated = true;
+                    }
+                    else
+                    {
+                        if (AbilitiesInput.TornadoSpawned == true)
+                            StartCoroutine(ChangeState(AssistantState.LIGHTNING, 0));
+                    }
+                    break;
+                case AssistantState.LIGHTNING:
+                    if (activated != true)
+                    {
+                        text.text = AddLineBreak(Lightning);
+                        activated = true;
+                    }
+                    else
+                    {
+                        if (AbilitiesInput.LightningSpawned == true && TutorialAlpha.alpha == 1)
+                            StartCoroutine("FadeOut");
+
+                        if (AssistantBehaviour.Respawned == true)
+                            StartCoroutine(ChangeState(AssistantState.STRENGTH, 1));
+                    }
+                    break;
+                case AssistantState.STRENGTH:
+                    if (activated != true)
+                    {
+                        if (TutorialAlpha.alpha == 0)
+                            StartCoroutine("FadeIn");
+                        text.text = AddLineBreak(Strength);
+                        activated = true;
+                    }
+                    else
+                    {
+                        if (TutorialAlpha.alpha == 1)
+                            StartCoroutine(ChangeState(AssistantState.FADEOUT, 3));
+                    }
+                    break;
+                case AssistantState.SUPERCITY:
+                    if (activated != true)
+                    {
+                        if (TutorialAlpha.alpha != 1)
+                            StartCoroutine("FadeIn");
+                        text.text = AddLineBreak(SuperCity);
+                    }
+                    break;
+                case AssistantState.FADEOUT:
+                    if (TutorialAlpha.alpha != 0)
                         StartCoroutine("FadeOut");
-
-                    if (AssistantBehaviour.Respawned == true)
-                        StartCoroutine(ChangeState(AssistantState.STRENGTH, 1));
-                }
-                break;
-            case AssistantState.STRENGTH:
-                if (activated != true)
-                {
-                    if (TutorialAlpha.alpha == 0)
-                        StartCoroutine("FadeIn");
-                    text.text = AddLineBreak(Strength);
-                    activated = true;
-                }
-                else
-                {
-                    if(TutorialAlpha.alpha == 1)
-                        StartCoroutine(ChangeState(AssistantState.FADEOUT, 3));
-                }
-                break;
-            case AssistantState.SUPERCITY:
-                if (activated != true)
-                {
-                    if (TutorialAlpha.alpha != 1)
-                        StartCoroutine("FadeIn");
-                    text.text = AddLineBreak(SuperCity);
-                }
-                break;
-            case AssistantState.FADEOUT:
-                if(TutorialAlpha.alpha != 0)
-                    StartCoroutine("FadeOut");
-                break;
+                    Tutorial = false;
+                    break;
+            }
         }
     }
 

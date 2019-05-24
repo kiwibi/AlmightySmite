@@ -10,9 +10,12 @@ public class CityMaster : MonoBehaviour
     public int CitiesAlive = 0;
     private static readonly int AmmountOfCities = 25;
     private bool SecondWave = false;
+    private AssistantBehaviour Tutorial;
 
     void Start()
     {
+        Tutorial = GameObject.Find("Textbox").GetComponent<AssistantBehaviour>();
+
         Cities = new Transform[AmmountOfCities];
         Cities[0] = transform.Find("CityParent");
         Cities[1] = transform.Find("CityParent (1)");
@@ -51,17 +54,28 @@ public class CityMaster : MonoBehaviour
     void Update()
     {
         SpawnTimer -= Time.deltaTime;
-        if (Index < 12)
+
+        if (Tutorial.Tutorial == true)
         {
-            SpawnCity();
+            if (Index < 6)
+            {
+                SpawnCity();
+            }
         }
-        if (Index == 12 && CitiesAlive < 6)
+        else
         {
-            SecondWave = true;
-        }
-        if (SecondWave == true && Index < 25)
-        {
-            SpawnCity();
+            if (Index < 12)
+            {
+                SpawnCity();
+            }
+            if (Index == 12 && CitiesAlive < 6)
+            {
+                SecondWave = true;
+            }
+            if (SecondWave == true && Index < 25)
+            {
+                SpawnCity();
+            }
         }
     }
 
