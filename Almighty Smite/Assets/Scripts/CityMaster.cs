@@ -10,17 +10,22 @@ public class CityMaster : MonoBehaviour
     private int Index = 0;
     public int CitiesAlive = 0;
     private static readonly int AmmountOfCities = 25;
-    private static readonly int AmmountOfBossCities = 1;
+    private static readonly int AmmountOfBossCities = 3;
     private ProgressbarBehaviour Pool;
     private bool SecondWave = false;
     private bool ThirdWave = false;
     private bool BossWave = false;
+    int BossSelection;
+    int BossSeed;
 
     void Start()
     {
         Pool = GameObject.Find("GameUI").GetComponent<ProgressbarBehaviour>();
         BossCities = new Transform[AmmountOfBossCities];
-        BossCities[0] = transform.Find("BossCity[WIP]");
+        BossCities[0] = transform.Find("BossCity");
+        BossCities[1] = transform.Find("BossCity (1)");
+        BossCities[2] = transform.Find("BossCity (2)");
+
         Cities = new Transform[AmmountOfCities];
         Cities[0] = transform.Find("CityParent");
         Cities[1] = transform.Find("CityParent (1)");
@@ -54,6 +59,24 @@ public class CityMaster : MonoBehaviour
         {
             Cities[i].gameObject.SetActive(false);
         }
+        for (int i = 0; i < AmmountOfBossCities; i++)
+        {
+            BossCities[i].gameObject.SetActive(false);
+        }
+
+        BossSeed = Random.Range(1, 100);
+        if (BossSeed < 33)
+        {
+            BossSelection = 0;
+        } else if (BossSeed > 33 && BossSeed < 66)
+        {
+            BossSelection = 1;
+        } else
+        {
+            BossSelection = 2;
+        }
+        Debug.Log(BossSeed);
+        Debug.Log(BossSelection);
     }
 
     void Update()
@@ -77,9 +100,8 @@ public class CityMaster : MonoBehaviour
             {
                 ThirdWave = true;
             }
-            if (ThirdWave == true && Pool.ProgressPool >= 0.95f)
+            if (ThirdWave == true && Pool.ProgressBar.fillAmount <= 0.1f)
             {
-                Debug.Log("Bosswave active WOOO");
                 BossWave = true;
             }
 
@@ -101,7 +123,7 @@ public class CityMaster : MonoBehaviour
                 {
                     Cities[i].gameObject.SetActive(false);
                 }
-                BossCities[Random.Range(0, 0)].gameObject.SetActive(true);
+                BossCities[BossSelection].gameObject.SetActive(true);
             }
         }
     }
