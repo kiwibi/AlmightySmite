@@ -12,13 +12,13 @@ public class ProgressbarBehaviour : MonoBehaviour
     public bool DEVSWITCH = false;
     public Image Bar;
     
-    Color Stage01 = new Color(0, 255, 0);
-    Color Stage02 = new Color(255, 255, 0);
-    Color Stage03 = new Color(255, 0, 0);
+    Color Stage01 = new Color(0.0f, 0.85f, 0.0f);
+    Color Stage02 = new Color(1.0f, 1.0f, 0.0f);
+    Color Stage03 = new Color(1.0f, 0.0f, 0.0f);
 
     void Awake()
     {
-        //Bar.GetComponent<Image>().color = new Color(0, 255, 0);
+        Bar.GetComponent<Image>().color = new Color(0, 200, 0);
         LoseText.SetActive(false);
         WinText.SetActive(false);
         Time.timeScale = 1;
@@ -27,6 +27,19 @@ public class ProgressbarBehaviour : MonoBehaviour
 
     void Update()
     {
+        if (ProgressBar.fillAmount < 0.60f)
+        {
+            Bar.GetComponent<Image>().color = Stage01;
+        }
+        if (ProgressBar.fillAmount > 0.60f && ProgressBar.fillAmount < 0.75f)
+        {
+            Bar.GetComponent<Image>().color = Stage02;
+        } 
+        if (ProgressBar.fillAmount > 0.75f)
+        {
+            Bar.GetComponent<Image>().color = Stage03;
+        }
+
         if (DEVSWITCH == false)
         {
             ProgressBar.fillAmount = ProgressPool;

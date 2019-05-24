@@ -15,7 +15,7 @@ public class AssistantBehaviour : MonoBehaviour
         SUPERCITY,
         FADEOUT,
     }
-    public static bool Tutorial = true;
+    public static bool Tutorial = false;
     private static AssistantBehaviour instance;
     private bool CurrentlyActive;
     private Image AssistantSprite;
