@@ -70,6 +70,8 @@ MonoBehaviour:
   Damage03: {fileID: 1076640966532241974}
   dirtSplatter: {fileID: 7593277438596968052, guid: 927fc81e5eef76e44a2b54cc4573c2b7,
     type: 3}
+  rippleEffect: {fileID: 2957991903237755576, guid: 10b318c0dc8cd6a48a0377d63df2c3cd,
+    type: 3}
   citySoundPlayer: {fileID: 7271060850267017807}
   citySoundClips:
   - {fileID: 8300000, guid: f7ae2791ac1f83143b63f5524a7d69d0, type: 3}
@@ -387,7 +389,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 006b389630e1d0743a412274936223d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ChildAnim: {fileID: 6365229419483763379}
+  ChildAnims:
+  - {fileID: 6365229419483763379}
   StrengthAudio: {fileID: 7448288978227689442}
   StrengthClips:
   - {fileID: 8300000, guid: 5d00f79af1a66c94da7428fcff1efbc8, type: 3}

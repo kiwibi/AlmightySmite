@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2957991903237755583}
   - component: {fileID: 2957991903237755576}
   - component: {fileID: 2957991903237755577}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Ripple
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26,8 +26,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2957991903237755578}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -5, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 4, y: 4, z: 4.7335}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -40,13 +40,13 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2957991903237755578}
   serializedVersion: 6
-  lengthInSec: 5
+  lengthInSec: 3
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
@@ -4708,7 +4708,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: cb38ab90ba0293c40947c956d8a41ced, type: 2}
+  - {fileID: 2100000, guid: 37354d27343964349b47847d65df10d8, type: 2}
   - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0

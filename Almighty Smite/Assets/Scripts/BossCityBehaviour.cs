@@ -4,27 +4,27 @@ using UnityEngine;
 
 public class BossCityBehaviour : MonoBehaviour
 {
-    enum CityType
+    enum CityWeakness
     {
-        NORMAL,
         EARTHQUAKE,
-        WATER,
         LIGHTNING,
         TORNADO
     }
 
-    private CityType CurrentType;
+    private CityWeakness CurrentWeakness;
     public DamageType[] DamageKinds;
     private float CurrentHealth;
     public float MaxHealth;
     private readonly float TickTime = 1.0f;
     private float Timer = 0.0f;
-    private DamageType LastAttackedBy;
     private DamageDealer dmgDealer;
     private ProgressbarBehaviour Pool;
     private CityMaster CitiesAlive;
     private SpriteRenderer CityRenderer;
     private CircleCollider2D CityCollider;
+    public float minWeaknessTime;
+    public float maxWeaknessTime;
+    private float Weaknesstimer;
 
     public Transform Minimap;
     public Transform Damage01;
@@ -49,6 +49,7 @@ public class BossCityBehaviour : MonoBehaviour
         CityAnimator = GetComponentInChildren<Animator>();
         Dead.gameObject.SetActive(false);
         dmgDealer = GetComponent<DamageDealer>();
+
         ChooseType();
         //citySoundPlayer.clip = citySoundClips[0];
         //citySoundPlayer.Play();
@@ -57,7 +58,6 @@ public class BossCityBehaviour : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(CurrentHealth);
         Timer += Time.deltaTime;
         if (Alive.gameObject.activeSelf == true)                                                                                          //om objektet Alive är aktivt i scenen gör funktionen AliveUpdate
         {
@@ -106,6 +106,10 @@ public class BossCityBehaviour : MonoBehaviour
             //citySoundPlayer.Play();
             SwitchState();
         }
+        if(Weaknesstimer < Time.time)
+        {
+            ChooseType();
+        }
     }
 
     private void SwitchState()
@@ -125,46 +129,43 @@ public class BossCityBehaviour : MonoBehaviour
             transform.GetChild(2).localScale = new Vector3(0.27f, 0.27f);
             Alive.gameObject.SetActive(true);
             Dead.gameObject.SetActive(false);
-            CurrentType = ChooseType();
+            CurrentWeakness = ChooseType();
             citySoundPlayer.clip = citySoundClips[0];
             citySoundPlayer.Play();
         }
     }
 
-    private CityType ChooseType()
+    private CityWeakness ChooseType()
     {
-        CityType TmpType = CityType.NORMAL;
-        if (LastAttackedBy == null)
+        CityWeakness TmpType = CityWeakness.EARTHQUAKE;
+        int index = Random.Range(3, 6);
+        switch(index)
         {
-            return TmpType;
+            case 3:
+                TmpType = CityWeakness.EARTHQUAKE;
+                dmgDealer.damageType = DamageKinds[3];
+                break;
+            case 4:
+                TmpType = CityWeakness.LIGHTNING;
+                dmgDealer.damageType = DamageKinds[4];
+                break;
+            case 5:
+                TmpType = CityWeakness.TORNADO;
+                dmgDealer.damageType = DamageKinds[5];
+                break;
         }
-        else if (LastAttackedBy == DamageKinds[0])
-        {
-            TmpType = CityType.EARTHQUAKE;
-            dmgDealer.damageType = DamageKinds[4];
-        }
-        else if (LastAttackedBy == DamageKinds[1])
-        {
-            TmpType = CityType.LIGHTNING;
-            dmgDealer.damageType = DamageKinds[5];
-        }
-        else if (LastAttackedBy == DamageKinds[2])
-        {
-            TmpType = CityType.TORNADO;
-            dmgDealer.damageType = DamageKinds[6];
-        }
-        else if (LastAttackedBy == DamageKinds[3])
-        {
-            TmpType = CityType.WATER;
-            dmgDealer.damageType = DamageKinds[7];
-        }
+        Weaknesstimer = Time.time + Random.Range(minWeaknessTime, maxWeaknessTime);
         return TmpType;
     }
 
     public void DealDamage(int DamageAmount, DamageType AttackType)
     {
         CurrentHealth -= DamageAmount;                                                                                                  //minskar health med så mycket dmg attacken hade
-        LastAttackedBy = AttackType;                                                                                                    //va den sist blev attackerad av
         Instantiate(dirtSplatter, transform);
+    }
+
+    public void NegativeEffects()
+    {
+
     }
 }

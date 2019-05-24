@@ -6,7 +6,7 @@ public class CityAlive : MonoBehaviour
 {
     private DamageDealer parentScript;                                                                                                                        //scriptet där dmghandling händer
     private float Timer;                                                                                                                                      //timer för att allting inte ska göra dmg varje frame
-    public Animator ChildAnim;
+    public Animator[] ChildAnims;
     public AudioSource StrengthAudio;
     public AudioClip[] StrengthClips;
 
@@ -43,7 +43,35 @@ public class CityAlive : MonoBehaviour
         {
             if (!parentScript.damageType.TakesDamageFrom.Contains(damageDealer.damageType))                                                                               //om den inte krockar med någonting vi inte bryr oss om
             {
-                ChildAnim.SetBool("Active", true);
+                if(gameObject.tag == "BossCity")
+                {
+                    if(ChildAnims[0].GetBool("TornadoCity") == true && damageDealer.damageType.name == "Tornado")
+                    {
+                        ChildAnims[0].SetBool("Active", true);
+                    }
+                    if (ChildAnims[0].GetBool("LightningCity") == true && damageDealer.damageType.name == "Lightning")
+                    {
+                        ChildAnims[0].SetBool("Active", true);
+                    }
+                    if (ChildAnims[0].GetBool("EarthquakeCity") == true && damageDealer.damageType.name == "EarthQuake")
+                    {
+                        ChildAnims[0].SetBool("Active", true);
+                    }
+                    if (ChildAnims[1].GetBool("TornadoCity") == true && damageDealer.damageType.name == "Tornado")
+                    {
+                        ChildAnims[1].SetBool("Active", true);
+                    }
+                    if (ChildAnims[1].GetBool("LightningCity") == true && damageDealer.damageType.name == "Lightning")
+                    {
+                        ChildAnims[1].SetBool("Active", true);
+                    }
+                    if (ChildAnims[1].GetBool("EarthquakeCity") == true && damageDealer.damageType.name == "EarthQuake")
+                    {
+                        ChildAnims[1].SetBool("Active", true);
+                    }
+                }
+                else
+                    ChildAnims[0].SetBool("Active", true);
             }
             if(parentScript.damageType.name == "TornadoCity")
             {
@@ -67,7 +95,9 @@ public class CityAlive : MonoBehaviour
     {
         if (col.gameObject.tag != "Land" && col.gameObject.tag != "MainCamera" && col.gameObject.tag != "Ocean")                                                                               //om den inte krockar med någonting vi inte bryr oss om
         {
-            ChildAnim.SetBool("Active", false);
+            ChildAnims[0].SetBool("Active", false);
+            if (gameObject.tag == "BossCity")
+                ChildAnims[1].SetBool("Active", false);
         }
     }
 }

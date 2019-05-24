@@ -42,6 +42,7 @@ public class CityBehaviour : MonoBehaviour
     private Transform Alive;                                                                                                            //child objektet CityAlive
     private Transform Dead;                                                                                                             //child objektet CityDead
     public ParticleSystem dirtSplatter;
+    public ParticleSystem rippleEffect;
     public AudioSource citySoundPlayer;
     public AudioClip[] citySoundClips;
     
@@ -68,6 +69,7 @@ public class CityBehaviour : MonoBehaviour
         ChooseType();                                                                                                                   //callar funktionen ChooseType
         citySoundPlayer.clip = citySoundClips[0];
         citySoundPlayer.Play();
+        Instantiate(rippleEffect, transform);
     }
 
     
