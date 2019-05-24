@@ -20,9 +20,10 @@ public class CityAlive : MonoBehaviour
     {
         if (col.gameObject.tag != "Land" && col.gameObject.tag != "MainCamera" && col.gameObject.tag != "Ocean")                                                                               //om den inte krockar med någonting vi inte bryr oss om
         {
-            if(col.gameObject.name == "Lightning")                                                                                                            //om det va lightning som träffade
+            if(col.gameObject.name == "Ligtning(Clone)")                                                                                                            //om det va lightning som träffade
             {
                 parentScript.OnChildTriggerEnter2D(col);                                                                                                      //aktivera funktionen i parentscriptet
+                Destroy(col.gameObject);
                 return;                                                                                                                                       //hoppa ur scriptet
             }
             Timer += 1;                                                                                                                                       //för varje frame öka timern med 1

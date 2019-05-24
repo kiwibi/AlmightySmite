@@ -143,7 +143,7 @@ public class TornadoBehaviour : MonoBehaviour
 
     void SetIndicator()
     {
-        IndicatorDir = Direction;
+        IndicatorDir = WindBehaviour.GetWindMovement();
         if (IndicatorDir != Vector2.zero)
         {
             IndicatorDir.Normalize();

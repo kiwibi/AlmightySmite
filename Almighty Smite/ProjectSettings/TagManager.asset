@@ -10,6 +10,7 @@ TagManager:
   - World
   - Ocean
   - Disaster
+  - BossCity
   layers:
   - Default
   - TransparentFX

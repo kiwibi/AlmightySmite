@@ -891,14 +891,14 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 08d317583602e0e41be73dfd46a2b319, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 312d3311133fb0841b2ca9e0658d39ec, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 1
+  m_FillAmount: 0
   m_FillClockwise: 1
-  m_FillOrigin: 0
+  m_FillOrigin: 1
   m_UseSpriteMesh: 0
 --- !u!222 &66868003
 CanvasRenderer:
@@ -2387,7 +2387,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 312d3311133fb0841b2ca9e0658d39ec, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 08d317583602e0e41be73dfd46a2b319, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -13078,7 +13078,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1888349859
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14828,20 +14828,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: BossCity[WIP]
       objectReference: {fileID: 0}
-    - target: {fileID: 8319493524793438317, guid: 8637348eb03003e4e9b0c166967e8cfe,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8319493524793438319, guid: 8637348eb03003e4e9b0c166967e8cfe,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.41
+      value: 1.32
       objectReference: {fileID: 0}
     - target: {fileID: 8319493524793438319, guid: 8637348eb03003e4e9b0c166967e8cfe,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.28
+      value: 1.95
       objectReference: {fileID: 0}
     - target: {fileID: 8319493524793438319, guid: 8637348eb03003e4e9b0c166967e8cfe,
         type: 3}
@@ -14887,6 +14882,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 460399776555590865, guid: 8637348eb03003e4e9b0c166967e8cfe,
+        type: 3}
+      propertyPath: MaxHealth
+      value: 1000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8637348eb03003e4e9b0c166967e8cfe, type: 3}

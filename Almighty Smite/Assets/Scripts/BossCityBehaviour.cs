@@ -50,13 +50,14 @@ public class BossCityBehaviour : MonoBehaviour
         Dead.gameObject.SetActive(false);
         dmgDealer = GetComponent<DamageDealer>();
         ChooseType();
-        citySoundPlayer.clip = citySoundClips[0];
-        citySoundPlayer.Play();
+        //citySoundPlayer.clip = citySoundClips[0];
+        //citySoundPlayer.Play();
         
     }
 
     void Update()
     {
+        Debug.Log(CurrentHealth);
         Timer += Time.deltaTime;
         if (Alive.gameObject.activeSelf == true)                                                                                          //om objektet Alive är aktivt i scenen gör funktionen AliveUpdate
         {
@@ -101,8 +102,8 @@ public class BossCityBehaviour : MonoBehaviour
     {
         if (CurrentHealth <= 0)
         {
-            citySoundPlayer.clip = citySoundClips[1];
-            citySoundPlayer.Play();
+            //citySoundPlayer.clip = citySoundClips[1];
+            //citySoundPlayer.Play();
             SwitchState();
         }
     }
