@@ -82,11 +82,15 @@ public class CityBehaviour : MonoBehaviour
             {
                 if (Timer > TickTime)
                 {
-                    if (CitiesAlive.CitiesAlive < 17)
+                    if (AssistantBehaviour.Tutorial == false)
                     {
-                        Pool.ProgressPool += 0.001f;
-                    } else { Pool.ProgressPool += 0; }
-                    Timer = 0.0f;
+                        if (CitiesAlive.CitiesAlive < 17)
+                        {
+                            Pool.ProgressPool += 0.002f;
+                        }
+                        else { Pool.ProgressPool += 0.001f; }
+                        Timer = 0.0f;
+                    }
                 }
                 Minimap01.gameObject.SetActive(true);
             } else { Minimap01.gameObject.SetActive(false); }
@@ -94,12 +98,15 @@ public class CityBehaviour : MonoBehaviour
             {
                 if (Timer > TickTime)
                 {
-                    if (CitiesAlive.CitiesAlive < 17)
+                    if (AssistantBehaviour.Tutorial == false)
                     {
-                        Pool.ProgressPool += 0.0015f;
+                        if (CitiesAlive.CitiesAlive < 17)
+                        {
+                            Pool.ProgressPool += 0.003f;
+                        }
+                        else { Pool.ProgressPool += 0.0015f; }
+                        Timer = 0.0f;
                     }
-                    else { Pool.ProgressPool += 0.001f; }
-                    Timer = 0.0f;
                 }
                 Minimap02.gameObject.SetActive(true);
             } else { Minimap02.gameObject.SetActive(false); }
@@ -107,12 +114,15 @@ public class CityBehaviour : MonoBehaviour
             {
                 if (Timer > TickTime)
                 {
-                    if (CitiesAlive.CitiesAlive < 17)
+                    if (AssistantBehaviour.Tutorial == false)
                     {
-                        Pool.ProgressPool += 0.002f;
+                        if (CitiesAlive.CitiesAlive < 17)
+                        {
+                            Pool.ProgressPool += 0.002f;
+                        }
+                        else { Pool.ProgressPool += 0; }
+                        Timer = 0.0f;
                     }
-                    else { Pool.ProgressPool += 0; }
-                    Timer = 0.0f;
                 }
                 Minimap03.gameObject.SetActive(true);
             } else { Minimap03.gameObject.SetActive(false); }
