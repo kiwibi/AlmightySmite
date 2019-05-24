@@ -10,9 +10,15 @@ public class ProgressbarBehaviour : MonoBehaviour
     public GameObject LoseText;
     public float ProgressPool = 0;
     public bool DEVSWITCH = false;
+    public Image Bar;
+    
+    Color Stage01 = new Color(0, 255, 0);
+    Color Stage02 = new Color(255, 255, 0);
+    Color Stage03 = new Color(255, 0, 0);
 
     void Awake()
     {
+        //Bar.GetComponent<Image>().color = new Color(0, 255, 0);
         LoseText.SetActive(false);
         WinText.SetActive(false);
         Time.timeScale = 1;
