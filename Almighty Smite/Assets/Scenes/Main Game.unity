@@ -7345,7 +7345,7 @@ Transform:
   - {fileID: 1140133421}
   - {fileID: 48335438}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1038388087
 GameObject:
@@ -12294,7 +12294,7 @@ RectTransform:
   - {fileID: 1888349859}
   - {fileID: 1608804575}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -12317,7 +12317,7 @@ MonoBehaviour:
   WinText: {fileID: 1879326540}
   LoseText: {fileID: 262114267}
   ProgressPool: 0
-  DEVSWITCH: 0
+  DEVSWITCH: 1
   Bar: {fileID: 371366650}
 --- !u!4 &1758617526 stripped
 Transform:
@@ -15296,7 +15296,7 @@ PrefabInstance:
     - target: {fileID: 1786024600028192932, guid: 97a4b3c2d4963764f8346038c8565ee1,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1786024600028192932, guid: 97a4b3c2d4963764f8346038c8565ee1,
         type: 3}
@@ -15465,7 +15465,7 @@ PrefabInstance:
     - target: {fileID: 7811305346289538500, guid: 7ae82dce6c8b28a4bb1f549b37461e59,
         type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7811305346289538500, guid: 7ae82dce6c8b28a4bb1f549b37461e59,
         type: 3}
