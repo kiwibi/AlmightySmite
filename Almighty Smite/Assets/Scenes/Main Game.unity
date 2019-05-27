@@ -5380,6 +5380,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WorldSprite: []
+  WorldRenderer:
+  - {fileID: 770205683}
+  - {fileID: 1828497365}
 --- !u!1001 &772546392
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8514,7 +8517,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -3
-  m_Sprite: {fileID: 21300000, guid: cc69869d88c760e48be8da36e5422fc7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 45c9bd76f84e7a8478c2a2c694bfa4f2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -14051,7 +14054,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1983632035
 Transform:
   m_ObjectHideFlags: 0

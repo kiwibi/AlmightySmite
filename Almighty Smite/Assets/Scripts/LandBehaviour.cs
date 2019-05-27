@@ -5,7 +5,7 @@ using UnityEngine;
 public class LandBehaviour : MonoBehaviour
 {
     public Sprite[] WorldSprite;
-    private SpriteRenderer[] WorldRenderer;
+    public SpriteRenderer[] WorldRenderer;
     Color WorldSaturation;
     private ProgressbarBehaviour WorldProgress;
     private bool desaturated = false;
@@ -13,7 +13,6 @@ public class LandBehaviour : MonoBehaviour
     void Start()
     {
         WorldProgress = GameObject.Find("GameUI").GetComponent<ProgressbarBehaviour>();
-        WorldRenderer = GetComponentsInChildren<SpriteRenderer>();
         int index = Random.Range(0, WorldSprite.Length - 1);
         foreach (var renderer in WorldRenderer)
         {
