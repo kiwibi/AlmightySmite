@@ -26,8 +26,8 @@ public class CityAlive : MonoBehaviour
                 Destroy(col.gameObject);
                 return;                                                                                                                                       //hoppa ur scriptet
             }
-            Timer += 1;                                                                                                                                       //för varje frame öka timern med 1
-            if (Timer > 5)                                                                                                                                    //när det har gått mer än 5 frames
+            Timer += 1 * Time.deltaTime;                                                                                                                                       //för varje frame öka timern med 1
+            if (Timer > 1)                                                                                                                                    //när det har gått mer än 5 frames
             {
                 parentScript.OnChildTriggerEnter2D(col);                                                                                                      //aktivera funktionen i parentscriptet                                                                      
                 Timer = 0.0f;                                                                                                                                 //timern sätts till 0 igen
