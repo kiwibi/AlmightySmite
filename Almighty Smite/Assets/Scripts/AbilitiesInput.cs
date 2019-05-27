@@ -22,6 +22,7 @@ public class AbilitiesInput : MonoBehaviour
     public GameObject lightning;
     private KeyCode LightningKey;
     public static bool LightningSpawned;
+    public static int LightningPool = 5;
 
     public static bool Charging;                                                                                        //en bool som ska säga när playern chargar en ability
     private CameraController CamController;
@@ -165,8 +166,9 @@ public class AbilitiesInput : MonoBehaviour
 
     private void Lightning()
     {
-        if(Input.GetKeyDown(LightningKey) && Cooldowns.LightningOnCD == false)
+        if(Input.GetKeyDown(LightningKey) && Cooldowns.LightningOnCD == false && AbilitiesInput.LightningPool > 0)
         {
+            AbilitiesInput.LightningPool--;
             var clone = Instantiate(lightning, cam.ScreenToWorldPoint(new Vector3(Screen.width / 2, Screen.height / 2, cam.nearClipPlane)), Quaternion.identity);
             AbilitiesInput.LightningSpawned = true;
         }

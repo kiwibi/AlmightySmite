@@ -18,7 +18,7 @@ public class ProgressbarBehaviour : MonoBehaviour
 
     void Awake()
     {
-        Bar.GetComponent<Image>().color = new Color(0, 200, 0);
+        Bar.color = new Color(0, 200, 0);
         LoseText.SetActive(false);
         WinText.SetActive(false);
         Time.timeScale = 1;
@@ -29,15 +29,15 @@ public class ProgressbarBehaviour : MonoBehaviour
     {
         if (ProgressBar.fillAmount < 0.60f)
         {
-            Bar.GetComponent<Image>().color = Stage01;
+            Bar.color = Stage01;
         }
         if (ProgressBar.fillAmount > 0.60f && ProgressBar.fillAmount < 0.75f)
         {
-            Bar.GetComponent<Image>().color = Stage02;
+            Bar.color = Stage02;
         } 
         if (ProgressBar.fillAmount > 0.75f)
         {
-            Bar.GetComponent<Image>().color = Stage03;
+            Bar.color = Stage03;
         }
 
         if (DEVSWITCH == false)

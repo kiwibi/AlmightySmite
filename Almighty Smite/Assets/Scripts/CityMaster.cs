@@ -75,8 +75,8 @@ public class CityMaster : MonoBehaviour
         {
             BossSelection = 2;
         }
-        Debug.Log(BossSeed);
-        Debug.Log(BossSelection);
+        //Debug.Log(BossSeed);
+        //Debug.Log(BossSelection);
     }
 
     void Update()

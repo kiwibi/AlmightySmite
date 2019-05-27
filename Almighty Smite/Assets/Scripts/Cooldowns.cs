@@ -12,6 +12,8 @@ public class Cooldowns : MonoBehaviour
     public static float LightningCD;
     private float TornadoTimeStamp;
     private float LightningTimeStamp;
+    private float PoolTimeStamp;
+    public float LightningPoolTimer;
     private Image TornadoIcon;
     public Image LightningIcon;
     // Start is called before the first frame update
@@ -36,6 +38,18 @@ public class Cooldowns : MonoBehaviour
         if(LightningTimeStamp < Time.time)
         {
             Cooldowns.LightningOnCD = false;
+        }
+        RefreshLightning();
+    }
+
+    private void RefreshLightning()
+    {
+        if(PoolTimeStamp < Time.time)
+        {
+            if(AbilitiesInput.LightningPool < 5)
+                AbilitiesInput.LightningPool++;
+            //AbilitiesInput.LightningPool = 5;
+            PoolTimeStamp = Time.time + LightningPoolTimer;
         }
     }
 
