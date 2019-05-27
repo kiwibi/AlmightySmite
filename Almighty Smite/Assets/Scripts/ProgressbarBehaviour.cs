@@ -27,7 +27,7 @@ public class ProgressbarBehaviour : MonoBehaviour
 
     void Update()
     {
-        ScoreManaging.AddScore(1);
+        //ScoreManaging.AddScore(1);
         if (ProgressBar.fillAmount < 0.60f)
         {
             Bar.color = Stage01;
@@ -46,7 +46,7 @@ public class ProgressbarBehaviour : MonoBehaviour
             ProgressBar.fillAmount = ProgressPool;
             if (ProgressPool >= 1)
             {
-                ScoreManaging.SaveAndReset();
+                //ScoreManaging.SaveAndReset();
                 DestoryDisasters();
                 ShakeBehaviour.StopShake();
                 LoseText.SetActive(true);

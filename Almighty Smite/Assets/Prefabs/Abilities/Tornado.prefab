@@ -52,7 +52,7 @@ MonoBehaviour:
   TornadoMaxSpeed: 2
   ChangeDirection: 1
   damageGrowth: 0.5
-  damageRoof: 260
+  damageRoof: 45
   IndicatorRenderer: {fileID: 5385546419349229176}
 --- !u!114 &6401914942164158891
 MonoBehaviour:
