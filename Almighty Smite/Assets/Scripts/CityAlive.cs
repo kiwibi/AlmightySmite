@@ -9,6 +9,7 @@ public class CityAlive : MonoBehaviour
     public Animator[] ChildAnims;
     public AudioSource StrengthAudio;
     public AudioClip[] StrengthClips;
+    public float amountOfFrames;
 
     void Start()
     {
@@ -27,7 +28,7 @@ public class CityAlive : MonoBehaviour
                 return;                                                                                                                                       //hoppa ur scriptet
             }
             Timer += 1;                                                                                                                                       //för varje frame öka timern med 1
-            if (Timer > 10)                                                                                                                                    //när det har gått mer än 5 frames
+            if (Timer > amountOfFrames)                                                                                                                                    //när det har gått mer än 5 frames
             {
                 parentScript.OnChildTriggerEnter2D(col);                                                                                                      //aktivera funktionen i parentscriptet                                                                      
                 Timer = 0.0f;                                                                                                                                 //timern sätts till 0 igen

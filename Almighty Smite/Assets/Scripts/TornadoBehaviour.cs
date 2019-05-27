@@ -62,9 +62,11 @@ public class TornadoBehaviour : MonoBehaviour
             Direction = WindBehaviour.GetWindMovement();                                       //tar rikningen vinden är när den spawnas
             if(AbilitiesInput.TornadoIncrease() != 0)
                 UpdateSize(true, AbilitiesInput.TornadoIncrease() / 100);
+            TornadoCollider.enabled = false;
         }
         else
         {
+            TornadoCollider.enabled = true;
             Charged = true;
             DmgDealer.DamageAmount = Mathf.RoundToInt(MaxDmg);
             moving = true;                                                                 //den rör på sig när den inte laddas så det sätts till true
