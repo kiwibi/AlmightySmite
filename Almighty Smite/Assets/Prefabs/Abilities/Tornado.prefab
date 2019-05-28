@@ -52,7 +52,7 @@ MonoBehaviour:
   TornadoMaxSpeed: 2
   ChangeDirection: 1
   damageGrowth: 0.5
-  damageRoof: 260
+  damageRoof: 45
   IndicatorRenderer: {fileID: 5385546419349229176}
 --- !u!114 &6401914942164158891
 MonoBehaviour:
@@ -221,8 +221,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9195897268672119978}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.0285, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.4, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.063481115, y: 0.059397537, z: 0.14849384}
   m_Children: []
   m_Father: {fileID: 6401914942164158890}
   m_RootOrder: 1
@@ -264,8 +264,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: -6147141655685971601, guid: 286833d6b33efef41beb5ec296f4549a,
-    type: 3}
+  m_Sprite: {fileID: 21300000, guid: 857dd6d4425ee8e41b5d225911413390, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

@@ -395,6 +395,7 @@ MonoBehaviour:
   StrengthClips:
   - {fileID: 8300000, guid: 5d00f79af1a66c94da7428fcff1efbc8, type: 3}
   - {fileID: 8300000, guid: ee9cce12c0dcbfe49bb7b3c66065aaa5, type: 3}
+  amountOfFrames: 10
 --- !u!1 &1656144450753771817
 GameObject:
   m_ObjectHideFlags: 0

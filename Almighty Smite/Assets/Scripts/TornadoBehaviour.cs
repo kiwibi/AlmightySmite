@@ -62,9 +62,11 @@ public class TornadoBehaviour : MonoBehaviour
             Direction = WindBehaviour.GetWindMovement();                                       //tar rikningen vinden är när den spawnas
             if(AbilitiesInput.TornadoIncrease() != 0)
                 UpdateSize(true, AbilitiesInput.TornadoIncrease() / 100);
+            TornadoCollider.enabled = false;
         }
         else
         {
+            TornadoCollider.enabled = true;
             Charged = true;
             DmgDealer.DamageAmount = Mathf.RoundToInt(MaxDmg);
             moving = true;                                                                 //den rör på sig när den inte laddas så det sätts till true
@@ -117,14 +119,14 @@ public class TornadoBehaviour : MonoBehaviour
         {
             TornadoSprite.transform.localScale += new Vector3(SizeIncrement / 2, SizeIncrement / 2);                 //spriten skalas upp med 0.1 varje frame den laddar
             TornadoCollider.radius += ((RadiusIncrement/ 10));                                                  //Då radiusen är en tiondel av startskalan tornadon börjar växer den en tiondel så snabbt
-            IndicatorRenderer.transform.localScale += new Vector3(SizeIncrement * 50, SizeIncrement * 50);
+            IndicatorRenderer.transform.localScale += new Vector3(SizeIncrement * 4, SizeIncrement * 4);
             CurrentDmg = Mathf.MoveTowards(CurrentDmg, MaxDmg, 2);
             TornadoSpeed = Mathf.MoveTowards(TornadoSpeed, TornadoMaxSpeed, Time.deltaTime);
         }
         else
         {
             TornadoSprite.transform.localScale -= new Vector3(SizeIncrement / 6, SizeIncrement / 6);                 //spriten skalas upp med 0.1 varje frame den laddar
-            IndicatorRenderer.transform.localScale -= new Vector3(SizeIncrement * 17, SizeIncrement * 17);
+            IndicatorRenderer.transform.localScale -= new Vector3(SizeIncrement, SizeIncrement);
             TornadoCollider.radius -= (RadiusIncrement / 40);                                                  //Då radiusen är en tiondel av startskalan tornadon börjar växer den en tiondel så snabbt
             TornadoSpeed -= 0.2f * Time.deltaTime;                                                //farten på tornadon ökas varje frame med deltatime så länge den laddas
             MaxDmg -= 1 * Time.deltaTime;

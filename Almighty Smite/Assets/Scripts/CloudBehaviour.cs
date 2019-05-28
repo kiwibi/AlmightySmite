@@ -18,9 +18,9 @@ public class CloudBehaviour : MonoBehaviour
         foreach (var renderer in CloudRenderer)
         {
             renderer.sprite = CloudSprites[index];
-            Color CloudColor = renderer.material.color;
+            Color CloudColor = renderer.color;
             CloudColor.a = 0.0f;
-            renderer.material.color = CloudColor;
+            renderer.color = CloudColor;
         }
        
         //Movement = Random.insideUnitCircle.normalized;
@@ -39,20 +39,20 @@ public class CloudBehaviour : MonoBehaviour
         if (Timer > 6.0f)
         {
             StartCoroutine("FadeOut");
-            Timer = 0.0f;
+            //Timer = 0.0f;
         }
         TurnHandling();
     }
 
     IEnumerator FadeIn()
     {
-        for (float f = 0f; f <= 1.0; f += 0.01f)
+        for (float f = 0f; f <= 1.0f; f += 0.01f)
         {
             foreach (var renderer in CloudRenderer)
             {
-                Color CloudColor = renderer.material.color;
+                Color CloudColor = renderer.color;
                 CloudColor.a = f;
-                renderer.material.color = CloudColor;
+                renderer.color = CloudColor;
                 yield return null;
             }
         }
@@ -60,16 +60,17 @@ public class CloudBehaviour : MonoBehaviour
 
     IEnumerator FadeOut()
     {
-        for (float f = 1.0f; f >= 0; f -= 0.005f)
+        for (float f = 1.0f; f > 0f; f -= 0.01f)
         {
             foreach (var renderer in CloudRenderer)
             {
-                Color CloudColor = renderer.material.color;
+                Color CloudColor = renderer.color;
                 CloudColor.a = f;
-                renderer.material.color = CloudColor;
+                renderer.color = CloudColor;
                 yield return null;
             }
         }
+        Destroy(gameObject);
     }
 
     private void TurnHandling()
