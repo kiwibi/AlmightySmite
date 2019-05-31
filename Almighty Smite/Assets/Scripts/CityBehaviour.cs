@@ -32,6 +32,7 @@ public class CityBehaviour : MonoBehaviour
     private DamageType LastAttackedBy;                                                                                                  //vilken sorts damage attackerade staden sist
     private DamageDealer dmgDealer;                                                                                                     //scriptet för damagedealer
 
+    private bool respawnSet;
     public Transform Minimap01;
     public Transform Minimap02;
     public Transform Minimap03;
@@ -48,8 +49,9 @@ public class CityBehaviour : MonoBehaviour
     
     void Start()
     {
+        respawnSet = false;
         MaxUpgradeTimer = Random.Range(8.0f, 15.0f);
-        MaxRespawnTimer = Random.Range(5.0f, 60.0f);
+        MaxRespawnTimer = Random.Range(15f, 60.0f);
         Pool = GameObject.Find("GameUI").GetComponent<ProgressbarBehaviour>();
         CitiesAlive = GameObject.Find("City Master").GetComponent<CityMaster>();
         CityRenderer = GetComponentInChildren<SpriteRenderer>();
@@ -88,9 +90,9 @@ public class CityBehaviour : MonoBehaviour
                     {
                         if (CitiesAlive.CitiesAlive < 17)
                         {
-                            Pool.ProgressPool += 0.002f;
+                            Pool.ProgressPool += 0.0005f;
                         }
-                        else { Pool.ProgressPool += 0.001f; }
+                        else { Pool.ProgressPool += 0.0001f; }
                         Timer = 0.0f;
                     }
                 }
@@ -104,9 +106,9 @@ public class CityBehaviour : MonoBehaviour
                     {
                         if (CitiesAlive.CitiesAlive < 17)
                         {
-                            Pool.ProgressPool += 0.003f;
+                            Pool.ProgressPool += 0.001f;
                         }
-                        else { Pool.ProgressPool += 0.0015f; }
+                        else { Pool.ProgressPool += 0.0005f; }
                         Timer = 0.0f;
                     }
                 }
@@ -120,9 +122,9 @@ public class CityBehaviour : MonoBehaviour
                     {
                         if (CitiesAlive.CitiesAlive < 17)
                         {
-                            Pool.ProgressPool += 0.002f;
+                            Pool.ProgressPool += 0.0015f;
                         }
-                        else { Pool.ProgressPool += 0; }
+                        else { Pool.ProgressPool += 0.001f; }
                         Timer = 0.0f;
                     }
                 }
@@ -173,7 +175,7 @@ public class CityBehaviour : MonoBehaviour
                 {
                     if (CitiesAlive.CitiesAlive > 12)
                     {
-                        Pool.ProgressPool -= 0.11f;
+                        Pool.ProgressPool -= 0.1f;
                     }
                     else
                     {
@@ -183,7 +185,7 @@ public class CityBehaviour : MonoBehaviour
                 {
                     if (CitiesAlive.CitiesAlive > 12)
                     {
-                        Pool.ProgressPool -= 0.22f;
+                        Pool.ProgressPool -= 0.21f;
                     }
                     else
                     {
@@ -289,6 +291,7 @@ public class CityBehaviour : MonoBehaviour
             CurrentType = ChooseType();                                                                                                 //skaffa en ny citytype nu när den spawnar
             citySoundPlayer.clip = citySoundClips[0];
             citySoundPlayer.Play();
+            respawnSet = false;
         }
     }
     
@@ -307,5 +310,14 @@ public class CityBehaviour : MonoBehaviour
         CurrentHealth -= DamageAmount;                                                                                                  //minskar health med så mycket dmg attacken hade
         LastAttackedBy = AttackType;                                                                                                    //va den sist blev attackerad av
         Instantiate(dirtSplatter, transform);
+    }
+
+    public void setRespawnTime(float time)
+    {
+        if(Dead.gameObject.activeSelf == true && respawnSet == false)
+        {
+            RespawnTimer = time;
+            respawnSet = true;
+        } 
     }
 }

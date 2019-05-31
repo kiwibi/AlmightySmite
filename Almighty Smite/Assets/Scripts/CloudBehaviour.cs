@@ -46,7 +46,7 @@ public class CloudBehaviour : MonoBehaviour
 
     IEnumerator FadeIn()
     {
-        for (float f = 0f; f <= 1.0f; f += 0.01f)
+        for (float f = 0f; f <= 0.7f; f += 0.01f)
         {
             foreach (var renderer in CloudRenderer)
             {
@@ -60,7 +60,7 @@ public class CloudBehaviour : MonoBehaviour
 
     IEnumerator FadeOut()
     {
-        for (float f = 1.0f; f > 0f; f -= 0.01f)
+        for (float f = 0.7f; f > 0f; f -= 0.01f)
         {
             foreach (var renderer in CloudRenderer)
             {

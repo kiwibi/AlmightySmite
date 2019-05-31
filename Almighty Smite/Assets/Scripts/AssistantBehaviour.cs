@@ -12,10 +12,9 @@ public class AssistantBehaviour : MonoBehaviour
         TORNADO,
         LIGHTNING,
         STRENGTH,
-        SUPERCITY,
         FADEOUT,
     }
-    public static bool Tutorial = false;
+    public static bool Tutorial;
     private static AssistantBehaviour instance;
     private bool CurrentlyActive;
     private Image AssistantSprite;
@@ -28,25 +27,26 @@ public class AssistantBehaviour : MonoBehaviour
     public string Tornado;
     public string Lightning;
     public string Strength;
-    public string SuperCity;
     private bool activated;
     private AssistantState currentState;
     public int TimeBeforeFadeOut;
     public static bool Respawned;
+    private bool CR_running;
 
     void Start()
     {
         instance = this;
+        CR_running = false;
         AssistantSprite = GetComponentInChildren<Image>();
         TutorialAlpha = GetComponent<CanvasGroup>();
         text = GetComponentInChildren<Text>();
         instance.currentState = AssistantState.INTRO;
         AssistantBehaviour.Respawned = false;
+        AssistantBehaviour.Tutorial = true;
     }
 
     void Update()
     {
-
         if (Tutorial == true) {
             switch (currentState)
             {
@@ -56,18 +56,20 @@ public class AssistantBehaviour : MonoBehaviour
                         if (TutorialAlpha.alpha != 1)
                             StartCoroutine("FadeIn");
                         text.text = AddLineBreak(Intro);
-                        StartCoroutine(ChangeState(AssistantState.EARTHQUAKE, 3));
+                        if (CR_running == false)
+                            StartCoroutine(ChangeState(AssistantState.EARTHQUAKE, 2));
                     }
                     break;
                 case AssistantState.EARTHQUAKE:
                     if (activated != true)
                     {
                         text.text = AddLineBreak(Earthquake);
+                        AssistantSprite.sprite = AssitantLooks[3];
                         activated = true;
                     }
                     else
                     {
-                        if (AbilitiesInput.EarthquakeSpawned == true)
+                        if (AbilitiesInput.EarthquakeSpawned == true && CR_running == false)
                             StartCoroutine(ChangeState(AssistantState.TORNADO, 0));
                     }
                     break;
@@ -79,7 +81,7 @@ public class AssistantBehaviour : MonoBehaviour
                     }
                     else
                     {
-                        if (AbilitiesInput.TornadoSpawned == true)
+                        if (AbilitiesInput.TornadoSpawned == true && CR_running == false)
                             StartCoroutine(ChangeState(AssistantState.LIGHTNING, 0));
                     }
                     break;
@@ -91,11 +93,8 @@ public class AssistantBehaviour : MonoBehaviour
                     }
                     else
                     {
-                        if (AbilitiesInput.LightningSpawned == true && TutorialAlpha.alpha == 1)
+                        if (AbilitiesInput.LightningSpawned == true && TutorialAlpha.alpha == 1 && CR_running == false)
                             StartCoroutine("FadeOut");
-
-                        if (AssistantBehaviour.Respawned == true)
-                            StartCoroutine(ChangeState(AssistantState.STRENGTH, 1));
                     }
                     break;
                 case AssistantState.STRENGTH:
@@ -108,32 +107,26 @@ public class AssistantBehaviour : MonoBehaviour
                     }
                     else
                     {
-                        if (TutorialAlpha.alpha == 1)
+                        if (TutorialAlpha.alpha == 1 && CR_running == false)
                             StartCoroutine(ChangeState(AssistantState.FADEOUT, 3));
-                    }
-                    break;
-                case AssistantState.SUPERCITY:
-                    if (activated != true)
-                    {
-                        if (TutorialAlpha.alpha != 1)
-                            StartCoroutine("FadeIn");
-                        text.text = AddLineBreak(SuperCity);
                     }
                     break;
                 case AssistantState.FADEOUT:
                     if (TutorialAlpha.alpha != 0)
                         StartCoroutine("FadeOut");
-                    Tutorial = false;
                     break;
             }
         }
     }
 
-    public static IEnumerator ChangeState(AssistantState newState,float delay)
+    private IEnumerator ChangeState(AssistantState newState,float delay)
     {
+        CR_running = true;
         yield return new WaitForSeconds(delay);
-        instance.currentState = newState;
-        instance.activated = false;
+        activated = false;
+        currentState = newState;
+        CR_running = false;
+        
     }
 
     IEnumerator FadeIn()
@@ -161,6 +154,13 @@ public class AssistantBehaviour : MonoBehaviour
         }
         tmpColor = 0;
         TutorialAlpha.alpha = tmpColor;
+        if (currentState == AssistantState.FADEOUT)
+            AssistantBehaviour.Tutorial = false;
+        else if (currentState == AssistantState.LIGHTNING)
+        {
+            CityMaster.TutorialRespawn();
+            StartCoroutine(ChangeState(AssistantState.STRENGTH, 0));
+        }
     }
 
     private void TakeAwayTimer()

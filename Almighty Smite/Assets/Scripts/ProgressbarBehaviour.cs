@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ProgressbarBehaviour : MonoBehaviour
 {
@@ -27,7 +28,7 @@ public class ProgressbarBehaviour : MonoBehaviour
 
     void Update()
     {
-        //ScoreManaging.AddScore(1);
+        ScoreManaging.AddScore(1);
         if (ProgressBar.fillAmount < 0.60f)
         {
             Bar.color = Stage01;
@@ -46,19 +47,20 @@ public class ProgressbarBehaviour : MonoBehaviour
             ProgressBar.fillAmount = ProgressPool;
             if (ProgressPool >= 1)
             {
-                //ScoreManaging.SaveAndReset();
+                ScoreManaging.SaveScore();
                 DestoryDisasters();
                 ShakeBehaviour.StopShake();
                 LoseText.SetActive(true);
                 Time.timeScale = 0;
             }
-            //if (ProgressPool < 0)
-            //{
-            //    DestoryDisasters();
-            //    ShakeBehaviour.StopShake();
-            //    WinText.SetActive(true);
-            //    Time.timeScale = 0;
-            //}
+            if (ProgressPool < 0)
+            {
+                DestoryDisasters();
+                ShakeBehaviour.StopShake();
+                WinText.SetActive(true);
+                Time.timeScale = 0;
+                StartCoroutine(switchScene());
+            }
         }
     }
 
@@ -69,5 +71,11 @@ public class ProgressbarBehaviour : MonoBehaviour
         {
             Destroy(tmpObj[i]);
         }
+    }
+
+    private IEnumerator switchScene()
+    {
+        yield return new WaitForSecondsRealtime(3);
+        SceneManager.LoadScene("HighScore");
     }
 }

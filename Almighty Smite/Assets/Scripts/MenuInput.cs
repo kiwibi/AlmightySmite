@@ -10,6 +10,7 @@ public class MenuInput : MonoBehaviour
     {
         if(Input.GetKey(KeyCode.C))                                                                                                    //om någon knapp är tryckt
         {
+            ScoreManaging.ResetScore();
             SceneManager.LoadScene("Main Game");                                                                                //starta spelet
         }
     }
