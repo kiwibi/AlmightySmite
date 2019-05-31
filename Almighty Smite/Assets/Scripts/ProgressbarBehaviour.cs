@@ -11,6 +11,8 @@ public class ProgressbarBehaviour : MonoBehaviour
     public GameObject LoseText;
     public float ProgressPool = 0;
     public bool DEVSWITCH = false;
+    public static bool PlayerWin;
+    public static bool GameEnd = false;
     public Image Bar;
     
     Color Stage01 = new Color(0.0f, 0.85f, 0.0f);
@@ -50,14 +52,16 @@ public class ProgressbarBehaviour : MonoBehaviour
                 ScoreManaging.SaveScore();
                 DestoryDisasters();
                 ShakeBehaviour.StopShake();
-                LoseText.SetActive(true);
+                PlayerWin = true;
+                GameEnd = true;
                 Time.timeScale = 0;
             }
             if (ProgressPool < 0)
             {
                 DestoryDisasters();
                 ShakeBehaviour.StopShake();
-                WinText.SetActive(true);
+                PlayerWin = false;
+                GameEnd = true;
                 Time.timeScale = 0;
                 StartCoroutine(switchScene());
             }

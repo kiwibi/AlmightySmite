@@ -7,7 +7,7 @@ public class LightningBehaviour : MonoBehaviour
     public GameObject Lightning;                                                                                                                                             //object that will be spawned
     private CameraController CamController;
     private List<Camera> cameras;
-    // Start is called before the first frame update
+
     void Start()
     {
         CamController = GameObject.Find("CameraController").GetComponent<CameraController>();
@@ -23,7 +23,6 @@ public class LightningBehaviour : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (cameras[0].transform.position.x + (cameras[0].orthographicSize) < CamController.MinX || cameras[0].transform.position.x + (cameras[0].orthographicSize) > CamController.MaxX)

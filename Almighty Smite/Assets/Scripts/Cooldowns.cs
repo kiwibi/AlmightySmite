@@ -16,7 +16,7 @@ public class Cooldowns : MonoBehaviour
     public float LightningPoolTimer;
     private Image TornadoIcon;
     public Image LightningIcon;
-    // Start is called before the first frame update
+
     void Start()
     {
         TornadoIcon = transform.GetChild(1).GetComponent<Image>();
@@ -26,7 +26,6 @@ public class Cooldowns : MonoBehaviour
         TornadoIcon.fillAmount = Cooldowns.TornadoCD;
     }
 
-    // Update is called once per frame
     void Update()
     {
         TornadoIcon.fillAmount -= 0.25f * Time.deltaTime;
