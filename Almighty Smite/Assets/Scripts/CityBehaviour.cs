@@ -271,7 +271,7 @@ public class CityBehaviour : MonoBehaviour
         return TmpType;                                                                                                                  //skicka tillbakla temporär variabeln
     }
 
-    private void SwitchState()
+    public void SwitchState()
     {
         if (Alive.gameObject.activeSelf == true)                                                                                         //om cityalive är aktiv i den nuvarande scenen
         {
@@ -281,6 +281,8 @@ public class CityBehaviour : MonoBehaviour
             transform.GetChild(2).GetComponent<Animator>().SetBool("Dead", true);
             CityAnimator.SetBool("Upgrade1", false);
             CityAnimator.SetBool("Upgrade1", false);
+            if(AssistantBehaviour.Tutorial == false)
+                SetRespawnTime();
         }
         else
         {
@@ -312,11 +314,25 @@ public class CityBehaviour : MonoBehaviour
         Instantiate(dirtSplatter, transform);
     }
 
-    public void setRespawnTime(float time)
+    public bool IsAlive()
+    {
+        bool tmp;
+        if(Alive.gameObject.activeSelf == true)
+        {
+            tmp = true;
+        }
+        else
+        {
+            tmp = false;
+        }
+        return tmp;
+    }
+
+    public void SetRespawnTime()
     {
         if(Dead.gameObject.activeSelf == true && respawnSet == false)
         {
-            RespawnTimer = time;
+            RespawnTimer = CityMaster.getRespawnTime();
             respawnSet = true;
         } 
     }

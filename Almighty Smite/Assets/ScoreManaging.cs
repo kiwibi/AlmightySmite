@@ -19,8 +19,8 @@ public class ScoreManaging : MonoBehaviour
     private string CurrentName;
     private List<score> Highscore;
     private string[] HighscoreStrings;
-    public TextAsset textFile;
     private float timeBonus;
+    private string path;
     
     void Awake()
     {
@@ -38,6 +38,8 @@ public class ScoreManaging : MonoBehaviour
         CurrentScore = 0;
         Highscore = new List<score>();
         DontDestroyOnLoad(gameObject);
+        path = Application.persistentDataPath + "Assets";
+
         timeBonus = 0;
         ReadFile();
     }
@@ -85,12 +87,32 @@ public class ScoreManaging : MonoBehaviour
             HighscoreStrings[index] = tmpString;
             index++;
         }
-        File.WriteAllLines("Assets/Score/Highscore.txt", HighscoreStrings);      
+        try
+        {
+            if (!Directory.Exists(path))
+                Directory.CreateDirectory(path);
+            File.WriteAllLines("Assets/HighScore.txt", HighscoreStrings);
+        }
+        catch (System.Exception ex)
+        {
+            string ErrorMessages = "File Write Error\n" + ex.Message;
+            Debug.LogError(ErrorMessages);
+        }
     }
 
     private void ReadFile()
     {
-        HighscoreStrings = File.ReadAllLines("Assets/Score/Highscore.txt");
+        try
+        {
+            if (!Directory.Exists(path))
+                Directory.CreateDirectory(path);
+            HighscoreStrings = File.ReadAllLines("Assets/HighScore.txt");
+        }
+        catch (System.Exception ex)
+        {
+            string ErrorMessages = "File Write Error\n" + ex.Message;
+            Debug.LogError(ErrorMessages);
+        }
         for (int i = 0; i < HighscoreStrings.Length; i++)
         {
             int namePos = HighscoreStrings[i].IndexOf('&');
@@ -100,7 +122,6 @@ public class ScoreManaging : MonoBehaviour
             int.TryParse(subTmpString, out tmpScore.score_);
             Highscore.Add(tmpScore);
         }
-        
     }
 
     public static string[] GetHighScores()
@@ -111,11 +132,16 @@ public class ScoreManaging : MonoBehaviour
 
     public static void ResetScore()
     {
-                instance.CurrentScore = 0;
+        instance.CurrentScore = 0;
     }
 
     public static void SetName(string name)
     {
         instance.CurrentName = name;
+    }
+
+    public static int GetScore()
+    {
+        return instance.CurrentScore + Mathf.RoundToInt(300f - instance.timeBonus);
     }
 }

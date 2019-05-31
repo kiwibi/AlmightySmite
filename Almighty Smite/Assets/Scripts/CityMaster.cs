@@ -90,7 +90,6 @@ public class CityMaster : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(respawnTimer);
         SpawnTimer -= Time.deltaTime;
 
         if (AssistantBehaviour.Tutorial == true)
@@ -98,7 +97,7 @@ public class CityMaster : MonoBehaviour
             if (Index < 4)
             {
                 SpawnCity();
-                setRespawnTime(respawnTimer);
+                //setRespawnTime(respawnTimer);
             }
         }
         else
@@ -110,7 +109,7 @@ public class CityMaster : MonoBehaviour
                     if (Index < 8)
                     {
                         SpawnCity();
-                        setRespawnTime(respawnTimer);
+                        //setRespawnTime(respawnTimer);
                     }
                     if(CitiesAlive < 4)
                     {
@@ -121,7 +120,7 @@ public class CityMaster : MonoBehaviour
                     if (Index < 12)
                     {
                         SpawnCity();
-                        setRespawnTime(respawnTimer);
+                        //setRespawnTime(respawnTimer);
                     }
                     if (CitiesAlive < 6)
                     {
@@ -133,7 +132,7 @@ public class CityMaster : MonoBehaviour
                     if (Index < 16)
                     {
                         SpawnCity();
-                        setRespawnTime(respawnTimer);
+                        //setRespawnTime(respawnTimer);
                     }
                     if (CitiesAlive < 8)
                     {
@@ -144,7 +143,7 @@ public class CityMaster : MonoBehaviour
                     if (Index < 20)
                     {
                         SpawnCity();
-                        setRespawnTime(respawnTimer);
+                        //setRespawnTime(respawnTimer);
                     }
                     if (CitiesAlive < 10)
                     {
@@ -155,7 +154,7 @@ public class CityMaster : MonoBehaviour
                     if (Index < 25)
                     {
                         SpawnCity();
-                        setRespawnTime(respawnTimer);
+                        //setRespawnTime(respawnTimer);
                     }
                     if (CitiesAlive < 13)
                     {
@@ -168,7 +167,7 @@ public class CityMaster : MonoBehaviour
                         anotherTimer = Time.time + 3;
                         if(respawnTimer < 5)
                             respawnTimer -= 0.5f;
-                        setRespawnTime(respawnTimer);
+                        //setRespawnTime(respawnTimer);
                     }
                     break;
             }
@@ -202,19 +201,27 @@ public class CityMaster : MonoBehaviour
         Index++;
     }
 
-    private void setRespawnTime(float time)
+    //private void setRespawnTime(float time)
+    //{
+    //    for(int i = 0; i < Index; i++)
+    //    {
+    //        if(Cities[i].gameObject.activeSelf == true)
+    //            Cities[i].GetComponent<CityBehaviour>().SetRespawnTime(time);
+    //    }
+    //}
+
+    public static float getRespawnTime()
     {
-        for(int i = 0; i < Index; i++)
-        {
-            Cities[i].GetComponent<CityBehaviour>().setRespawnTime(time);
-        }
+
+        return instance.respawnTimer;
     }
 
     public static void TutorialRespawn()
     {
+        instance.respawnTimer = 0;
         for (int i = 0; i < instance.Index; i++)
         { 
-               instance.Cities[i].GetComponent<CityBehaviour>().setRespawnTime(0);
+               instance.Cities[i].GetComponent<CityBehaviour>().SetRespawnTime();
         }
     }
 }
