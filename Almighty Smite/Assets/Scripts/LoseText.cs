@@ -10,7 +10,7 @@ public class LoseText : MonoBehaviour
 
     void Start()
     {
-        
+        Saturation.a = 0.0f;
     }
 
     void Update()

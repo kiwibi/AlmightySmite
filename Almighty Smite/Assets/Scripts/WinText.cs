@@ -10,7 +10,7 @@ public class WinText : MonoBehaviour
 
     void Start()
     {
-        
+        Saturation.a = 0.0f;
     }
 
     void Update()

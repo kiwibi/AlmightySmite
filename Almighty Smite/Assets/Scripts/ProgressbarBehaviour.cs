@@ -20,8 +20,6 @@ public class ProgressbarBehaviour : MonoBehaviour
     void Awake()
     {
         Bar.color = new Color(0, 200, 0);
-        LoseText.SetActive(false);
-        WinText.SetActive(false);
         Time.timeScale = 1;
         ProgressPool = 0.5f;
     }

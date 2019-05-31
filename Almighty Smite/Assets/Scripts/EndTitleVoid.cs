@@ -8,10 +8,9 @@ public class EndTitleVoid : MonoBehaviour
     public Image Void;
     Color Saturation;
 
-
     void Start()
     {
-        
+        Saturation.a = 0.0f;
     }
 
     void Update()
