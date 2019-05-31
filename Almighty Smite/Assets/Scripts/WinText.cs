@@ -15,7 +15,10 @@ public class WinText : MonoBehaviour
 
     void Update()
     {
-        
+        if (ProgressbarBehaviour.GameEnd == true && ProgressbarBehaviour.PlayerWin == true)
+        {
+            StartCoroutine("FadeIn");
+        }
     }
 
     IEnumerator FadeIn()

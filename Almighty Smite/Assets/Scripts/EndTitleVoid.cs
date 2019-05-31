@@ -15,7 +15,10 @@ public class EndTitleVoid : MonoBehaviour
 
     void Update()
     {
-        
+        if (ProgressbarBehaviour.GameEnd == true)
+        {
+            StartCoroutine("FadeIn");
+        }
     }
 
     IEnumerator FadeIn()

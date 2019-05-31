@@ -48,7 +48,7 @@ public class ProgressbarBehaviour : MonoBehaviour
                 ScoreManaging.SaveScore();
                 DestoryDisasters();
                 ShakeBehaviour.StopShake();
-                PlayerWin = true;
+                PlayerWin = false;
                 GameEnd = true;
                 Time.timeScale = 0;
             }
@@ -56,7 +56,7 @@ public class ProgressbarBehaviour : MonoBehaviour
             {
                 DestoryDisasters();
                 ShakeBehaviour.StopShake();
-                PlayerWin = false;
+                PlayerWin = true;
                 GameEnd = true;
                 Time.timeScale = 0;
                 StartCoroutine(switchScene());
