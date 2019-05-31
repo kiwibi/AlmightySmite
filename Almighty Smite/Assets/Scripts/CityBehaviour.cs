@@ -12,7 +12,7 @@ public class CityBehaviour : MonoBehaviour
         LIGHTNING,                                                                                                                      //3
         TORNADO                                                                                                                         //4
     }
-    private readonly float TickTime = 1.0f;
+    private readonly float TickTime = 0.75f;
     private float Timer = 0.0f;
     public DamageType[] DamageKinds;                                                                                                    //en array för att hålla alla olika sorters dmg den ska känna till                                                                                                 //en arrat för att hålla alla sorters olika smoke så den vet vad som ska spawnas
     public Sprite[] DifferentCities;
@@ -90,7 +90,7 @@ public class CityBehaviour : MonoBehaviour
                     {
                         if (CitiesAlive.CitiesAlive < 17)
                         {
-                            Pool.ProgressPool += 0.0005f;
+                            Pool.ProgressPool += 0.0015f;
                         }
                         else { Pool.ProgressPool += 0.0001f; }
                         Timer = 0.0f;
@@ -106,9 +106,9 @@ public class CityBehaviour : MonoBehaviour
                     {
                         if (CitiesAlive.CitiesAlive < 17)
                         {
-                            Pool.ProgressPool += 0.001f;
+                            Pool.ProgressPool += 0.002f;
                         }
-                        else { Pool.ProgressPool += 0.0005f; }
+                        else { Pool.ProgressPool += 0.0015f; }
                         Timer = 0.0f;
                     }
                 }
@@ -122,9 +122,9 @@ public class CityBehaviour : MonoBehaviour
                     {
                         if (CitiesAlive.CitiesAlive < 17)
                         {
-                            Pool.ProgressPool += 0.0015f;
+                            Pool.ProgressPool += 0.0025f;
                         }
-                        else { Pool.ProgressPool += 0.001f; }
+                        else { Pool.ProgressPool += 0.002f; }
                         Timer = 0.0f;
                     }
                 }
@@ -169,27 +169,27 @@ public class CityBehaviour : MonoBehaviour
                     }
                     else
                     {
-                        Pool.ProgressPool -= 0.035f;
+                        Pool.ProgressPool -= 0.0733f;
                     }
                 } else if (CurrentLevel == 2)
                 {
                     if (CitiesAlive.CitiesAlive > 12)
                     {
-                        Pool.ProgressPool -= 0.1f;
+                        Pool.ProgressPool -= 0.085f;
                     }
                     else
                     {
-                        Pool.ProgressPool -= 0.06f;
+                        Pool.ProgressPool -= 0.1255f;
                     }
                 } else if (CurrentLevel == 3)
                 {
                     if (CitiesAlive.CitiesAlive > 12)
                     {
-                        Pool.ProgressPool -= 0.21f;
+                        Pool.ProgressPool -= 0.134f;
                     }
                     else
                     {
-                        Pool.ProgressPool -= 0.16f;
+                        Pool.ProgressPool -= 0.157f;
                    }
             }
             }

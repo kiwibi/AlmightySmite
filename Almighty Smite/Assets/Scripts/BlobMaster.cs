@@ -2,19 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LandBehaviour : MonoBehaviour
+public class BlobMaster : MonoBehaviour
 {
-    public Sprite[] WorldSprite;
-    public SpriteRenderer[] WorldRenderer;
-    Color WorldSaturation;
+    private Transform[] Blobs;
     private ProgressbarBehaviour WorldProgress;
     private bool desaturated = false;
+    public SpriteRenderer[] BlobRenderer;
+    Color BlobSaturation;
 
     void Start()
     {
         WorldProgress = GameObject.Find("GameUI").GetComponent<ProgressbarBehaviour>();
-        int index = Random.Range(0, WorldSprite.Length - 1);
-        foreach (var renderer in WorldRenderer)
+        Blobs = new Transform[7];
+        Blobs[0] = transform.Find("Blob");
+        Blobs[1] = transform.Find("Blob (1)");
+        Blobs[2] = transform.Find("Blob (2)");
+        Blobs[3] = transform.Find("Blob (3)");
+        Blobs[4] = transform.Find("Blob (4)");
+        Blobs[5] = transform.Find("Blob (5)");
+        Blobs[6] = transform.Find("Blob (6)");
+
+        foreach (var renderer in BlobRenderer)
         {
             Color WorldSaturation = renderer.material.color;
             WorldSaturation.a = 1.0f;
@@ -32,7 +40,7 @@ public class LandBehaviour : MonoBehaviour
                 desaturated = true;
             }
         }
-        if (WorldProgress.ProgressPool < 0.45)
+        if (WorldProgress.ProgressPool < 0.3)
         {
             if (desaturated == true)
             {
@@ -46,11 +54,11 @@ public class LandBehaviour : MonoBehaviour
     {
         for (float f = 0f; f <= 1.0; f += 0.01f)
         {
-            foreach (var renderer in WorldRenderer)
+            foreach (var renderer in BlobRenderer)
             {
-                Color WorldSaturation = renderer.material.color;
-                WorldSaturation.a = f;
-                renderer.material.color = WorldSaturation;
+                Color BlobSaturation = renderer.material.color;
+                BlobSaturation.a = f;
+                renderer.material.color = BlobSaturation;
                 yield return null;
             }
         }
@@ -60,11 +68,11 @@ public class LandBehaviour : MonoBehaviour
     {
         for (float f = 1.0f; f >= 0; f -= 0.005f)
         {
-            foreach (var renderer in WorldRenderer)
+            foreach (var renderer in BlobRenderer)
             {
-                Color WorldSaturation = renderer.material.color;
-                WorldSaturation.a = f;
-                renderer.material.color = WorldSaturation;
+                Color BlobSaturation = renderer.material.color;
+                BlobSaturation.a = f;
+                renderer.material.color = BlobSaturation;
                 yield return null;
             }
         }

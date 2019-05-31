@@ -45,6 +45,7 @@ public class TreeBehaviour : MonoBehaviour
         {
             Alive.gameObject.SetActive(false);
             Dead.gameObject.SetActive(true);
+            ScoreManaging.RemoveScore(1);
         }
         else
         {
