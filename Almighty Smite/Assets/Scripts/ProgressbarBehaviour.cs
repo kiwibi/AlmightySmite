@@ -7,8 +7,6 @@ using UnityEngine.SceneManagement;
 public class ProgressbarBehaviour : MonoBehaviour
 {
     public Image ProgressBar;
-    public GameObject WinText;
-    public GameObject LoseText;
     public float ProgressPool = 0;
     public bool DEVSWITCH = false;
     public static bool PlayerWin;
