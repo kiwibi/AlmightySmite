@@ -5,6 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class MenuInput : MonoBehaviour
 {
+    private void Start()
+    {
+        Time.timeScale = 1;
+        Cursor.lockState = CursorLockMode.Locked;
+    }
     // Update is called once per frame
     void Update()
     {

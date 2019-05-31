@@ -51,6 +51,7 @@ public class ProgressbarBehaviour : MonoBehaviour
                 PlayerWin = false;
                 GameEnd = true;
                 Time.timeScale = 0;
+                StartCoroutine(switchScene(true));
             }
             if (ProgressPool < 0)
             {
@@ -59,7 +60,7 @@ public class ProgressbarBehaviour : MonoBehaviour
                 PlayerWin = true;
                 GameEnd = true;
                 Time.timeScale = 0;
-                StartCoroutine(switchScene());
+                StartCoroutine(switchScene(false));
             }
         }
     }
@@ -73,9 +74,12 @@ public class ProgressbarBehaviour : MonoBehaviour
         }
     }
 
-    private IEnumerator switchScene()
+    private IEnumerator switchScene(bool lost)
     {
         yield return new WaitForSecondsRealtime(3);
-        SceneManager.LoadScene("HighScore");
+        if (lost == true)
+            SceneManager.LoadScene("StartScene");
+        else
+            SceneManager.LoadScene("HighScore");
     }
 }

@@ -10,7 +10,7 @@ public class CursorHandler : MonoBehaviour
     void Start()
     {
         //Cursor.visible = false;                                                                                                                                 //cursor is not rendered
-        //Cursor.lockState = CursorLockMode.Locked;
+        Cursor.lockState = CursorLockMode.Locked;
         CamController = GameObject.Find("CameraController").GetComponent<CameraController>();
 
         cameras = new List<Camera>();
