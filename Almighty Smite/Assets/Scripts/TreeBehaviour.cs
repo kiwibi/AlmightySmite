@@ -1,14 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TreeBehaviour : MonoBehaviour
 {
+    public GameObject FloatingScore;
     private TreeMaster TreesAlive;
     private Transform Alive;
     private Transform Dead;
     private float Timer = 20.0f;
     private BoxCollider2D TreeCollider;
+    private int RemoveFromScore;
 
     void Start()
     {
@@ -18,6 +21,7 @@ public class TreeBehaviour : MonoBehaviour
         Dead = transform.GetChild(1);
         Dead.gameObject.SetActive(false);
         TreeCollider = GetComponentInChildren<BoxCollider2D>();
+        RemoveFromScore = 1;
     }
 
     void Update()
@@ -45,6 +49,10 @@ public class TreeBehaviour : MonoBehaviour
         {
             Alive.gameObject.SetActive(false);
             Dead.gameObject.SetActive(true);
+            var clone = Instantiate(FloatingScore, Camera.main.WorldToScreenPoint(transform.position), Quaternion.identity, GameObject.Find("GameUI").transform);
+            clone.GetComponent<floatingScore>().setParent(transform);
+            clone.GetComponent<Text>().text = "-" + RemoveFromScore.ToString();
+            clone.GetComponent<Text>().color = Color.red;
             ScoreManaging.RemoveScore(1);
         }
         else
