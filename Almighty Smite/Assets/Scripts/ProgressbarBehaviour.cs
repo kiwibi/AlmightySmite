@@ -45,7 +45,6 @@ public class ProgressbarBehaviour : MonoBehaviour
             ProgressBar.fillAmount = ProgressPool;
             if (ProgressPool >= 1)
             {
-                ScoreManaging.SaveScore();
                 DestoryDisasters();
                 ShakeBehaviour.StopShake();
                 PlayerWin = false;

@@ -3880,6 +3880,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59c2f62b76f9a9341ab7020c8d0e5929, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Void: {fileID: 627899836}
 --- !u!114 &627899836
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9318,6 +9319,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9783365369389ae47b50d5cd001f3f94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LoseTxt: {fileID: 1283399173}
 --- !u!114 &1283399173
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10283,6 +10285,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dcfaef2cc6645940b6fb7d93c0de33c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  WinTxt: {fileID: 0}
 --- !u!114 &1433965041
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13458,8 +13461,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ProgressBar: {fileID: 66868002}
-  WinText: {fileID: 0}
-  LoseText: {fileID: 0}
   ProgressPool: 0
   DEVSWITCH: 0
   Bar: {fileID: 371366650}
