@@ -22,6 +22,8 @@ public class ProgressbarBehaviour : MonoBehaviour
         Bar.color = new Color(0, 200, 0);
         Time.timeScale = 1;
         ProgressPool = 0.5f;
+        ProgressbarBehaviour.PlayerWin = false;
+        ProgressbarBehaviour.GameEnd = false;
     }
 
     void Update()
