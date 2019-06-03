@@ -32,7 +32,7 @@ public class namePicker : MonoBehaviour
             if (LetterTimeStamp < Time.time)
                 ChangeLetter();
         }
-        if (Input.GetKeyDown(KeyCode.C))
+        if (Input.GetKeyDown(KeyCode.C) || Input.GetKeyDown(KeyCode.V))
         {
             if (LetterIndex < 2)
             {
@@ -65,6 +65,6 @@ public class namePicker : MonoBehaviour
 
             Letters[LetterIndex].text = ((char)currentLetter).ToString();
 
-        LetterTimeStamp = Time.time + 0.3f;
+        LetterTimeStamp = Time.time + 0.5f;
     }
 }
