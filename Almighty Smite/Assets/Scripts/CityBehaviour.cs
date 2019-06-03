@@ -13,7 +13,7 @@ public class CityBehaviour : MonoBehaviour
         LIGHTNING,                                                                                                                      //3
         TORNADO                                                                                                                         //4
     }
-    private readonly float TickTime = 0.9f;
+    private float TickTime = 0.9f;
     private float Timer = 0.0f;
     public DamageType[] DamageKinds;                                                                                                    //en array för att hålla alla olika sorters dmg den ska känna till                                                                                                 //en arrat för att hålla alla sorters olika smoke så den vet vad som ska spawnas
     public Sprite[] DifferentCities;
@@ -82,7 +82,7 @@ public class CityBehaviour : MonoBehaviour
     void Update()
     {
         Timer += Time.deltaTime;
-
+        SetTickRate();
         if(Alive.gameObject.activeSelf == true)                                                                                          //om objektet Alive är aktivt i scenen gör funktionen AliveUpdate
         {
             AliveUpdate();
@@ -348,5 +348,27 @@ public class CityBehaviour : MonoBehaviour
             RespawnTimer = CityMaster.getRespawnTime();
             respawnSet = true;
         } 
+    }
+
+    private void SetTickRate()
+    {
+        switch(CityMaster.currentWave)
+        {
+            case 1:
+                TickTime = 1;
+                break;
+            case 2:
+                TickTime = 0.95f;
+                break;
+            case 3:
+                TickTime = 0.9f;
+                break;
+            case 4:
+                TickTime = 0.85f;
+                break;
+            case 5:
+                TickTime = 0.8f;
+                break;
+        }
     }
 }

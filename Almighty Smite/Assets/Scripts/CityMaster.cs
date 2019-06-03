@@ -14,7 +14,7 @@ public class CityMaster : MonoBehaviour
     private static readonly int AmmountOfCities = 25;
     //private static readonly int AmmountOfBossCities = 3;
     private ProgressbarBehaviour Pool;
-    int currentWave;
+    public static int currentWave;
     float respawnTimer;
     float anotherTimer;
     //private bool SecondWave = false;
