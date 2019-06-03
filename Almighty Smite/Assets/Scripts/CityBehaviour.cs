@@ -355,16 +355,16 @@ public class CityBehaviour : MonoBehaviour
         switch(CityMaster.currentWave)
         {
             case 1:
-                TickTime = 1;
+                TickTime = 1.2f;
                 break;
             case 2:
-                TickTime = 0.95f;
+                TickTime = 1.1f;
                 break;
             case 3:
-                TickTime = 0.9f;
+                TickTime = 1.1f;
                 break;
             case 4:
-                TickTime = 0.85f;
+                TickTime = 0.9f;
                 break;
             case 5:
                 TickTime = 0.8f;

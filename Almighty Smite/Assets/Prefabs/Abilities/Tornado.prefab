@@ -52,7 +52,7 @@ MonoBehaviour:
   TornadoMaxSpeed: 2
   ChangeDirection: 1
   damageGrowth: 0.5
-  damageRoof: 60
+  damageRoof: 80
   IndicatorRenderer: {fileID: 5385546419349229176}
 --- !u!114 &6401914942164158891
 MonoBehaviour:
@@ -95,7 +95,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 423ecc892d07b82418a97a5e882716d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DamageAmount: 20
+  DamageAmount: 30
   damageType: {fileID: 11400000, guid: cfd0a4205d46a674ab54b57a32844f3a, type: 2}
 --- !u!1 &6401914943825842403
 GameObject:

@@ -22,6 +22,7 @@ public class namePicker : MonoBehaviour
         {
             Letters[i].text = ((char)currentLetter).ToString();
         }
+        MusicPlayer.Instance.Stop();
     }
 
     // Update is called once per frame

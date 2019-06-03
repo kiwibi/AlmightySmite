@@ -53,7 +53,7 @@ public class TreeBehaviour : MonoBehaviour
             clone.GetComponent<floatingScore>().setParent(transform);
             clone.GetComponent<Text>().text = "-" + RemoveFromScore.ToString();
             clone.GetComponent<Text>().color = Color.red;
-            ScoreManaging.RemoveScore(1);
+            ScoreManaging.RemoveScore(RemoveFromScore);
         }
         else
         {

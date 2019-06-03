@@ -26,6 +26,7 @@ public class ProgressbarBehaviour : MonoBehaviour
         ProgressPool = 0.5f;
         ProgressbarBehaviour.PlayerWin = false;
         ProgressbarBehaviour.GameEnd = false;
+        MusicPlayer.Instance.Play();
     }
 
     void Update()

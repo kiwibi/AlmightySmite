@@ -53,22 +53,22 @@ public class CityAlive : MonoBehaviour
                     Invoke("exitAnim", 1);
                     started = true;
                 }
+                if (parentScript.damageType.name == "TornadoCity")
+                {
+                    StrengthAudio.clip = StrengthClips[0];
+                    StrengthAudio.Play();
+                }
+                else if (parentScript.damageType.name == "LightningCity")
+                {
+                    StrengthAudio.clip = StrengthClips[1];
+                    StrengthAudio.Play();
+                }
+                else if (parentScript.damageType.name == "EarthQuakeCity")
+                {
+                    StrengthAudio.clip = StrengthClips[2];
+                    StrengthAudio.Play();
+                }
             }
-            if(parentScript.damageType.name == "TornadoCity")
-            {
-                StrengthAudio.clip = StrengthClips[0];
-                StrengthAudio.Play();
-            }
-            else if (parentScript.damageType.name == "LightningCity")
-            {
-                StrengthAudio.clip = StrengthClips[1];
-                StrengthAudio.Play();
-            }
-            //else if (parentScript.damageType.name == "EarthQuakeCity")
-            //{
-            //    StrengthAudio.clip = StrengthClips[2];
-            //    StrengthAudio.Play();
-            //}
         }
     }
 
