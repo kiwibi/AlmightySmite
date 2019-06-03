@@ -6,15 +6,18 @@ public class CityAlive : MonoBehaviour
 {
     private DamageDealer parentScript;                                                                                                                        //scriptet där dmghandling händer
     private float Timer;                                                                                                                                      //timer för att allting inte ska göra dmg varje frame
-    public Animator[] ChildAnims;
+    private float ExitTimer;
+    public Animator ChildAnims;
     public AudioSource StrengthAudio;
     public AudioClip[] StrengthClips;
     public float amountOfFrames;
+    private bool started;
 
     void Start()
     {
         parentScript = GetComponentInParent<DamageDealer>();                                                                                                  //hämta komponenter
         Timer = 0.0f;                                                                                                                                         //timern sätts till 0
+        started = false;
     }
 
     private void OnTriggerStay2D(Collider2D col)
@@ -44,35 +47,12 @@ public class CityAlive : MonoBehaviour
         {
             if (!parentScript.damageType.TakesDamageFrom.Contains(damageDealer.damageType))                                                                               //om den inte krockar med någonting vi inte bryr oss om
             {
-                if(gameObject.tag == "BossCity")
+                    ChildAnims.SetBool("Active", true);
+                if (started == false)
                 {
-                    if(ChildAnims[0].GetBool("TornadoCity") == true && damageDealer.damageType.name == "Tornado")
-                    {
-                        ChildAnims[0].SetBool("Active", true);
-                    }
-                    if (ChildAnims[0].GetBool("LightningCity") == true && damageDealer.damageType.name == "Lightning")
-                    {
-                        ChildAnims[0].SetBool("Active", true);
-                    }
-                    if (ChildAnims[0].GetBool("EarthquakeCity") == true && damageDealer.damageType.name == "EarthQuake")
-                    {
-                        ChildAnims[0].SetBool("Active", true);
-                    }
-                    if (ChildAnims[1].GetBool("TornadoCity") == true && damageDealer.damageType.name == "Tornado")
-                    {
-                        ChildAnims[1].SetBool("Active", true);
-                    }
-                    if (ChildAnims[1].GetBool("LightningCity") == true && damageDealer.damageType.name == "Lightning")
-                    {
-                        ChildAnims[1].SetBool("Active", true);
-                    }
-                    if (ChildAnims[1].GetBool("EarthquakeCity") == true && damageDealer.damageType.name == "EarthQuake")
-                    {
-                        ChildAnims[1].SetBool("Active", true);
-                    }
+                    Invoke("exitAnim", 1);
+                    started = true;
                 }
-                else
-                    ChildAnims[0].SetBool("Active", true);
             }
             if(parentScript.damageType.name == "TornadoCity")
             {
@@ -92,13 +72,9 @@ public class CityAlive : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit2D(Collider2D col)
+    private void exitAnim()
     {
-        if (col.gameObject.tag != "Land" && col.gameObject.tag != "MainCamera" && col.gameObject.tag != "Ocean")                                                                               //om den inte krockar med någonting vi inte bryr oss om
-        {
-            ChildAnims[0].SetBool("Active", false);
-            if (gameObject.tag == "BossCity")
-                ChildAnims[1].SetBool("Active", false);
-        }
+        ChildAnims.SetBool("Active", false);
+        started = false;
     }
 }

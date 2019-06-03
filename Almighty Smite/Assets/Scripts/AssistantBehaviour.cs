@@ -47,7 +47,6 @@ public class AssistantBehaviour : MonoBehaviour
 
     void Update()
     {
-        if (Tutorial == true) {
             switch (currentState)
             {
                 case AssistantState.INTRO:
@@ -117,7 +116,6 @@ public class AssistantBehaviour : MonoBehaviour
                         StartCoroutine("FadeOut");
                     break;
             }
-        }
     }
 
     private IEnumerator ChangeState(AssistantState newState,float delay)

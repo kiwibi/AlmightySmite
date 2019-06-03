@@ -391,8 +391,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 006b389630e1d0743a412274936223d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ChildAnims:
-  - {fileID: 6365229419483763379}
+  ChildAnims: {fileID: 6365229419483763379}
   StrengthAudio: {fileID: 7448288978227689442}
   StrengthClips:
   - {fileID: 8300000, guid: 5d00f79af1a66c94da7428fcff1efbc8, type: 3}
