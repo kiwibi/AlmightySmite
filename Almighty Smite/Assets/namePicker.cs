@@ -16,6 +16,7 @@ public class namePicker : MonoBehaviour
     {
         Time.timeScale = 1;
         Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         LetterIndex = 0;
         for (int i = 0; i < Letters.Length; i++)
         {

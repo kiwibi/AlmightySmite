@@ -9,7 +9,7 @@ public class CursorHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //Cursor.visible = false;                                                                                                                                 //cursor is not rendered
+        Cursor.visible = false;                                                                                                                                 //cursor is not rendered
         Cursor.lockState = CursorLockMode.Locked;
         CamController = GameObject.Find("CameraController").GetComponent<CameraController>();
 

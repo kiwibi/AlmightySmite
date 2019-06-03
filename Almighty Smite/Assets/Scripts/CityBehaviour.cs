@@ -13,7 +13,7 @@ public class CityBehaviour : MonoBehaviour
         LIGHTNING,                                                                                                                      //3
         TORNADO                                                                                                                         //4
     }
-    private readonly float TickTime = 0.75f;
+    private readonly float TickTime = 0.9f;
     private float Timer = 0.0f;
     public DamageType[] DamageKinds;                                                                                                    //en array för att hålla alla olika sorters dmg den ska känna till                                                                                                 //en arrat för att hålla alla sorters olika smoke så den vet vad som ska spawnas
     public Sprite[] DifferentCities;

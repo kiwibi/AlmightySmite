@@ -146,7 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 423ecc892d07b82418a97a5e882716d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DamageAmount: 241
+  DamageAmount: 1000
   damageType: {fileID: 11400000, guid: a57feec23fd883941af2fddecc61fbdd, type: 2}
 --- !u!58 &5306609616048565889
 CircleCollider2D:
