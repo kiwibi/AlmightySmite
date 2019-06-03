@@ -153,4 +153,9 @@ public class ScoreManaging : MonoBehaviour
             tmpBonus = 0;
         return instance.CurrentScore + tmpBonus;
     }
+
+    public static int GetLowestHighscore()
+    {
+        return instance.Highscore[9].score_;
+    }
 }

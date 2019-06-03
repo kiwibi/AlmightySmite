@@ -16,6 +16,7 @@ public class CityMaster : MonoBehaviour
     private ProgressbarBehaviour Pool;
     public static int currentWave;
     float respawnTimer;
+    float upgradeTimer;
     float anotherTimer;
     //private bool SecondWave = false;
     //private bool ThirdWave = false;
@@ -106,6 +107,7 @@ public class CityMaster : MonoBehaviour
             {
                 case 1:
                     respawnTimer = 25;
+                    upgradeTimer = 15;
                     if (Index < 8)
                     {
                         SpawnCity();
@@ -129,6 +131,7 @@ public class CityMaster : MonoBehaviour
                     break;
                 case 3:
                     respawnTimer = 20;
+                    upgradeTimer = 12;
                     if (Index < 16)
                     {
                         SpawnCity();
@@ -151,6 +154,7 @@ public class CityMaster : MonoBehaviour
                     }
                     break;
                 case 5:
+                    upgradeTimer = 8;
                     if (Index < 25)
                     {
                         SpawnCity();
@@ -165,8 +169,10 @@ public class CityMaster : MonoBehaviour
                     if (CitiesAlive < 14 && anotherTimer < Time.time)
                     {
                         anotherTimer = Time.time + 3;
-                        if(respawnTimer < 5)
+                        if(respawnTimer > 5)
                             respawnTimer -= 0.5f;
+                        if (upgradeTimer > 5)
+                            upgradeTimer -= 0.5f;
                         //setRespawnTime(respawnTimer);
                     }
                     break;
@@ -214,6 +220,11 @@ public class CityMaster : MonoBehaviour
     {
 
         return instance.respawnTimer;
+    }
+
+    public static float getUpgradeTimer()
+    {
+        return instance.upgradeTimer;
     }
 
     public static void TutorialRespawn()

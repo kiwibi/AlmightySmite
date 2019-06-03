@@ -23,6 +23,12 @@ public class namePicker : MonoBehaviour
             Letters[i].text = ((char)currentLetter).ToString();
         }
         MusicPlayer.Instance.Stop();
+        if(ScoreManaging.GetScore() < ScoreManaging.GetLowestHighscore())
+        {
+            medals.gameObject.SetActive(true);
+            gameObject.SetActive(false);
+        }
+
     }
 
     // Update is called once per frame

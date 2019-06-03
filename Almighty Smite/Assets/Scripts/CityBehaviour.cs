@@ -346,6 +346,7 @@ public class CityBehaviour : MonoBehaviour
         if(Dead.gameObject.activeSelf == true && respawnSet == false)
         {
             RespawnTimer = CityMaster.getRespawnTime();
+            UpgradeTimer = CityMaster.getUpgradeTimer();
             respawnSet = true;
         } 
     }
@@ -358,13 +359,13 @@ public class CityBehaviour : MonoBehaviour
                 TickTime = 1.2f;
                 break;
             case 2:
-                TickTime = 1.1f;
+                TickTime = 1.05f;
                 break;
             case 3:
-                TickTime = 1.1f;
+                TickTime = 0.95f;
                 break;
             case 4:
-                TickTime = 0.9f;
+                TickTime = 0.8f;
                 break;
             case 5:
                 TickTime = 0.8f;
