@@ -50,7 +50,7 @@ public class ProgressbarBehaviour : MonoBehaviour
                 PlayerWin = false;
                 GameEnd = true;
                 Time.timeScale = 0;
-                StartCoroutine(switchScene(true));
+                StartCoroutine(switchScene(false));
             }
             if (ProgressPool < 0)
             {

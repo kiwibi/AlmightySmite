@@ -66,7 +66,11 @@ public class ScoreManaging : MonoBehaviour
     {
         score tmpScore = new score();
         tmpScore.name_ = instance.CurrentName;
-        int tmpBonus = Mathf.RoundToInt(300f - instance.timeBonus);
+        int tmpBonus;
+        if (ProgressbarBehaviour.PlayerWin == true)
+            tmpBonus = Mathf.RoundToInt((300f - instance.timeBonus) * 10);
+        else
+            tmpBonus = 0;
         tmpScore.score_ = instance.CurrentScore + tmpBonus;
         instance.Highscore.Add(tmpScore);
         instance.Highscore = instance.Highscore.OrderByDescending(x => x.score_).ToList<score>();
