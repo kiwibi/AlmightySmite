@@ -68,7 +68,7 @@ public class ScoreManaging : MonoBehaviour
         tmpScore.name_ = instance.CurrentName;
         int tmpBonus;
         if (ProgressbarBehaviour.PlayerWin == true)
-            tmpBonus = Mathf.RoundToInt((300f - instance.timeBonus) * 5);
+            tmpBonus = Mathf.RoundToInt((300f - instance.timeBonus) * 30);
         else
             tmpBonus = 0;
         tmpScore.score_ = instance.CurrentScore + tmpBonus;
@@ -148,7 +148,7 @@ public class ScoreManaging : MonoBehaviour
     {
         int tmpBonus;
         if (ProgressbarBehaviour.PlayerWin == true)
-            tmpBonus = Mathf.RoundToInt((300f - instance.timeBonus) * 5);
+            tmpBonus = Mathf.RoundToInt((300f - instance.timeBonus) * 30);
         else
             tmpBonus = 0;
         return instance.CurrentScore + tmpBonus;

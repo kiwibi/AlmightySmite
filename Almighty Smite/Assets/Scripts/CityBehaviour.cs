@@ -94,7 +94,7 @@ public class CityBehaviour : MonoBehaviour
                     {
                         if (CitiesAlive.CitiesAlive < 17)
                         {
-                            Pool.ProgressPool += 0.0015f;
+                            Pool.ProgressPool += 0.0013f;
                         }
                         else { Pool.ProgressPool += 0.0015f; }
                         Timer = 0.0f;
@@ -110,7 +110,7 @@ public class CityBehaviour : MonoBehaviour
                     {
                         if (CitiesAlive.CitiesAlive < 17)
                         {
-                            Pool.ProgressPool += 0.002f;
+                            Pool.ProgressPool += 0.0018f;
                         }
                         else { Pool.ProgressPool += 0.0015f; }
                         Timer = 0.0f;
@@ -126,7 +126,7 @@ public class CityBehaviour : MonoBehaviour
                     {
                         if (CitiesAlive.CitiesAlive < 17)
                         {
-                            Pool.ProgressPool += 0.0025f;
+                            Pool.ProgressPool += 0.0023f;
                         }
                         else { Pool.ProgressPool += 0.0004f * Timer; }
                         Timer = 0.0f;
@@ -195,11 +195,11 @@ public class CityBehaviour : MonoBehaviour
                     ScoreManaging.AddScore(AddToScore);
                     if (CitiesAlive.CitiesAlive > 8)
                     {
-                        Pool.ProgressPool -= 0.074f;
+                        Pool.ProgressPool -= 0.1f;
                     }
                     else
                     {
-                        Pool.ProgressPool -= 0.117f;
+                        Pool.ProgressPool -= 0.114f;
                    }
             }
             }
@@ -359,13 +359,13 @@ public class CityBehaviour : MonoBehaviour
                 TickTime = 1.2f;
                 break;
             case 2:
-                TickTime = 1.05f;
+                TickTime = 1.1f;
                 break;
             case 3:
-                TickTime = 0.95f;
+                TickTime = 1f;
                 break;
             case 4:
-                TickTime = 0.8f;
+                TickTime = 0.85f;
                 break;
             case 5:
                 TickTime = 0.8f;
