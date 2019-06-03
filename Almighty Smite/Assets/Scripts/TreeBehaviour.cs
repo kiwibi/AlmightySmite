@@ -21,7 +21,7 @@ public class TreeBehaviour : MonoBehaviour
         Dead = transform.GetChild(1);
         Dead.gameObject.SetActive(false);
         TreeCollider = GetComponentInChildren<BoxCollider2D>();
-        RemoveFromScore = 1;
+        RemoveFromScore = 10;
     }
 
     void Update()

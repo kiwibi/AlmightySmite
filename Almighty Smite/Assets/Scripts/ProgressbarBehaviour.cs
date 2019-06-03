@@ -33,7 +33,7 @@ public class ProgressbarBehaviour : MonoBehaviour
         if(SecondScore < Time.time && AssistantBehaviour.Tutorial == false)
         {
             ScoreManaging.AddScore(1);
-            SecondScore = Time.time + 1;
+            SecondScore = Time.time + 10;
         }
         if (ProgressBar.fillAmount < 0.60f)
         {

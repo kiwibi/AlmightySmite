@@ -167,7 +167,7 @@ public class CityBehaviour : MonoBehaviour
             {
                 if (CurrentLevel == 1)
                 {
-                    AddToScore = 5;
+                    AddToScore = 50;
                     ScoreManaging.AddScore(AddToScore);
                     if (CitiesAlive.CitiesAlive > 8)
                     {
@@ -179,7 +179,7 @@ public class CityBehaviour : MonoBehaviour
                     }
                 } else if (CurrentLevel == 2)
                 {
-                    AddToScore = 10;
+                    AddToScore = 100;
                     ScoreManaging.AddScore(AddToScore);
                     if (CitiesAlive.CitiesAlive > 8)
                     {
@@ -191,7 +191,7 @@ public class CityBehaviour : MonoBehaviour
                     }
                 } else if (CurrentLevel == 3)
                 {
-                    AddToScore = 20;
+                    AddToScore = 200;
                     ScoreManaging.AddScore(AddToScore);
                     if (CitiesAlive.CitiesAlive > 8)
                     {

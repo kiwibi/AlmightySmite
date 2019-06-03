@@ -46,7 +46,7 @@ public class ScoreManaging : MonoBehaviour
 
     private void Update()
     {
-        if(SceneManager.GetActiveScene().name == "Main Game")
+        if(SceneManager.GetActiveScene().name == "Main Game" && AssistantBehaviour.Tutorial == false)
         {
             timeBonus += Time.deltaTime;
         }
