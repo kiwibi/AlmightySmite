@@ -96,7 +96,7 @@ public class CityBehaviour : MonoBehaviour
                         {
                             Pool.ProgressPool += 0.0015f;
                         }
-                        else { Pool.ProgressPool += 0.0001f; }
+                        else { Pool.ProgressPool += 0.0015f; }
                         Timer = 0.0f;
                     }
                 }
@@ -128,7 +128,7 @@ public class CityBehaviour : MonoBehaviour
                         {
                             Pool.ProgressPool += 0.0025f;
                         }
-                        else { Pool.ProgressPool += 0.002f; }
+                        else { Pool.ProgressPool += 0.0004f * Timer; }
                         Timer = 0.0f;
                     }
                 }
@@ -169,37 +169,37 @@ public class CityBehaviour : MonoBehaviour
                 {
                     AddToScore = 5;
                     ScoreManaging.AddScore(AddToScore);
-                    if (CitiesAlive.CitiesAlive > 12)
+                    if (CitiesAlive.CitiesAlive > 8)
                     {
-                        Pool.ProgressPool -= 0.05f;
+                        Pool.ProgressPool -= 0.033f;
                     }
                     else
                     {
-                        Pool.ProgressPool -= 0.0733f;
+                        Pool.ProgressPool -= 0.037f;
                     }
                 } else if (CurrentLevel == 2)
                 {
                     AddToScore = 10;
                     ScoreManaging.AddScore(AddToScore);
-                    if (CitiesAlive.CitiesAlive > 12)
+                    if (CitiesAlive.CitiesAlive > 8)
                     {
-                        Pool.ProgressPool -= 0.085f;
+                        Pool.ProgressPool -= 0.045f;
                     }
                     else
                     {
-                        Pool.ProgressPool -= 0.1255f;
+                        Pool.ProgressPool -= 0.065f;
                     }
                 } else if (CurrentLevel == 3)
                 {
                     AddToScore = 20;
                     ScoreManaging.AddScore(AddToScore);
-                    if (CitiesAlive.CitiesAlive > 12)
+                    if (CitiesAlive.CitiesAlive > 8)
                     {
-                        Pool.ProgressPool -= 0.134f;
+                        Pool.ProgressPool -= 0.074f;
                     }
                     else
                     {
-                        Pool.ProgressPool -= 0.157f;
+                        Pool.ProgressPool -= 0.117f;
                    }
             }
             }

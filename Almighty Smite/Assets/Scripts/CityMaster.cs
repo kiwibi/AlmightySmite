@@ -111,7 +111,7 @@ public class CityMaster : MonoBehaviour
                         SpawnCity();
                         //setRespawnTime(respawnTimer);
                     }
-                    if(CitiesAlive < 4)
+                    if(CitiesAlive < 3)
                     {
                         currentWave++;
                     }
@@ -156,7 +156,7 @@ public class CityMaster : MonoBehaviour
                         SpawnCity();
                         //setRespawnTime(respawnTimer);
                     }
-                    if (CitiesAlive < 13)
+                    if (CitiesAlive < 12)
                     {
                         currentWave++;
                     }
