@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CityBehaviour : MonoBehaviour
 {
@@ -42,13 +43,16 @@ public class CityBehaviour : MonoBehaviour
     private Animator CityAnimator;
     private Transform Alive;                                                                                                            //child objektet CityAlive
     private Transform Dead;                                                                                                             //child objektet CityDead
+    public GameObject FloatingScore;
     public ParticleSystem dirtSplatter;
     public ParticleSystem rippleEffect;
     public AudioSource citySoundPlayer;
+    private int AddToScore;
     public AudioClip[] citySoundClips;
     
     void Start()
     {
+        AddToScore = 0;
         respawnSet = false;
         MaxUpgradeTimer = Random.Range(8.0f, 15.0f);
         MaxRespawnTimer = Random.Range(15f, 60.0f);
@@ -163,6 +167,8 @@ public class CityBehaviour : MonoBehaviour
             {
                 if (CurrentLevel == 1)
                 {
+                    AddToScore = 5;
+                    ScoreManaging.AddScore(AddToScore);
                     if (CitiesAlive.CitiesAlive > 12)
                     {
                         Pool.ProgressPool -= 0.05f;
@@ -173,6 +179,8 @@ public class CityBehaviour : MonoBehaviour
                     }
                 } else if (CurrentLevel == 2)
                 {
+                    AddToScore = 10;
+                    ScoreManaging.AddScore(AddToScore);
                     if (CitiesAlive.CitiesAlive > 12)
                     {
                         Pool.ProgressPool -= 0.085f;
@@ -183,6 +191,8 @@ public class CityBehaviour : MonoBehaviour
                     }
                 } else if (CurrentLevel == 3)
                 {
+                    AddToScore = 20;
+                    ScoreManaging.AddScore(AddToScore);
                     if (CitiesAlive.CitiesAlive > 12)
                     {
                         Pool.ProgressPool -= 0.134f;
@@ -281,7 +291,10 @@ public class CityBehaviour : MonoBehaviour
             transform.GetChild(2).GetComponent<Animator>().SetBool("Dead", true);
             CityAnimator.SetBool("Upgrade1", false);
             CityAnimator.SetBool("Upgrade1", false);
-            if(AssistantBehaviour.Tutorial == false)
+            var clone = Instantiate(FloatingScore, Camera.main.WorldToScreenPoint(transform.position), Quaternion.identity, GameObject.Find("GameUI").transform);
+            clone.GetComponent<floatingScore>().setParent(transform);
+            clone.GetComponent<Text>().text = "+" + AddToScore.ToString();
+            if (AssistantBehaviour.Tutorial == false)
                 SetRespawnTime();
         }
         else

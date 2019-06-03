@@ -10,8 +10,9 @@ public class ProgressbarBehaviour : MonoBehaviour
     public float ProgressPool = 0;
     public bool DEVSWITCH = false;
     public static bool PlayerWin;
-    public static bool GameEnd = false;
+    public static bool GameEnd;
     public Image Bar;
+    private float SecondScore;
     
     Color Stage01 = new Color(0.0f, 0.85f, 0.0f);
     Color Stage02 = new Color(1.0f, 1.0f, 0.0f);
@@ -19,6 +20,7 @@ public class ProgressbarBehaviour : MonoBehaviour
 
     void Awake()
     {
+        SecondScore = 0;
         Bar.color = new Color(0, 200, 0);
         Time.timeScale = 1;
         ProgressPool = 0.5f;
@@ -28,7 +30,11 @@ public class ProgressbarBehaviour : MonoBehaviour
 
     void Update()
     {
-        ScoreManaging.AddScore(1);
+        if(SecondScore < Time.time && AssistantBehaviour.Tutorial == false)
+        {
+            ScoreManaging.AddScore(1);
+            SecondScore = Time.time + 1;
+        }
         if (ProgressBar.fillAmount < 0.60f)
         {
             Bar.color = Stage01;

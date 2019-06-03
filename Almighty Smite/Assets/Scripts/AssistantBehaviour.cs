@@ -104,6 +104,7 @@ public class AssistantBehaviour : MonoBehaviour
                             StartCoroutine("FadeIn");
                         text.text = AddLineBreak(Strength);
                         activated = true;
+                        AssistantBehaviour.Tutorial = false;
                     }
                     else
                     {
@@ -154,9 +155,8 @@ public class AssistantBehaviour : MonoBehaviour
         }
         tmpColor = 0;
         TutorialAlpha.alpha = tmpColor;
-        if (currentState == AssistantState.FADEOUT)
-            AssistantBehaviour.Tutorial = false;
-        else if (currentState == AssistantState.LIGHTNING)
+        
+        if (currentState == AssistantState.LIGHTNING)
         {
             CityMaster.TutorialRespawn();
             StartCoroutine(ChangeState(AssistantState.STRENGTH, 0));

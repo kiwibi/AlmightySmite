@@ -68,6 +68,8 @@ MonoBehaviour:
   Damage01: {fileID: 6993696948421756858}
   Damage02: {fileID: 4144383234715132784}
   Damage03: {fileID: 1076640966532241974}
+  FloatingScore: {fileID: 6879232339078890190, guid: 458d1515c758e2d4a8b772b44448266d,
+    type: 3}
   dirtSplatter: {fileID: 7593277438596968052, guid: 927fc81e5eef76e44a2b54cc4573c2b7,
     type: 3}
   rippleEffect: {fileID: 2957991903237755576, guid: 10b318c0dc8cd6a48a0377d63df2c3cd,
@@ -1045,21 +1047,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 35427868115302179}
     m_Modifications:
-    - target: {fileID: 6210257430153249991, guid: b6953747cfc33234eba304d705aa6cdf,
-        type: 3}
-      propertyPath: m_Name
-      value: Damage01
-      objectReference: {fileID: 0}
-    - target: {fileID: 6210257430153249991, guid: b6953747cfc33234eba304d705aa6cdf,
-        type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 6210257430153249991, guid: b6953747cfc33234eba304d705aa6cdf,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6210257430153249988, guid: b6953747cfc33234eba304d705aa6cdf,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1120,6 +1107,21 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 0.08
       objectReference: {fileID: 0}
+    - target: {fileID: 6210257430153249991, guid: b6953747cfc33234eba304d705aa6cdf,
+        type: 3}
+      propertyPath: m_Name
+      value: Damage01
+      objectReference: {fileID: 0}
+    - target: {fileID: 6210257430153249991, guid: b6953747cfc33234eba304d705aa6cdf,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6210257430153249991, guid: b6953747cfc33234eba304d705aa6cdf,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6210257430153249990, guid: b6953747cfc33234eba304d705aa6cdf,
         type: 3}
       propertyPath: m_CastShadows
@@ -1150,21 +1152,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 35427868115302179}
     m_Modifications:
-    - target: {fileID: 6210257430153249991, guid: b6953747cfc33234eba304d705aa6cdf,
-        type: 3}
-      propertyPath: m_Name
-      value: Damage03
-      objectReference: {fileID: 0}
-    - target: {fileID: 6210257430153249991, guid: b6953747cfc33234eba304d705aa6cdf,
-        type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 6210257430153249991, guid: b6953747cfc33234eba304d705aa6cdf,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6210257430153249988, guid: b6953747cfc33234eba304d705aa6cdf,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1230,6 +1217,21 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 0.29
       objectReference: {fileID: 0}
+    - target: {fileID: 6210257430153249991, guid: b6953747cfc33234eba304d705aa6cdf,
+        type: 3}
+      propertyPath: m_Name
+      value: Damage03
+      objectReference: {fileID: 0}
+    - target: {fileID: 6210257430153249991, guid: b6953747cfc33234eba304d705aa6cdf,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6210257430153249991, guid: b6953747cfc33234eba304d705aa6cdf,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6210257430153249990, guid: b6953747cfc33234eba304d705aa6cdf,
         type: 3}
       propertyPath: m_CastShadows
@@ -1255,21 +1257,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 35427868115302179}
     m_Modifications:
-    - target: {fileID: 6210257430153249991, guid: b6953747cfc33234eba304d705aa6cdf,
-        type: 3}
-      propertyPath: m_Name
-      value: Damage02
-      objectReference: {fileID: 0}
-    - target: {fileID: 6210257430153249991, guid: b6953747cfc33234eba304d705aa6cdf,
-        type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 6210257430153249991, guid: b6953747cfc33234eba304d705aa6cdf,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6210257430153249988, guid: b6953747cfc33234eba304d705aa6cdf,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1334,6 +1321,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.y
       value: 0.11
+      objectReference: {fileID: 0}
+    - target: {fileID: 6210257430153249991, guid: b6953747cfc33234eba304d705aa6cdf,
+        type: 3}
+      propertyPath: m_Name
+      value: Damage02
+      objectReference: {fileID: 0}
+    - target: {fileID: 6210257430153249991, guid: b6953747cfc33234eba304d705aa6cdf,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6210257430153249991, guid: b6953747cfc33234eba304d705aa6cdf,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6210257430153249990, guid: b6953747cfc33234eba304d705aa6cdf,
         type: 3}
