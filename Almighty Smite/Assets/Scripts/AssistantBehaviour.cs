@@ -16,6 +16,10 @@ public class AssistantBehaviour : MonoBehaviour
     }
     public static bool Tutorial;
     private static AssistantBehaviour instance;
+    public Animator TutorialAnim;
+    public Animator TutorialAnim2;
+    public Animator ArrowAnim;
+    public Animator ArrowAnim2;
     private bool CurrentlyActive;
     public Image AssistantSprite;
     private CanvasGroup TutorialAlpha;
@@ -64,6 +68,8 @@ public class AssistantBehaviour : MonoBehaviour
                         text.text = AddLineBreak(Earthquake);
                         AssistantSprite.sprite = AssitantLooks[3];
                         activated = true;
+                        TutorialAnim.SetBool("Earthquake", true);
+                        TutorialAnim2.SetBool("Earthquake", true);
                     }
                     else
                     {
@@ -76,7 +82,11 @@ public class AssistantBehaviour : MonoBehaviour
                     {
                         text.text = AddLineBreak(Tornado);
                         activated = true;
-                    }
+                    TutorialAnim.SetBool("Tornado", true);
+                    TutorialAnim2.SetBool("Tornado", true);
+                    ArrowAnim.SetBool("Started", true);
+                    ArrowAnim2.SetBool("Started", true);
+                }
                     else
                     {
                         if (AbilitiesInput.TornadoSpawned == true && CR_running == false)
@@ -88,7 +98,11 @@ public class AssistantBehaviour : MonoBehaviour
                     {
                         text.text = AddLineBreak(Lightning);
                         activated = true;
-                    }
+                    TutorialAnim.SetBool("Lightning", true);
+                    TutorialAnim2.SetBool("Lightning", true);
+                    ArrowAnim.SetBool("Finished", true);
+                    ArrowAnim2.SetBool("Finished", true);
+                }
                     else
                     {
                         if (AbilitiesInput.LightningSpawned == true && TutorialAlpha.alpha == 1 && CR_running == false)
@@ -98,7 +112,7 @@ public class AssistantBehaviour : MonoBehaviour
                 case AssistantState.STRENGTH:
                     if (activated != true)
                     {
-                        if (TutorialAlpha.alpha == 0)
+                    if (TutorialAlpha.alpha == 0)
                             StartCoroutine("FadeIn");
                         text.text = AddLineBreak(Strength);
                         activated = true;
@@ -146,6 +160,8 @@ public class AssistantBehaviour : MonoBehaviour
         float tmpColor;
         for (float f = 1f; f >= 0; f -= 0.01f)
         {
+            TutorialAnim.SetBool("Finished", true);
+            TutorialAnim2.SetBool("Finished", true);
             tmpColor = f;
             TutorialAlpha.alpha = tmpColor;
             yield return null;

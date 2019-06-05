@@ -357,19 +357,19 @@ public class CityBehaviour : MonoBehaviour
         switch(CityMaster.currentWave)
         {
             case 1:
-                TickTime = 1.2f;
+                TickTime = 1.35f;
                 break;
             case 2:
-                TickTime = 1.15f;
+                TickTime = 1.3f;
                 break;
             case 3:
-                TickTime = 1.1f;
+                TickTime = 1.25f;
                 break;
             case 4:
-                TickTime = 1.05f;
+                TickTime = 1.2f;
                 break;
             case 5:
-                TickTime = 1f;
+                TickTime = 1.15f;
                 break;
         }
     }

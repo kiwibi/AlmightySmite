@@ -19,7 +19,6 @@ public class ScoreManaging : MonoBehaviour
     private string CurrentName;
     private List<Score> Highscore;
     private string[] HighscoreStrings;
-    private float timeBonus;
     private string path;
     
     void Awake()
@@ -39,17 +38,7 @@ public class ScoreManaging : MonoBehaviour
         Highscore = new List<Score>();
         DontDestroyOnLoad(gameObject);
         path = Application.persistentDataPath + "Assets";
-
-        timeBonus = 0;
         ReadFile();
-    }
-
-    private void Update()
-    {
-        if(SceneManager.GetActiveScene().name == "Main Game" && AssistantBehaviour.Tutorial == false)
-        {
-            timeBonus += Time.deltaTime;
-        }
     }
 
     public static void AddScore(int value)
