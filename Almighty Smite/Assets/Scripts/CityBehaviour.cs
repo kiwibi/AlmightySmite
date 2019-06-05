@@ -92,13 +92,17 @@ public class CityBehaviour : MonoBehaviour
                 {
                     if (AssistantBehaviour.Tutorial == false)
                     {
-                        if (CitiesAlive.CitiesAlive < 17)
+                        if (EndGame.CommenceTheEndGaame == false)
                         {
-                            Pool.ProgressPool += 0.0013f;
+                            if (CitiesAlive.CitiesAlive < 17)
+                            {
+                                Pool.ProgressPool += 0.0013f;
+                            }
+                            else { Pool.ProgressPool += 0.0015f; }
                         }
-                        else { Pool.ProgressPool += 0.0015f; }
-                        Timer = 0.0f;
+                        Pool.ProgressPool += 0.0001f;
                     }
+                    Timer = 0.0f;
                 }
                 Minimap01.gameObject.SetActive(true);
             } else { Minimap01.gameObject.SetActive(false); }
@@ -108,13 +112,20 @@ public class CityBehaviour : MonoBehaviour
                 {
                     if (AssistantBehaviour.Tutorial == false)
                     {
-                        if (CitiesAlive.CitiesAlive < 17)
+                        if (EndGame.CommenceTheEndGaame == false)
                         {
-                            Pool.ProgressPool += 0.0018f;
+                            if (CitiesAlive.CitiesAlive < 17)
+                            {
+                                Pool.ProgressPool += 0.0018f;
+                            }
+                            else { Pool.ProgressPool += 0.0015f; }
+                        } 
+                        else
+                        {
+                            Pool.ProgressPool += 0.0001f;
                         }
-                        else { Pool.ProgressPool += 0.0015f; }
-                        Timer = 0.0f;
                     }
+                    Timer = 0.0f;
                 }
                 Minimap02.gameObject.SetActive(true);
             } else { Minimap02.gameObject.SetActive(false); }
@@ -124,13 +135,20 @@ public class CityBehaviour : MonoBehaviour
                 {
                     if (AssistantBehaviour.Tutorial == false)
                     {
-                        if (CitiesAlive.CitiesAlive < 17)
+                        if (EndGame.CommenceTheEndGaame == false)
                         {
-                            Pool.ProgressPool += 0.0023f;
+                            if (CitiesAlive.CitiesAlive < 17)
+                            {
+                                Pool.ProgressPool += 0.0023f;
+                            }
+                            else { Pool.ProgressPool += 0.0004f * Timer; }
                         }
-                        else { Pool.ProgressPool += 0.0004f * Timer; }
-                        Timer = 0.0f;
+                        else
+                        {
+                            Pool.ProgressPool += 0.0001f;
+                        }
                     }
+                    Timer = 0.0f;
                 }
                 Minimap03.gameObject.SetActive(true);
             } else { Minimap03.gameObject.SetActive(false); }
@@ -167,41 +185,65 @@ public class CityBehaviour : MonoBehaviour
             {
                 if (CurrentLevel == 1)
                 {
-                    AddToScore = 50;
                     ScoreManaging.AddScore(AddToScore);
-                    if (CitiesAlive.CitiesAlive > 8)
+                    if (EndGame.CommenceTheEndGaame == false)
                     {
-                        Pool.ProgressPool -= 0.033f;
+                        if (CitiesAlive.CitiesAlive > 8)
+                        {
+                            AddToScore = 75;
+                            Pool.ProgressPool -= 0.033f;
+                        }
+                        else
+                        {
+                            AddToScore = 50;
+                            Pool.ProgressPool -= 0.037f;
+                        }
                     }
                     else
                     {
-                        Pool.ProgressPool -= 0.037f;
+                        Pool.ProgressPool -= 0.05f;
                     }
                 } else if (CurrentLevel == 2)
                 {
-                    AddToScore = 100;
                     ScoreManaging.AddScore(AddToScore);
-                    if (CitiesAlive.CitiesAlive > 8)
+                    if (EndGame.CommenceTheEndGaame == false)
                     {
-                        Pool.ProgressPool -= 0.045f;
+                        if (CitiesAlive.CitiesAlive > 8)
+                        {
+                            AddToScore = 150;
+                            Pool.ProgressPool -= 0.045f;
+                        }
+                        else
+                        {
+                            AddToScore = 100;
+                            Pool.ProgressPool -= 0.065f;
+                        }
                     }
                     else
                     {
-                        Pool.ProgressPool -= 0.065f;
+                        Pool.ProgressPool -= 0.075f;
                     }
                 } else if (CurrentLevel == 3)
                 {
-                    AddToScore = 200;
                     ScoreManaging.AddScore(AddToScore);
-                    if (CitiesAlive.CitiesAlive > 8)
+                    if (EndGame.CommenceTheEndGaame == false)
                     {
-                        Pool.ProgressPool -= 0.1f;
+                        if (CitiesAlive.CitiesAlive > 8)
+                        {
+                            AddToScore = 300;
+                            Pool.ProgressPool -= 0.1f;
+                        }
+                        else
+                        {
+                            AddToScore = 200;
+                            Pool.ProgressPool -= 0.114f;
+                        }
                     }
                     else
                     {
-                        Pool.ProgressPool -= 0.114f;
-                   }
-            }
+                        Pool.ProgressPool -= 0.1f;
+                    }
+                }
             }
             citySoundPlayer.clip = citySoundClips[1];
             citySoundPlayer.Play();
@@ -357,19 +399,19 @@ public class CityBehaviour : MonoBehaviour
         switch(CityMaster.currentWave)
         {
             case 1:
-                TickTime = 1.35f;
-                break;
-            case 2:
                 TickTime = 1.3f;
                 break;
-            case 3:
+            case 2:
                 TickTime = 1.25f;
                 break;
-            case 4:
+            case 3:
                 TickTime = 1.2f;
                 break;
-            case 5:
+            case 4:
                 TickTime = 1.15f;
+                break;
+            case 5:
+                TickTime = 1.1f;
                 break;
         }
     }

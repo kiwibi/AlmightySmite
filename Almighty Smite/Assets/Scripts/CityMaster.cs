@@ -69,24 +69,6 @@ public class CityMaster : MonoBehaviour
         {
             Cities[i].gameObject.SetActive(false);
         }
-        //for (int i = 0; i < AmmountOfBossCities; i++)
-        //{
-        //    BossCities[i].gameObject.SetActive(false);
-        //}
-
-        //BossSeed = Random.Range(1, 100);
-        //if (BossSeed < 33)
-        //{
-        //    BossSelection = 0;
-        //} else if (BossSeed > 33 && BossSeed < 66)
-        //{
-        //    BossSelection = 1;
-        //} else
-        //{
-        //    BossSelection = 2;
-        //}
-        //Debug.Log(BossSeed);
-        //Debug.Log(BossSelection);
     }
 
     void Update()
