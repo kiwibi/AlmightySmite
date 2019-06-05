@@ -12,7 +12,7 @@ public class EndGame : MonoBehaviour
         GameTimer += Time.deltaTime;
         Debug.Log(GameTimer);
 
-        if (GameTimer >= 300.0f)
+        if (GameTimer >= 240.0f)
         {
             CommenceTheEndGaame = true;
         }
