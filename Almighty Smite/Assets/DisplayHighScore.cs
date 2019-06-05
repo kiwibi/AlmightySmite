@@ -11,7 +11,7 @@ public class DisplayHighScore : MonoBehaviour
     private string[] LeaderBoards;
     private float LeaveTimeStamp;
 
-    void Start()
+    void Awake()
     {
         LeaderBoards = ScoreManaging.GetHighScores();
         string tmpString;
@@ -21,15 +21,24 @@ public class DisplayHighScore : MonoBehaviour
             tmpString = tmpString.Insert(tmpString.IndexOf(' '), "  "); 
             scores[i].text = tmpString;
         }
-        LeaveTimeStamp = Time.time + 8f;
+        if(SceneManager.GetActiveScene().name == "HighScore")
+        {
+            Invoke("SwitchScene", 8);
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(LeaveTimeStamp < Time.time || Input.GetKeyDown(KeyCode.C))
+        if(Input.GetKeyDown(KeyCode.C))
         {
-            SceneManager.LoadScene("StartScene");
+            CancelInvoke("SwitchScene");
+            SceneManager.LoadScene(0);
         }
+    }
+
+    private void SwitchScene()
+    {
+        SceneManager.LoadScene(0);
     }
 }

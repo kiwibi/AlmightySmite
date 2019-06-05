@@ -305,6 +305,7 @@ public class CityBehaviour : MonoBehaviour
             Dead.gameObject.SetActive(false);
             CurrentType = ChooseType();                                                                                                 //skaffa en ny citytype nu när den spawnar
             citySoundPlayer.clip = citySoundClips[0];
+            Instantiate(rippleEffect, transform);
             citySoundPlayer.Play();
             respawnSet = false;
         }
@@ -359,16 +360,16 @@ public class CityBehaviour : MonoBehaviour
                 TickTime = 1.2f;
                 break;
             case 2:
-                TickTime = 1.1f;
+                TickTime = 1.15f;
                 break;
             case 3:
-                TickTime = 1f;
+                TickTime = 1.1f;
                 break;
             case 4:
-                TickTime = 0.85f;
+                TickTime = 1.05f;
                 break;
             case 5:
-                TickTime = 0.8f;
+                TickTime = 1f;
                 break;
         }
     }

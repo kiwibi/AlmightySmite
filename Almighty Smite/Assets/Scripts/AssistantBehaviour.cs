@@ -17,7 +17,7 @@ public class AssistantBehaviour : MonoBehaviour
     public static bool Tutorial;
     private static AssistantBehaviour instance;
     private bool CurrentlyActive;
-    private Image AssistantSprite;
+    public Image AssistantSprite;
     private CanvasGroup TutorialAlpha;
     private Text text;
     public Sprite[] AssitantLooks;
@@ -37,7 +37,6 @@ public class AssistantBehaviour : MonoBehaviour
     {
         instance = this;
         CR_running = false;
-        AssistantSprite = GetComponentInChildren<Image>();
         TutorialAlpha = GetComponent<CanvasGroup>();
         text = GetComponentInChildren<Text>();
         instance.currentState = AssistantState.INTRO;

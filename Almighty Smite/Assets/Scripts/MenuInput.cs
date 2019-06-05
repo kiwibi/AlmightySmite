@@ -9,6 +9,7 @@ public class MenuInput : MonoBehaviour
     {
         Time.timeScale = 1;
         Cursor.lockState = CursorLockMode.Locked;
+        MusicPlayer.Instance.Stop();
     }
     // Update is called once per frame
     void Update()

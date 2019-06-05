@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 
 public class ScoreManaging : MonoBehaviour
 {
-    class score
+    class Score
     {
         public string name_;
         public int score_;
@@ -17,7 +17,7 @@ public class ScoreManaging : MonoBehaviour
     public static ScoreManaging Instance { get { return instance; } }
     private int CurrentScore;
     private string CurrentName;
-    private List<score> Highscore;
+    private List<Score> Highscore;
     private string[] HighscoreStrings;
     private float timeBonus;
     private string path;
@@ -36,7 +36,7 @@ public class ScoreManaging : MonoBehaviour
         }
         instance = this;
         CurrentScore = 0;
-        Highscore = new List<score>();
+        Highscore = new List<Score>();
         DontDestroyOnLoad(gameObject);
         path = Application.persistentDataPath + "Assets";
 
@@ -64,16 +64,13 @@ public class ScoreManaging : MonoBehaviour
 
     public static void SaveScore()
     {
-        score tmpScore = new score();
-        tmpScore.name_ = instance.CurrentName;
-        int tmpBonus;
-        if (ProgressbarBehaviour.PlayerWin == true)
-            tmpBonus = Mathf.RoundToInt((300f - instance.timeBonus) * 30);
-        else
-            tmpBonus = 0;
-        tmpScore.score_ = instance.CurrentScore + tmpBonus;
+        Score tmpScore = new Score
+        {
+            name_ = instance.CurrentName,
+            score_ = instance.CurrentScore
+        };
         instance.Highscore.Add(tmpScore);
-        instance.Highscore = instance.Highscore.OrderByDescending(x => x.score_).ToList<score>();
+        instance.Highscore = instance.Highscore.OrderByDescending(x => x.score_).ToList<Score>();
         if (instance.Highscore.Count > 10)
         {
             instance.Highscore.RemoveAt(10);
@@ -83,7 +80,7 @@ public class ScoreManaging : MonoBehaviour
 
     private void Rewrite()
     {
-        score tmpScore = new score();
+        Score tmpScore = new Score();
         int index = 0;
         foreach(var score in Highscore)
         {
@@ -120,8 +117,10 @@ public class ScoreManaging : MonoBehaviour
         for (int i = 0; i < HighscoreStrings.Length; i++)
         {
             int namePos = HighscoreStrings[i].IndexOf('&');
-            score tmpScore = new score();
-            tmpScore.name_ = HighscoreStrings[i].Substring(0, namePos);
+            Score tmpScore = new Score
+            {
+                name_ = HighscoreStrings[i].Substring(0, namePos)
+            };
             string subTmpString = HighscoreStrings[i].Substring(namePos + 1);
             int.TryParse(subTmpString, out tmpScore.score_);
             Highscore.Add(tmpScore);
@@ -146,12 +145,7 @@ public class ScoreManaging : MonoBehaviour
 
     public static int GetScore()
     {
-        int tmpBonus;
-        if (ProgressbarBehaviour.PlayerWin == true)
-            tmpBonus = Mathf.RoundToInt((300f - instance.timeBonus) * 30);
-        else
-            tmpBonus = 0;
-        return instance.CurrentScore + tmpBonus;
+        return instance.CurrentScore;
     }
 
     public static int GetLowestHighscore()

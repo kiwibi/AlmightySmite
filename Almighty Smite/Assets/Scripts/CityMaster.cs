@@ -92,13 +92,18 @@ public class CityMaster : MonoBehaviour
     void Update()
     {
         SpawnTimer -= Time.deltaTime;
-
         if (AssistantBehaviour.Tutorial == true)
         {
             if (Index < 4)
             {
                 SpawnCity();
                 //setRespawnTime(respawnTimer);
+            }
+            if (CitiesAlive == 0)
+            {
+                respawnTimer = 0;
+                CityMaster.TutorialRespawn();
+                respawnTimer = 30;
             }
         }
         else
@@ -113,7 +118,7 @@ public class CityMaster : MonoBehaviour
                         SpawnCity();
                         //setRespawnTime(respawnTimer);
                     }
-                    if(CitiesAlive < 3)
+                    if(CitiesAlive < 3 && Index > 7)
                     {
                         currentWave++;
                     }
@@ -124,7 +129,7 @@ public class CityMaster : MonoBehaviour
                         SpawnCity();
                         //setRespawnTime(respawnTimer);
                     }
-                    if (CitiesAlive < 6)
+                    if (CitiesAlive < 6 && Index > 11)
                     {
                         currentWave++;
                     }
@@ -137,7 +142,7 @@ public class CityMaster : MonoBehaviour
                         SpawnCity();
                         //setRespawnTime(respawnTimer);
                     }
-                    if (CitiesAlive < 8)
+                    if (CitiesAlive < 8 && Index > 15)
                     {
                         currentWave++;
                     }
@@ -148,7 +153,7 @@ public class CityMaster : MonoBehaviour
                         SpawnCity();
                         //setRespawnTime(respawnTimer);
                     }
-                    if (CitiesAlive < 10)
+                    if (CitiesAlive < 10 && Index > 19)
                     {
                         currentWave++;
                     }
@@ -160,13 +165,13 @@ public class CityMaster : MonoBehaviour
                         SpawnCity();
                         //setRespawnTime(respawnTimer);
                     }
-                    if (CitiesAlive < 12)
+                    if (CitiesAlive < 12 && Index > 24)
                     {
                         currentWave++;
                     }
                     break;
                 case 6:
-                    if (CitiesAlive < 14 && anotherTimer < Time.time)
+                    if (anotherTimer < Time.time)
                     {
                         anotherTimer = Time.time + 3;
                         if(respawnTimer > 5)

@@ -13,6 +13,7 @@ public class ProgressbarBehaviour : MonoBehaviour
     public static bool GameEnd;
     public Image Bar;
     private float SecondScore;
+    bool added;
     
     Color Stage01 = new Color(0.0f, 0.85f, 0.0f);
     Color Stage02 = new Color(1.0f, 1.0f, 0.0f);
@@ -27,6 +28,7 @@ public class ProgressbarBehaviour : MonoBehaviour
         ProgressbarBehaviour.PlayerWin = false;
         ProgressbarBehaviour.GameEnd = false;
         MusicPlayer.Instance.Play();
+        added = false;
     }
 
     void Update()
@@ -34,7 +36,7 @@ public class ProgressbarBehaviour : MonoBehaviour
         if(SecondScore < Time.time && AssistantBehaviour.Tutorial == false)
         {
             ScoreManaging.AddScore(1);
-            SecondScore = Time.time + 10;
+            SecondScore = Time.time + 1;
         }
         if (ProgressBar.fillAmount < 0.60f)
         {
@@ -59,16 +61,21 @@ public class ProgressbarBehaviour : MonoBehaviour
                 PlayerWin = false;
                 GameEnd = true;
                 Time.timeScale = 0;
-                StartCoroutine(switchScene(false));
+                StartCoroutine(switchScene());
             }
             if (ProgressPool < 0)
             {
                 DestoryDisasters();
                 ShakeBehaviour.StopShake();
+                if(added == false)
+                {
+                    ScoreManaging.AddScore(5000);
+                    added = true;
+                }
                 PlayerWin = true;
                 GameEnd = true;
                 Time.timeScale = 0;
-                StartCoroutine(switchScene(false));
+                StartCoroutine(switchScene());
             }
         }
     }
@@ -82,12 +89,9 @@ public class ProgressbarBehaviour : MonoBehaviour
         }
     }
 
-    private IEnumerator switchScene(bool lost)
+    private IEnumerator switchScene()
     {
         yield return new WaitForSecondsRealtime(3);
-        if (lost == true)
-            SceneManager.LoadScene("StartScene");
-        else
             SceneManager.LoadScene("HighScore");
     }
 }
