@@ -185,7 +185,6 @@ public class CityBehaviour : MonoBehaviour
             {
                 if (CurrentLevel == 1)
                 {
-                    ScoreManaging.AddScore(AddToScore);
                     if (EndGame.CommenceTheEndGaame == false)
                     {
                         if (CitiesAlive.CitiesAlive > 8)
@@ -205,7 +204,6 @@ public class CityBehaviour : MonoBehaviour
                     }
                 } else if (CurrentLevel == 2)
                 {
-                    ScoreManaging.AddScore(AddToScore);
                     if (EndGame.CommenceTheEndGaame == false)
                     {
                         if (CitiesAlive.CitiesAlive > 8)
@@ -225,7 +223,6 @@ public class CityBehaviour : MonoBehaviour
                     }
                 } else if (CurrentLevel == 3)
                 {
-                    ScoreManaging.AddScore(AddToScore);
                     if (EndGame.CommenceTheEndGaame == false)
                     {
                         if (CitiesAlive.CitiesAlive > 8)
@@ -245,6 +242,7 @@ public class CityBehaviour : MonoBehaviour
                     }
                 }
             }
+            ScoreManaging.AddScore(AddToScore);
             citySoundPlayer.clip = citySoundClips[1];
             citySoundPlayer.Play();
             SwitchState();
@@ -408,10 +406,10 @@ public class CityBehaviour : MonoBehaviour
                 TickTime = 1.2f;
                 break;
             case 4:
-                TickTime = 1.15f;
+                TickTime = 1.1f;
                 break;
             case 5:
-                TickTime = 1.1f;
+                TickTime = 1.0f;
                 break;
         }
     }
