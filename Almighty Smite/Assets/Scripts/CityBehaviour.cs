@@ -100,7 +100,7 @@ public class CityBehaviour : MonoBehaviour
                             }
                             else { Pool.ProgressPool += 0.0015f; }
                         }
-                        Pool.ProgressPool += 0.0001f;
+                        Pool.ProgressPool += 0.00001f;
                     }
                     Timer = 0.0f;
                 }
@@ -122,7 +122,7 @@ public class CityBehaviour : MonoBehaviour
                         } 
                         else
                         {
-                            Pool.ProgressPool += 0.0001f;
+                            Pool.ProgressPool += 0.00001f;
                         }
                     }
                     Timer = 0.0f;
@@ -145,7 +145,7 @@ public class CityBehaviour : MonoBehaviour
                         }
                         else
                         {
-                            Pool.ProgressPool += 0.0001f;
+                            Pool.ProgressPool += 0.00001f;
                         }
                     }
                     Timer = 0.0f;
@@ -200,7 +200,7 @@ public class CityBehaviour : MonoBehaviour
                     }
                     else
                     {
-                        Pool.ProgressPool -= 0.05f;
+                        Pool.ProgressPool -= 0.1f;
                     }
                 } else if (CurrentLevel == 2)
                 {
@@ -219,7 +219,7 @@ public class CityBehaviour : MonoBehaviour
                     }
                     else
                     {
-                        Pool.ProgressPool -= 0.075f;
+                        Pool.ProgressPool -= 0.125f;
                     }
                 } else if (CurrentLevel == 3)
                 {
@@ -238,7 +238,7 @@ public class CityBehaviour : MonoBehaviour
                     }
                     else
                     {
-                        Pool.ProgressPool -= 0.1f;
+                        Pool.ProgressPool -= 0.15f;
                     }
                 }
             }
@@ -397,19 +397,19 @@ public class CityBehaviour : MonoBehaviour
         switch(CityMaster.currentWave)
         {
             case 1:
-                TickTime = 1.3f;
+                TickTime = 1.35f;
                 break;
             case 2:
-                TickTime = 1.25f;
+                TickTime = 1.3f;
                 break;
             case 3:
-                TickTime = 1.2f;
+                TickTime = 1.25f;
                 break;
             case 4:
-                TickTime = 1.1f;
+                TickTime = 1.2f;
                 break;
             case 5:
-                TickTime = 1.0f;
+                TickTime = 1.15f;
                 break;
         }
     }
